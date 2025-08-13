@@ -2,7 +2,7 @@ import './globals.css'
 import { ReactNode } from 'react'
 
 export const metadata = {
-  title: 'Role Based Dashboard',
+  title: 'xpandifi-DMS',
   description: 'OEM and DMS dashboards with role-based sidebar'
 }
 
