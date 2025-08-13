@@ -79,7 +79,7 @@ export default function RevenueAnalytics() {
         </div>
       </div>
 
-      <div className="text-2xl font-bold text-gray-900 mb-2">{formatRupee(45455452)}</div>
+      <div className="text-2xl font-bold text-gray-900 mb-2">{formatRupee(60000)}</div>
 
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
