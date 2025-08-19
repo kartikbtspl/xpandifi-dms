@@ -5,8 +5,15 @@ const sizeClasses = {
   large: "w-24 h-24 border-8",
 };
 
-const Loader = ({ className = "", size = "medium" }) => {
-  const sizeClass = sizeClasses[size] || sizeClasses["medium"];
+type LoaderSize = keyof typeof sizeClasses;
+
+interface LoaderProps {
+  className?: string;
+  size?: LoaderSize;
+}
+
+const Loader = ({ className = "", size = "medium" }: LoaderProps) => {
+  const sizeClass = sizeClasses[size];
 
   return (
     <div className={`flex inset-0 w-full items-center justify-center ${className}`}>
