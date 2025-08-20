@@ -112,7 +112,16 @@ export default function PromaryOrder(){
         <Button rounded="full">Add Primary order</Button>
       </div>
       <div className="mt-4">
-        <Table columns={primaryTableColumns} rows={primaryTableData} rowsPerPage={4} loading={loadingPrimaryTable} onRefresh={handleRefreshPrimary} showPagination={true}  onRowClick={row => router.push(`/dms/primary-order/${row.id}`)}/>
+        <Table
+          columns={primaryTableColumns} 
+          rows={primaryTableData}
+          rowsPerPage={4} 
+          loading={loadingPrimaryTable} 
+          onRefresh={handleRefreshPrimary} 
+          showPagination={true}  
+          onRowClick={row => router.push(`/dms/primary-order/${row.id}`)}
+          filterKey="orderNumber"
+        />
       </div>
       
     </div>
