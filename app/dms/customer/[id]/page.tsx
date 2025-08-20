@@ -12,7 +12,8 @@ import BarChartCard from "./components/chartcard";
 import ToggleComp from "./components/toggleComp";
 import Cards from "./components/cards";
 import {FaChartLine,FaShoppingCart,FaFileInvoice,FaExclamationTriangle,FaMoneyCheckAlt,} from "react-icons/fa";
-
+import Table from "../../../../components/common/table/Table";
+import getStockColumns from "./components/getStockDetails"
 // import other detail components (SalesOrdersChart, InfoCards, StockTable, etc.)
 
 export default function CustomerDetail() {
@@ -29,6 +30,91 @@ export default function CustomerDetail() {
   
   ])
   // fetch customer detail by id…
+
+  const [stockData, setStockData] = useState([
+    {
+      id : 1,
+      srNo : "01",
+      productName : "simple product A",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 2,
+      srNo : "02",
+      productName : "simple product B",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 3,
+      srNo : "03",
+      productName : "simple product C",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 4,
+      srNo : "04",
+      productName : "simple product D",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 5,
+      srNo : "05",
+      productName : "simple product A",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 6,
+      srNo : "06",
+      productName : "simple product B",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 7,
+      srNo : "07",
+      productName : "simple product C",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    },
+    {
+      id : 8,
+      srNo : "08",
+      productName : "simple product D",
+      pack : "10 x 1",
+      openingStock : '100',
+      consumedStock : "25",
+      closingStock : "75",
+      status : "In stock"
+    }
+  ])
+
+  const stockColumns = getStockColumns();
 
   const salesOrdersData = [
   { name: "Jan", value: 80000 },
@@ -93,9 +179,11 @@ const summaryData = [
       <div className="bg-white p-8 rounded-lg shadow-sm">
         <div className="flex justify-between mb-4 items-center">
           <div className="flex w-[20%] justify-between">
-            <div className="w-16 h-16 bg-transparent bg-blue-200 rounded-full flex items-center justify-center text-blue font-bold" >BE</div>
+            <div className="w-16 h-16 bg-transparent bg-indigo-100 rounded-full flex items-center justify-center text-sky-800 font-bold" >
+              BE
+            </div>
             <div className="flex flex-col">
-              <h1>Bajaj Enterprises</h1>
+              <h1 className=" font-bold">Bajaj Enterprises</h1>
               <p>Customer Id: #12345</p>
             </div>
           </div>
@@ -131,18 +219,13 @@ const summaryData = [
       <div className="">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {summaryData.map((item, index) => (
-          <Cards
-            key={index}
-            title={item.title}
-            icon={item.icon}
-            mtd={item.mtd}
-            ytd={item.ytd}
-          />
+          <Cards key={index} title={item.title} icon={item.icon} mtd={item.mtd} ytd={item.ytd} />
         ))}
       </div>
     </div>
 
-    <h1>Stock statements</h1>
+    <h1 className="font-bold text-2xl">Stock statements</h1>
+    <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={false} />
 
       {/* <SearchFilters />
       <CustomerCoverageDashboard /> */}
