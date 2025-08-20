@@ -167,6 +167,16 @@ const summaryData = [
     },
   ];
 
+  const [loadingStock, setLoadingStock] = useState(false);
+
+  const handleRefreshStock = () => {
+    setLoadingStock(true);
+    setTimeout(() => {
+      setLoadingStock(false)
+      setStockData(stockData)
+    }, 1000);
+  };
+
   return (
     <div className="space-y-6">
       <button
@@ -225,7 +235,7 @@ const summaryData = [
     </div>
 
     <h1 className="font-bold text-2xl">Stock statements</h1>
-    <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={false} />
+    <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={loadingStock} onRefresh={handleRefreshStock}  />
 
       {/* <SearchFilters />
       <CustomerCoverageDashboard /> */}
