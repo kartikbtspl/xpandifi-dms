@@ -219,23 +219,23 @@ const summaryData = [
       </div>
       <div className=" bg-gray-100 w-full">
         <div className="w-full flex flex-wrap justify-between ">
-          <BarChartCard title="Sales Orders" data={salesOrdersData} barColor="#64748B" />
-          <BarChartCard title="Sales Visit" data={salesVisitData} barColor="#16A34A" />
+          <BarChartCard title="Sales Orders" data={salesOrdersData} barColor="#6F83B1" />
+          <BarChartCard title="Sales Visit" data={salesVisitData} barColor="#16A34A"   />
         </div>
       </div>
       
       <ToggleComp />
 
       <div className="">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {summaryData.map((item, index) => (
-          <Cards key={index} title={item.title} icon={item.icon} mtd={item.mtd} ytd={item.ytd} />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {summaryData.map((item, index) => (
+            <Cards key={index} title={item.title} icon={item.icon} mtd={item.mtd} ytd={item.ytd} />
+         ))}
+        </div>
       </div>
-    </div>
 
-    <h1 className="font-bold text-2xl">Stock statements</h1>
-    <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={loadingStock} onRefresh={handleRefreshStock}  />
+      <h1 className="font-bold text-2xl">Stock statements</h1>
+      <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={loadingStock} onRefresh={handleRefreshStock}  />
 
       {/* <SearchFilters />
       <CustomerCoverageDashboard /> */}
