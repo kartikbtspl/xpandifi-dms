@@ -71,40 +71,41 @@ const Table: React.FC<TableProps> = ({
   const [showFilterDropdown, setShowFilterDropdown] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
 
-  const filteredAndSortedRows = useMemo(() => {
-    const lowerSearch = searchQuery.toLowerCase();
-    let filtered = [...rows];
+const filteredAndSortedRows = useMemo(() => {
+  const lowerSearch = searchQuery.toLowerCase();
+  let filtered = [...rows];
 
-    // 🔍 Search filtering
-    if (searchQuery) {
-      filtered = filtered.filter((row) =>
-        columns.some((col) => {
-          const value = col.render ? col.render(row) : row[col.id];
-          return String(value ?? "")
-            .toLowerCase()
-            .includes(lowerSearch);
-        })
-      );
-    }
+  // Search filtering - search raw data only
+  if (searchQuery) {
+    filtered = filtered.filter((row) =>
+      columns.some((col) => {
+        const value = row[col.id]; // Always use raw data for search
+        return String(value ?? "")
+          .toLowerCase()
+          .includes(lowerSearch);
+      })
+    );
+  }
 
-    // ✅ Status filtering
-    if (filterStatus !== "all") {
-      filtered = filtered.filter(
-        (row) =>
-          String(row[filterKey] ?? "").toUpperCase() ===
-          filterStatus.toUpperCase()
-      );
-    }
+  // Status filtering
+  if (filterStatus !== "all") {
+    filtered = filtered.filter(
+      (row) =>
+        String(row[filterKey] ?? "").toUpperCase() ===
+        filterStatus.toUpperCase()
+    );
+  }
 
-    // 🔃 Sorting
-    const compare = (a: RowData, b: RowData): number => {
-      if (b[orderBy] < a[orderBy]) return -1;
-      if (b[orderBy] > a[orderBy]) return 1;
-      return 0;
-    };
+  // Sorting
+  const compare = (a: RowData, b: RowData): number => {
+    if (b[orderBy] < a[orderBy]) return -1;
+    if (b[orderBy] > a[orderBy]) return 1;
+    return 0;
+  };
 
-    return filtered.sort(order === "desc" ? compare : (a, b) => -compare(a, b));
-  }, [rows, columns, orderBy, order, searchQuery, filterStatus, filterKey]);
+  return filtered.sort(order === "desc" ? compare : (a, b) => -compare(a, b));
+}, [rows, columns, orderBy, order, searchQuery, filterStatus, filterKey]);
+
 
   // Pagination logic
   const totalPages = Math.ceil(filteredAndSortedRows.length / rowsPerPage);
@@ -163,10 +164,10 @@ const Table: React.FC<TableProps> = ({
 
   return (
     <Box>
-      {/* 🔍 Search & Filter Header */}
+      {/* Search & Filter Header */}
       <div className="flex justify-between bg-white rounded-2xl items-center p-3 mb-4">
         <div className="relative w-1/3">
-          <div className="relative mt-2">
+          <div className="relative">
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
               <FiSearch />
             </span>
@@ -182,7 +183,7 @@ const Table: React.FC<TableProps> = ({
         </div>
 
         <div className="flex items-center gap-4 text-gray-500 text-xl">
-          {/* 🧩 Filter */}
+          {/* Filter */}
           {isFilter === true ? (
             <div className="relative">
               <FiFilter
@@ -211,7 +212,7 @@ const Table: React.FC<TableProps> = ({
             ""
           )}
 
-          {/* 🔄 Refresh */}
+          {/* Refresh */}
           <FiRefreshCw
             className="cursor-pointer hover:text-black"
             onClick={handleRefreshClick}
@@ -219,7 +220,7 @@ const Table: React.FC<TableProps> = ({
         </div>
       </div>
 
-      {/* 📋 Table */}
+      {/* Table */}
       <Box sx={{ width: "100%", borderRadius: 2, ...sx.container }}>
         <Paper
           elevation={0}
