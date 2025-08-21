@@ -99,6 +99,10 @@ export default function PromaryOrder(){
     }, 1000);
   };
 
+  const handleAddClick = () =>{
+    router.push("primary-order/add-products")
+  }
+
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Primary Order</h1>
@@ -109,7 +113,7 @@ export default function PromaryOrder(){
       </div>
       <div className="flex w-full justify-between mt-4 ">
         <h1 className="text-xl font-semibold">Primary order list</h1>
-        <Button rounded="full">Add Primary order</Button>
+        <Button rounded="full" onClick={handleAddClick}>Add Primary order</Button>
       </div>
       <div className="mt-4">
         <Table
