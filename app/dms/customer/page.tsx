@@ -9,6 +9,7 @@ import Button from "../../../components/common/ui/Button";
 import ArchiveCustomerModal from "./components/modals/ArchiveCustomerModal";
 import AssignRouteModal from "./components/modals/AssignRouteModal";
 import { useRouter } from "next/navigation";
+import { FiMoreVertical } from "react-icons/fi";
 
 export default function Customer() {
   const router = useRouter();
@@ -26,6 +27,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 2,
@@ -38,6 +41,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 3,
@@ -50,6 +55,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 4,
@@ -62,6 +69,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 5,
@@ -74,6 +83,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 6,
@@ -86,6 +97,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 7,
@@ -98,6 +111,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 8,
@@ -110,6 +125,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 9,
@@ -122,6 +139,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 10,
@@ -134,6 +153,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
     {
       id: 11,
@@ -146,6 +167,8 @@ export default function Customer() {
       email: "johnsmith121@gmail.com",
       createdBy: "Anup Naik",
       mobile: "77220116",
+      createdDate : "2019-08-01 13:14:00.0",
+      blank : <FiMoreVertical />
     },
   ]);
 
@@ -170,7 +193,7 @@ export default function Customer() {
       <div className="mt-6">
         <CustomerCoverageDashboard />
       </div>
-      <div className="mt-6">
+      <div className="mt-6 ">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold mb-4">Customer View</h1>
           <div>
@@ -213,6 +236,7 @@ export default function Customer() {
             </div>
           </div>
         </div>
+        
         <Table
           columns={columns}
           rows={customers}

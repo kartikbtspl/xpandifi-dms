@@ -8,12 +8,12 @@ import { useState } from "react";
 import { title } from "process";
 import StickyNotesData from "./components/Sticky";
 import {FaStore, FaTag, FaUserCheck, FaEnvelope, FaPhone, FaMapMarkerAlt} from "react-icons/fa";
-import BarChartCard from "./components/chartcard";
-import ToggleComp from "./components/toggleComp";
-import Cards from "./components/cards";
+import BarChartCard from "./components/BarChartCard";
+import Cards from "./components/Cards";
 import {FaChartLine,FaShoppingCart,FaFileInvoice,FaExclamationTriangle,FaMoneyCheckAlt,} from "react-icons/fa";
 import Table from "../../../../components/common/table/Table";
 import getStockColumns from "./components/getStockDetails"
+import ToggleComp from "./components/ToggleComp";
 // import other detail components (SalesOrdersChart, InfoCards, StockTable, etc.)
 
 export default function CustomerDetail() {
@@ -167,6 +167,16 @@ const summaryData = [
     },
   ];
 
+  const [loadingStock, setLoadingStock] = useState(false);
+
+  const handleRefreshStock = () => {
+    setLoadingStock(true);
+    setTimeout(() => {
+      setLoadingStock(false)
+      setStockData(stockData)
+    }, 1000);
+  };
+
   return (
     <div className="space-y-6">
       <button
@@ -179,7 +189,7 @@ const summaryData = [
       <div className="bg-white p-8 rounded-lg shadow-sm">
         <div className="flex justify-between mb-4 items-center">
           <div className="flex w-[20%] justify-between">
-            <div className="w-16 h-16 bg-transparent bg-indigo-100 rounded-full flex items-center justify-center text-sky-800 font-bold" >
+            <div className="w-16 h-16 bg-[#DEE8FF] rounded-full flex items-center justify-center text-sky-800 font-bold" >
               BE
             </div>
             <div className="flex flex-col">
@@ -209,23 +219,23 @@ const summaryData = [
       </div>
       <div className=" bg-gray-100 w-full">
         <div className="w-full flex flex-wrap justify-between ">
-          <BarChartCard title="Sales Orders" data={salesOrdersData} barColor="#64748B" />
-          <BarChartCard title="Sales Visit" data={salesVisitData} barColor="#16A34A" />
+          <BarChartCard title="Sales Orders" data={salesOrdersData} barColor="#6F83B1" />
+          <BarChartCard title="Sales Visit" data={salesVisitData} barColor="#16A34A"   />
         </div>
       </div>
       
       <ToggleComp />
 
       <div className="">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {summaryData.map((item, index) => (
-          <Cards key={index} title={item.title} icon={item.icon} mtd={item.mtd} ytd={item.ytd} />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {summaryData.map((item, index) => (
+            <Cards key={index} title={item.title} icon={item.icon} mtd={item.mtd} ytd={item.ytd} />
+         ))}
+        </div>
       </div>
-    </div>
 
-    <h1 className="font-bold text-2xl">Stock statements</h1>
-    <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={false} />
+      <h1 className="font-bold text-2xl">Stock statements</h1>
+      <Table columns={stockColumns} rows={stockData} showPagination={true} rowsPerPage={4} loading={loadingStock} onRefresh={handleRefreshStock}  />
 
       {/* <SearchFilters />
       <CustomerCoverageDashboard /> */}
