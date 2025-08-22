@@ -1,4 +1,5 @@
 import React from "react";
+import InvoiceActionsMenu from "./InvoiceActionsMenu";
 
 export interface Column {
   id: string; // ✅ Correct key name
@@ -70,8 +71,8 @@ const getInvoiceListColumns = (): Column[] => [
       <span
         className={`px-4 py-1 rounded-full text-sm font-medium ${
           row.status === 'Paid'
-            ? 'bg-green-100 text-green-700'
-            : 'bg-red-100 text-red-600'
+            ? 'bg-[#EEF6EB] text-[#008A2E]'
+            : 'bg-[#FEF2F2] text-[#FF656A]'
         }`}
       >
         {row.status}
@@ -88,9 +89,7 @@ const getInvoiceListColumns = (): Column[] => [
   {
     id: 'blank',
     label: '',
-    render: (row) => (
-      <span className="text-gray-700 cursor-pointer">{row.blank}</span>
-    ),
+    render: (row) => <InvoiceActionsMenu />
   },
 ];
 
