@@ -1,5 +1,3 @@
-
-// components/DashboardCard.tsx
 import React from "react";
 
 interface CardsProps {
