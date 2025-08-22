@@ -1,6 +1,6 @@
 "use client"
-import OrderDetailNotes from './components/OrderDetailNotes';
-import TotalOrderCard from './components/TotalOrderCard';
+import OrderDetailNotes from './components/orderDetailNotes';
+import TotalOrderCard from './components/totalOrderCard';
 import Button from '../../../../components/common/ui/Button';
 import { FaArrowLeft } from "react-icons/fa";
 import getPrimaryListColumns from './components/primaryOrderList';

@@ -9,11 +9,11 @@ import { title } from "process";
 import StickyNotesData from "./components/Sticky";
 import {FaStore, FaTag, FaUserCheck, FaEnvelope, FaPhone, FaMapMarkerAlt} from "react-icons/fa";
 import BarChartCard from "./components/BarChartCard";
-import Cards from "./components/Cards";
 import {FaChartLine,FaShoppingCart,FaFileInvoice,FaExclamationTriangle,FaMoneyCheckAlt,} from "react-icons/fa";
 import Table from "../../../../components/common/table/Table";
 import getStockColumns from "./components/getStockDetails"
-import ToggleComp from "./components/ToggleComp";
+import ToggleComp from "./components/toggleComp";
+import Cards from "./components/cards";
 // import other detail components (SalesOrdersChart, InfoCards, StockTable, etc.)
 
 export default function CustomerDetail() {

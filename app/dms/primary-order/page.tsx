@@ -1,6 +1,6 @@
 "use client"
 
-import SearchingOrder from "./components/SearchingOrder";
+import SearchingOrder from "./components/searchingOrder";
 import Button from "../../../components/common/ui/Button";
 import Table from "../../../components/common/table/Table";
 import getPrimaryTableColumns from "./components/primaryOrdertable";
