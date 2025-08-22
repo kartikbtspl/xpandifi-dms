@@ -32,7 +32,7 @@ export default function BarChartCard({ title, data, barColor }: Props) {
       {/* 🔹 Chart Section */}
       <div className="h-64 p-4">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} barSize={30}>
+          <BarChart data={data} barSize={44}>
             <CartesianGrid strokeDasharray="3 3"  stroke="#e5e7eb" />
             <XAxis dataKey="name" />
             <YAxis
