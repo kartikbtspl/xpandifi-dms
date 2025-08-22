@@ -189,7 +189,7 @@ const summaryData = [
       <div className="bg-white p-8 rounded-lg shadow-sm">
         <div className="flex justify-between mb-4 items-center">
           <div className="flex w-[20%] justify-between">
-            <div className="w-16 h-16 bg-transparent bg-indigo-100 rounded-full flex items-center justify-center text-sky-800 font-bold" >
+            <div className="w-16 h-16 bg-[#DEE8FF] rounded-full flex items-center justify-center text-sky-800 font-bold" >
               BE
             </div>
             <div className="flex flex-col">

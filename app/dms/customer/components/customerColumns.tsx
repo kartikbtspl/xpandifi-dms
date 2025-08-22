@@ -114,6 +114,30 @@ const getCustomerColumns = (onRowClick: (row: any) => void): Column[] => [
       </span>
     ),
   },
+  {
+    id: "createdDate",
+    label: "Created Date",
+    render: row => (
+      <span
+        className="text-gray-700 cursor-pointer"
+        onClick={() => onRowClick(row)}
+      >
+        {row.createdDate}
+      </span>
+    ),
+  },
+  {
+    id: "blank",
+    label: "",
+    render: row => (
+      <span
+        className="text-gray-700 cursor-pointer"
+        onClick={() => onRowClick(row)}
+      >
+        {row.blank}
+      </span>
+    ),
+  },
 ];
 
 export default getCustomerColumns;
