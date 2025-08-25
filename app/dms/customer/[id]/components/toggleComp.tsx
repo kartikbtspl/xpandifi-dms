@@ -250,7 +250,7 @@ export default function ToggleComp() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md mt-8">
+    <div className="bg-white p-3 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
       <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
@@ -301,7 +301,7 @@ export default function ToggleComp() {
           infoData.map((item) => (
             <div
               key={item.id}
-              className={`bg-gray-50 rounded-lg p-4 flex items-start gap-3 
+              className={`bg-[#F8FAFB] rounded-lg p-4 flex items-start gap-3 
               ${
                 activeTab === "other" && item.label === "Customer Information"
                   ? "col-span-full"
@@ -310,7 +310,7 @@ export default function ToggleComp() {
             >
               {item.icon}
               <div>
-                <p className="text-xs text-gray-500">{item.label}</p>
+                <p className="text-xs text-[#969BA0]">{item.label}</p>
                 <p className="text-sm font-medium">{item.value}</p>
               </div>
             </div>

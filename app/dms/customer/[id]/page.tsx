@@ -186,7 +186,7 @@ const summaryData = [
         ← Back
       </button>
 
-      <div className="bg-white p-8 rounded-lg shadow-sm">
+      <div className="bg-white p-3 rounded-lg shadow-sm">
         <div className="flex justify-between mb-4 items-center">
           <div className="flex w-[20%] justify-between">
             <div className="w-16 h-16 bg-[#DEE8FF] rounded-full flex items-center justify-center text-sky-800 font-bold" >
@@ -208,7 +208,7 @@ const summaryData = [
               <div className="flex items-center gap-2 w-full">
                 <div className="mr-3 text-lg">{data.icon}</div>
                 <div>
-                  <p className="text-sm text-gray-500">{data.title}</p>
+                  <p className="text-sm text-[#969BA0]">{data.title}</p>
                   <p className="font-medium">{data.status}</p>
                 </div>
               </div>

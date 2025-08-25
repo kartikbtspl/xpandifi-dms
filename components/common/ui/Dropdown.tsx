@@ -73,45 +73,52 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       }
     };
 
-    const selectedOption = options.find(option => option.value === value);
-    
+    const selectedOption = options.find((option) => option.value === value);
+
     const filteredOptions = searchable
-      ? options.filter(option =>
+      ? options.filter((option) =>
           option.label.toLowerCase().includes(searchTerm.toLowerCase())
         )
       : options;
 
     const getButtonClasses = () => {
       let classes = `w-full rounded-full transition-all duration-200 outline-none flex items-center justify-between text-left ${getSizeClasses()} ${getVariantClasses()}`;
-      
-      if (error) classes += " border-red-500 focus:border-red-500 focus:ring-red-200";
+
+      if (error)
+        classes += " border-red-500 focus:border-red-500 focus:ring-red-200";
       if (disabled) classes += " bg-gray-100 text-gray-500 cursor-not-allowed";
       if (!selectedOption) classes += " text-gray-400";
       if (className) classes += ` ${className}`;
-      
+
       return classes;
     };
 
     const getOptionClasses = (option: OptionType) => {
-      let classes = "w-full px-3 py-2 text-left text-sm hover:bg-gray-100 transition-colors duration-150";
-      
+      let classes =
+        "w-full px-3 py-2 text-left text-sm hover:bg-gray-100 transition-colors duration-150";
+
       if (option.value === value) classes += " bg-blue-50 text-blue-600";
-      if (option.disabled) classes += " text-gray-400 cursor-not-allowed bg-gray-50";
-      
+      if (option.disabled)
+        classes += " text-gray-400 cursor-not-allowed bg-gray-50";
+
       return classes;
     };
 
     // Close dropdown when clicking outside
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target as Node)
+        ) {
           setIsOpen(false);
           setSearchTerm("");
         }
       };
 
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     const handleOptionSelect = (optionValue: string) => {
@@ -128,11 +135,9 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     return (
       <div className="flex flex-col space-y-1" ref={dropdownRef}>
         {label && (
-          <label className="text-sm font-medium text-gray-700">
-            {label}
-          </label>
+          <label className="text-sm font-medium text-gray-700">{label}</label>
         )}
-        
+
         <div className="relative">
           <button
             type="button"
@@ -145,16 +150,15 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             <span className="truncate">
               {selectedOption ? selectedOption.label : placeholder}
             </span>
-            
+
             <div className="flex items-center space-x-1">
               {clearable && selectedOption && !disabled && (
-                <button
-                  type="button"
+                <span
                   onClick={handleClear}
-                  className="text-gray-400 hover:text-gray-600 p-1"
+                  className="cursor-pointer text-gray-400 hover:text-gray-600 p-1"
                 >
                   ×
-                </button>
+                </span>
               )}
               <ChevronDown
                 className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
@@ -165,12 +169,8 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           </button>
 
           {/* Hidden input for form submission */}
-          <input
-            type="hidden"
-            name={name}
-            value={value || ""}
-          />
-          
+          <input type="hidden" name={name} value={value || ""} />
+
           {/* Dropdown Menu */}
           {isOpen && (
             <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-hidden">
@@ -186,14 +186,16 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
                   />
                 </div>
               )}
-              
+
               <div className="max-h-48 overflow-y-auto">
                 {filteredOptions.length > 0 ? (
                   filteredOptions.map((option) => (
                     <button
                       key={option.value}
                       type="button"
-                      onClick={() => !option.disabled && handleOptionSelect(option.value)}
+                      onClick={() =>
+                        !option.disabled && handleOptionSelect(option.value)
+                      }
                       className={getOptionClasses(option)}
                       disabled={option.disabled}
                     >
@@ -209,9 +211,11 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             </div>
           )}
         </div>
-        
+
         {(error || helperText) && (
-          <p className={error ? "text-xs text-red-500" : "text-xs text-gray-500"}>
+          <p
+            className={error ? "text-xs text-red-500" : "text-xs text-gray-500"}
+          >
             {error || helperText}
           </p>
         )}

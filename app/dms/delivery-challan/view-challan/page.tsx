@@ -154,7 +154,7 @@ export default function ViewDetailsChallan() {
         <div>
             <Button variant="outline" onClick={() => history.back()}> Back</Button>
         </div>
-      <div className="bg-white p-8 rounded-lg shadow-sm">
+      <div className="bg-white p-3 rounded-lg shadow-sm">
         <div className="mb-2">
           <h1 className="font-semibold text-2xl">Challan Details</h1>
         </div>

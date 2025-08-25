@@ -4,7 +4,7 @@ import { FaRupeeSign, FaChartLine } from "react-icons/fa";
 
 const TotalOrderCard = () => {
   return (
-    <div className="flex justify-between items-center bg-blue-50 border border-blue-200 rounded-xl p-6 w-full max-w-8xl mx-auto">
+    <div className="flex justify-between items-center bg-blue-50 border border-blue-200 rounded-xl p-3 w-full max-w-8xl mx-auto">
       {/* Left Section */}
       <div className="flex items-start space-x-4">
         <div className="bg-blue-100 text-blue-600 p-3 rounded-full text-2xl">

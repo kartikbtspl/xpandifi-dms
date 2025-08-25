@@ -106,7 +106,7 @@ export default function PromaryOrder(){
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Primary Order</h1>
-      <p className="text-sm text-gray-500">Monitor and manage your primary order</p>
+      <p className="text-sm text-[#969BA0]">Monitor and manage your primary order</p>
 
       <div className="mt-4">
         <SearchingOrder />

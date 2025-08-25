@@ -154,7 +154,7 @@ export default function AddProducts() {
 
       {/* Tabs */}
 
-      <div className="flex items-center bg-white pl-2 rounded-lg shadow-sm gap-4 mb-4 h-14">
+      <div className="flex items-center bg-white p-3 rounded-lg shadow-sm gap-4 mb-4 h-14">
         <h1 className="text-xl font-semibold">Primary Order List</h1>
       </div>
       <div className="flex gap-6 pb-2 p-2 mb-4">
@@ -215,7 +215,7 @@ export default function AddProducts() {
       {/* Bottom Summary Sections */}
       <div className="flex flex-col md:flex-row gap-6 w-full ">
         {/* Left Section - Order Summary */}
-        <div className="bg-white rounded-lg shadow p-6 w-full md:w-[60%]">
+        <div className="bg-white rounded-lg shadow p-3 w-full md:w-[60%]">
           <h2 className="text-base font-semibold mb-4">Order Summary</h2>
           <div className="space-y-2 text-sm text-gray-700">
             <div className="flex justify-between">
@@ -280,7 +280,7 @@ export default function AddProducts() {
         </div>
 
         {/* Right Section - Order Note */}
-        <div className="bg-white rounded-lg shadow p-6 w-full md:w-[40%] h-[40%]">
+        <div className="bg-white rounded-lg shadow p-3 w-full md:w-[40%] h-[40%]">
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Order Note <span className="text-gray-400">(Optional)</span>
           </label>

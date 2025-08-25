@@ -33,7 +33,7 @@ const SalesOrderDetails = () => {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm space-y-4">
+    <div className="bg-white p-3 rounded-lg shadow-sm space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {items.map((item, index) => (
           <div

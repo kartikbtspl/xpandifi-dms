@@ -157,28 +157,28 @@ export default function SendCredentials() {
       <div>
         <TotalDistributors />
       </div>
-      <div className="space-y-5 bg-white p-8 rounded-lg shadow-sm">
-        <div className="flex justify-between">
-          <div className="w-[48%]">
+      <div className="space-y-5 bg-white p-3 rounded-lg shadow-sm">
+        <div className="flex w-full gap-20">
+          <div className="w-full">
             <label htmlFor="">Search Distributers</label>
             <Input placeholder="search distributers by name or code..." />
           </div>
-          <div className="flex w-[50%] justify-between">
-            <div className="w-[30%]">
+          <div className="flex w-full gap-10">
+            <div className="w-full">
               <label htmlFor="">Select Country</label>
               <Input
                 placeholder="Select Country"
                 endIcon={<ChevronDown className="w-5 h-5" />}
               />
             </div>
-            <div className="w-[30%]">
+            <div className="w-full">
               <label htmlFor="">Select Zone</label>
               <Input
                 placeholder="Select Zone"
                 endIcon={<ChevronDown className="w-5 h-5" />}
               />
             </div>
-            <div className="w-[30%]">
+            <div className="w-full">
               <label htmlFor="">Select State</label>
               <Input
                 placeholder="Select State"
@@ -193,11 +193,11 @@ export default function SendCredentials() {
           </Button>
         </div>
       </div>
-      <div className="flex justify-between">
-        <div className="w-[48%]">
+      <div className="flex gap-20">
+        <div className="w-full">
           <h1>Add Distributer List</h1>
         </div>
-        <div className="w-[30%] flex justify-between">
+        <div className="w-full flex justify-end gap-3">
           <button
             onClick={() => setAssignOpen(true)}
             className="flex items-center px-6 py-2 bg-[#445E94] text-white rounded-full hover:bg-[#445E99]"

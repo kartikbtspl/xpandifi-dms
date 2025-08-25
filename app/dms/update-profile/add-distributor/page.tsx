@@ -67,7 +67,7 @@ export default function addDistributer() {
       </div>
       <div>
         <div>
-        <div className="flex gap-6 pb-2 p-2 mb-4">
+        <div className="flex gap-6 pb-2 p-2 mb-4 ">
           {["Distributor Panel", "Add Distributer Locations", "Add Root"].map((tab) => (
             <button
               key={tab}
@@ -83,7 +83,7 @@ export default function addDistributer() {
           ))}
         </div>
         {activeTab === "Distributor Panel" && (
-          <div>
+          <div >
             <Table 
                 rows={distributorPanelData}
                 columns={distributorPanelColumn} 

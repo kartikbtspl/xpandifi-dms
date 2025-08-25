@@ -10,7 +10,7 @@ export default function ToggleBasicInfo() {
   const router = useRouter();
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md mt-8">
+    <div className="bg-white p-3 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
       <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
@@ -50,15 +50,15 @@ export default function ToggleBasicInfo() {
         {activeTab === "basic" && (
           <>
             <div className="space-y-3">
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Distributer Name</label>
                   <Input
                     className="rounded-lg"
                     placeholder="Enter distributer name"
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">Distributer Name</label>
                   <Input
                     className="rounded-lg"
@@ -66,12 +66,12 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Email</label>
                   <Input className="rounded-lg" placeholder="Enter email" />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">Mobile Number</label>
                   <Input
                     className="rounded-lg"
@@ -79,15 +79,15 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Phone Number</label>
                   <Input
                     className="rounded-lg"
                     placeholder="Enter phone number"
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">GST Number</label>
                   <Input
                     className="rounded-lg"
@@ -95,15 +95,15 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Description</label>
                   <Textarea
                     className="rounded-lg"
                     placeholder="Enter description"
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">Address</label>
                   <Textarea
                     className="rounded-lg"
@@ -117,8 +117,8 @@ export default function ToggleBasicInfo() {
         {activeTab === "location" && (
           <>
             <div className="space-y-3">
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Distributer Name</label>
                   <Input
                     className="rounded-lg"
@@ -126,7 +126,7 @@ export default function ToggleBasicInfo() {
                     endIcon={<FaChevronDown className="w-5 h-3" />}
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">Distributer Name</label>
                   <Input
                     className="rounded-lg"
@@ -135,8 +135,8 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Email</label>
                   <Input
                     className="rounded-lg"
@@ -144,7 +144,7 @@ export default function ToggleBasicInfo() {
                     endIcon={<FaChevronDown className="w-5 h-3" />}
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">Mobile Number</label>
                   <Input
                     className="rounded-lg"
@@ -153,8 +153,8 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Phone Number</label>
                   <Input
                     className="rounded-lg"
@@ -162,7 +162,7 @@ export default function ToggleBasicInfo() {
                     endIcon={<FaChevronDown className="w-5 h-3" />}
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label htmlFor="">GST Number</label>
                   <Input
                     className="rounded-lg"
@@ -171,8 +171,8 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex">
+                <div className="flex w-[47%] flex-col">
                   <label htmlFor="">Description</label>
                   <Input
                     className="rounded-lg"
@@ -187,8 +187,8 @@ export default function ToggleBasicInfo() {
         {activeTab === "additional" && (
           <>
             <div className="space-y-3">
-              <div className="flex justify-between">
-                <div className="w-[42%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label className="flex" htmlFor="">Customer Field 1 <p className="text-[#969BA0]">(Optional)</p></label>
                   <Input
                     className="rounded-lg"
@@ -196,7 +196,7 @@ export default function ToggleBasicInfo() {
                     endIcon={<FaChevronDown className="w-5 h-3" />}
                   />
                 </div>
-                <div className="w-[42%]">
+                <div className="w-full">
                   <label className="flex" htmlFor="">Customer Field 2 <p className="text-[#969BA0]">(Optional)</p></label>
                   <Input
                     className="rounded-lg"
@@ -205,7 +205,7 @@ export default function ToggleBasicInfo() {
                   />
                 </div>
               </div>
-              <div className="w-[42%]">
+              <div className="w-[47%]">
                 <label className="flex" htmlFor="">Terms and Condition <p className="text-[#969BA0]">(Optional)</p></label>
                 <Textarea className="rounded-lg" placeholder="Enter terms and condition" />
               </div>

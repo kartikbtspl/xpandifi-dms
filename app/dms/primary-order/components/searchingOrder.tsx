@@ -16,7 +16,7 @@ export default function SearchingOrder() {
   const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   return (
-    <div className="flex gap-8 bg-white p-6 rounded-xl items-end">
+    <div className="flex gap-8 bg-white p-3 rounded-xl items-end">
       {data.map((item, index) => (
         <div key={index} className="flex flex-col gap-1">
           <label className="text-sm font-medium text-gray-700">

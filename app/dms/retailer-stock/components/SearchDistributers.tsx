@@ -25,7 +25,7 @@ export default function SearchDistributers() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white p-6 rounded-lg flex items-end gap-4 shadow-sm w-full pr-60"
+      className="bg-white p-3 rounded-lg flex items-end gap-4 shadow-sm w-full pr-60"
     >
       {/* Distributor Field */}
       <div className="flex flex-col w-1/2">

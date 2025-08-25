@@ -10,7 +10,7 @@ export default function ToggleDistributers() {
 
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md mt-8">
+    <div className="bg-white p-3 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
       <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
@@ -49,8 +49,8 @@ export default function ToggleDistributers() {
       <div className="flex flex-col gap-8">
         {activeTab === "personal" && (
           <>
-            <div className="flex justify-between">
-              <div className="w-[48%] space-y-4">
+            <div className="flex gap-20">
+              <div className="w-full space-y-4">
                 <div>
                   <label htmlFor="">Email</label>
                   <Input placeholder="Enter email address" className="rounded-lg" />
@@ -60,19 +60,19 @@ export default function ToggleDistributers() {
                   <Input placeholder="Enter Name" className="rounded-lg" />
                 </div>
               </div>
-              <div className="w-[48%]">
+              <div className="w-full">
                 <label htmlFor="">Description</label>
                 <Textarea placeholder="Enter description" className="rounded-lg" />
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="w-[48%]">
+            <div className="flex gap-20">
+              <div className="w-full">
                 <div>
                   <label htmlFor="">Distributer code</label>
                   <Input placeholder="Enter code" className="rounded-lg" />
                 </div>
               </div>
-              <div className="w-[48%]">
+              <div className="w-full">
                 <label htmlFor="">Address</label>
                 <Textarea placeholder="Enter address" className="rounded-lg" />
               </div>
@@ -82,32 +82,32 @@ export default function ToggleDistributers() {
         {activeTab === "customers" && (
           <>
             <div className="flex flex-col gap-4">
-              <div className="flex flex-row justify-between">
-                <div className="w-[48%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">Country</label>
                   <Input placeholder="Enter country" className="rounded-lg" />
                 </div>
-                <div className="w-[48%]">
+                <div className="w-full">
                   <label htmlFor="">Status</label>
                   <Input placeholder="Enter status" className="rounded-lg" />
                 </div>
               </div>
-              <div className="flex flex-row justify-between">
-                <div className="w-[48%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">State</label>
                   <Input placeholder="Enter state" className="rounded-lg" />
                 </div>
-                <div className="w-[48%]">
+                <div className="w-full">
                   <label htmlFor="">Mobile Number</label>
                   <Input placeholder="Enter Mobile" className="rounded-lg" />
                 </div>
               </div>
-              <div className="flex flex-row justify-between">
-                <div className="w-[48%]">
+              <div className="flex gap-20">
+                <div className="w-full">
                   <label htmlFor="">City</label>
                   <Input placeholder="Enter city" className="rounded-lg" />
                 </div>
-                <div className="w-[48%]">
+                <div className="w-full">
                   <label htmlFor="">Phone Number</label>
                   <Input placeholder="Enter phone" className="rounded-lg" />
                 </div>
@@ -117,8 +117,8 @@ export default function ToggleDistributers() {
         )}
         {activeTab === "product" && (
           <>
-            <div className="flex justify-between">
-              <div className="w-[48%] space-y-4">
+            <div className="flex gap-20">
+              <div className="w-full space-y-4">
                 <div>
                   <label htmlFor="">GST number</label>
                   <Input placeholder="Enter GST number" className="rounded-lg" />
@@ -128,19 +128,19 @@ export default function ToggleDistributers() {
                   <Input placeholder="Enter customer Field 1" className="rounded-lg" />
                 </div>
               </div>
-              <div className="w-[48%]">
+              <div className="w-full">
                 <label htmlFor="">Terms and Condition</label>
                 <Textarea placeholder="Enter terms and conditions" className="rounded-lg" />
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="w-[48%]">
+            <div className="flex gap-20">
+              <div className="w-full">
                 <div>
                   <label htmlFor="">Customer Field 2</label>
                   <Input placeholder="Enter customer Field 2" className="rounded-lg" />
                 </div>
               </div>
-              <div className="w-[48%]">
+              <div className="w-full">
                 <label htmlFor="">Custome discount %</label>
                 <Textarea placeholder="Enter custome discount %" className="rounded-lg" />
               </div>
