@@ -154,18 +154,8 @@ export default function AddProducts() {
 
       {/* Tabs */}
 
-      <div className="flex items-center bg-white pl-2 rounded-lg shadow-sm gap-4 mb-4">
+      <div className="flex items-center bg-white pl-2 rounded-lg shadow-sm gap-4 mb-4 h-14">
         <h1 className="text-xl font-semibold">Primary Order List</h1>
-
-        <div className="w-full max-w-md">
-          <Input
-            placeholder="Search by Product Code/Product Name"
-            startIcon={<FaSearch />}
-            variant="outlined"
-            size="sm"
-            className="w-full"
-          />
-        </div>
       </div>
       <div className="flex gap-6 pb-2 p-2 mb-4">
         {["All", "Beverage", "Green Color", "3147", "Agro Chemicals"].map(
