@@ -55,7 +55,7 @@ export default function MetricCards() {
         return (
           <div
             key={i}
-            className={`relative rounded-2xl p-6 border-2 ${m.bgColor}`}
+            className={`relative rounded-2xl p-6 ${m.bgColor}`}
           >
             <div className={`absolute top-4 right-4 ${m.iconColor}`}>
               <Icon className="w-6 h-6" />

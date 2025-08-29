@@ -71,40 +71,41 @@ const Table: React.FC<TableProps> = ({
   const [showFilterDropdown, setShowFilterDropdown] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
 
-  const filteredAndSortedRows = useMemo(() => {
-    const lowerSearch = searchQuery.toLowerCase();
-    let filtered = [...rows];
+const filteredAndSortedRows = useMemo(() => {
+  const lowerSearch = searchQuery.toLowerCase();
+  let filtered = [...rows];
 
-    // Search filtering - search raw data only
-    if (searchQuery) {
-      filtered = filtered.filter((row) =>
-        columns.some((col) => {
-          const value = row[col.id]; // Always use raw data for search
-          return String(value ?? "")
-            .toLowerCase()
-            .includes(lowerSearch);
-        })
-      );
-    }
+  // Search filtering - search raw data only
+  if (searchQuery) {
+    filtered = filtered.filter((row) =>
+      columns.some((col) => {
+        const value = row[col.id]; // Always use raw data for search
+        return String(value ?? "")
+          .toLowerCase()
+          .includes(lowerSearch);
+      })
+    );
+  }
 
-    // Status filtering
-    if (filterStatus !== "all") {
-      filtered = filtered.filter(
-        (row) =>
-          String(row[filterKey] ?? "").toUpperCase() ===
-          filterStatus.toUpperCase()
-      );
-    }
+  // Status filtering
+  if (filterStatus !== "all") {
+    filtered = filtered.filter(
+      (row) =>
+        String(row[filterKey] ?? "").toUpperCase() ===
+        filterStatus.toUpperCase()
+    );
+  }
 
-    // Sorting
-    const compare = (a: RowData, b: RowData): number => {
-      if (b[orderBy] < a[orderBy]) return -1;
-      if (b[orderBy] > a[orderBy]) return 1;
-      return 0;
-    };
+  // Sorting
+  const compare = (a: RowData, b: RowData): number => {
+    if (b[orderBy] < a[orderBy]) return -1;
+    if (b[orderBy] > a[orderBy]) return 1;
+    return 0;
+  };
 
-    return filtered.sort(order === "desc" ? compare : (a, b) => -compare(a, b));
-  }, [rows, columns, orderBy, order, searchQuery, filterStatus, filterKey]);
+  return filtered.sort(order === "desc" ? compare : (a, b) => -compare(a, b));
+}, [rows, columns, orderBy, order, searchQuery, filterStatus, filterKey]);
+
 
   // Pagination logic
   const totalPages = Math.ceil(filteredAndSortedRows.length / rowsPerPage);
@@ -394,65 +395,6 @@ const Table: React.FC<TableProps> = ({
               showFirstButton
               showLastButton
               size="medium"
-              // renderItem={(item) => {
-              //   const baseSx = {
-              //     minWidth: "40px",
-              //     height: "36px",
-              //     fontSize: 16,
-              //     fontWeight: 600,
-              //     color: "#415387",
-              //     borderRadius: "999px",
-              //     border: "1.5px solid #BFC6D7",
-              //     backgroundColor: "#F4F8FE",
-              //     transition: "background 0.15s, color 0.15s, border 0.15s",
-              //     "&:hover": { backgroundColor: "#DCE6F7" },
-              //   };
-
-              //   // First / Last arrows
-              //   if (item.type === "first" || item.type === "last") {
-              //     return (
-              //       <PaginationItem
-              //         {...item}
-              //         sx={baseSx}
-              //         children={
-              //           <span style={{ fontSize: 18, fontWeight: 700 }}>
-              //             {item.type === "first" ? "«" : "»"}
-              //           </span>
-              //         }
-              //       />
-              //     );
-              //   }
-
-              //   // Previous / Next with labels
-              //   if (item.type === "previous" || item.type === "next") {
-              //     return (
-              //       <PaginationItem
-              //         {...item}
-              //         sx={baseSx}
-              //         children={
-              //           <span style={{ fontSize: 16, fontWeight: 700 }}>
-              //             {item.type === "previous" ? "‹ Previous" : "Next ›"}
-              //           </span>
-              //         }
-              //       />
-              //     );
-              //   }
-
-              //   // Page numbers
-              //   return (
-              //     <PaginationItem
-              //       {...item}
-              //       sx={{
-              //         ...baseSx,
-              //         color: item.selected ? "#FFF" : "#415387",
-              //         backgroundColor: item.selected
-              //           ? "#5C6B9C"
-              //           : baseSx.backgroundColor,
-              //         border: item.selected ? "none" : baseSx.border,
-              //       }}
-              //     />
-              //   );
-              // }}
               renderItem={(item) => {
                 const baseSx = {
                   minWidth: "40px",
@@ -466,25 +408,34 @@ const Table: React.FC<TableProps> = ({
                   transition: "background 0.15s, color 0.15s, border 0.15s",
                   "&:hover": { backgroundColor: "#DCE6F7" },
                 };
-                // First & Last arrows
+
+                // First / Last arrows
                 if (item.type === "first" || item.type === "last") {
                   return (
-                    <PaginationItem {...item} sx={baseSx}>
-                      <span style={{ fontSize: 18, fontWeight: 700 }}>
-                        {item.type === "first" ? "«" : "»"}
-                      </span>
-                    </PaginationItem>
+                    <PaginationItem
+                      {...item}
+                      sx={baseSx}
+                      children={
+                        <span style={{ fontSize: 18, fontWeight: 700 }}>
+                          {item.type === "first" ? "«" : "»"}
+                        </span>
+                      }
+                    />
                   );
                 }
 
-                // Previous & Next labels
+                // Previous / Next with labels
                 if (item.type === "previous" || item.type === "next") {
                   return (
-                    <PaginationItem {...item} sx={baseSx}>
-                      <span style={{ fontSize: 16, fontWeight: 700 }}>
-                        {item.type === "previous" ? "‹ Previous" : "Next ›"}
-                      </span>
-                    </PaginationItem>
+                    <PaginationItem
+                      {...item}
+                      sx={baseSx}
+                      children={
+                        <span style={{ fontSize: 16, fontWeight: 700 }}>
+                          {item.type === "previous" ? "‹ Previous" : "Next ›"}
+                        </span>
+                      }
+                    />
                   );
                 }
 
@@ -500,9 +451,7 @@ const Table: React.FC<TableProps> = ({
                         : baseSx.backgroundColor,
                       border: item.selected ? "none" : baseSx.border,
                     }}
-                  >
-                    {item.page}
-                  </PaginationItem>
+                  />
                 );
               }}
               sx={{
