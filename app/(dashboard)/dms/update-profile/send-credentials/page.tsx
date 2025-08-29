@@ -149,6 +149,12 @@ export default function SendCredentials() {
   return (
     <div className="space-y-6">
       <div>
+        <Button variant="outline" onClick={() => history.back()}>
+          {" "}
+          &lt; Back{" "}
+        </Button>
+      </div>
+      <div>
         <h1 className="text-2xl font-semibold">Distributer Management</h1>
         <p className="text-[#969BA0]">
           Manage and track your distributer networkd
@@ -157,7 +163,7 @@ export default function SendCredentials() {
       <div>
         <TotalDistributors />
       </div>
-      <div className="space-y-5 bg-white p-3 rounded-lg shadow-sm">
+      <div className="space-y-5 bg-white p-8 rounded-lg shadow-sm">
         <div className="flex w-full gap-20">
           <div className="w-full">
             <label htmlFor="">Search Distributers</label>
@@ -195,7 +201,7 @@ export default function SendCredentials() {
       </div>
       <div className="flex gap-20">
         <div className="w-full">
-          <h1>Add Distributer List</h1>
+          <h1 className="text-3xl font-semibold">Add Distributer List</h1>
         </div>
         <div className="w-full flex justify-end gap-3">
           <button

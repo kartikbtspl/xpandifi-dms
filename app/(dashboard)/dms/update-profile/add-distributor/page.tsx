@@ -17,7 +17,10 @@ export default function AddDistributer() {
   const [isAssignOpen, setAssignOpen] = useState(false);
 
   const [assignRow, setAssignRow] = useState<any | null>(null);
-  const [deleteRow, setDeleteRow] = useState<any | null>(null); 
+  const [deleteRow, setDeleteRow] = useState<any | null>(null);
+
+  const[loadingDistriutorPanel, setLoadingDistributerPanel] = useState(false);
+  const [loadingRoot, setLoadingRoot] = useState(false);
 
   // Sample distributor panel data
   const [distributorPanelData, setDistributorPanelData] = useState([
@@ -40,8 +43,24 @@ export default function AddDistributer() {
     onDelete: (row) => setDeleteRow(row),
   });
 
+  const handleDistributorPanelRefresh = () => {
+    setLoadingDistributerPanel(true);
+    setTimeout(() => setLoadingDistributerPanel(false), 1000);
+  };
+
+  const handleAddRootRefresh = () => {
+    setLoadingRoot(true);
+    setTimeout(() => setLoadingRoot(false), 1000);
+  };
+
   return (
     <div className="space-y-4">
+      <div>
+        <Button variant="outline" onClick={() => history.back()}>
+          {" "}
+          &lt; Back{" "}
+        </Button>
+      </div>
       <div>
         <h1 className="text-2xl font-semibold">Add Distributor</h1>
         <p className="text-[#969BA0]">Add Your Distributor Details</p>
@@ -76,6 +95,8 @@ export default function AddDistributer() {
               rows={distributorPanelData}
               columns={distributorPanelColumn}
               rowsPerPage={5}
+              onRefresh={handleDistributorPanelRefresh}
+              loading={loadingDistriutorPanel}
             />
           )}
 
@@ -88,6 +109,8 @@ export default function AddDistributer() {
               columns={addRootColumns}
               rows={addRootData}
               rowsPerPage={3}
+              onRefresh={handleAddRootRefresh}
+              loading={loadingRoot}
             />
           )}
         </div>
@@ -102,9 +125,9 @@ export default function AddDistributer() {
         </div>
       </div>
       {/* Edit Modal */}
-      <EditRootModal isOpen={!!assignRow} onClose={() => setAssignRow(null)}   />
+      <EditRootModal isOpen={!!assignRow} onClose={() => setAssignRow(null)} />
       {/* Delete Confirmation Modal */}
-      <DeleteRootModal isOpen={deleteRow} onClose={() => setDeleteRow(null)}/>
+      <DeleteRootModal isOpen={deleteRow} onClose={() => setDeleteRow(null)} />
     </div>
   );
 }

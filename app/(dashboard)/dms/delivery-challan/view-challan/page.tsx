@@ -11,7 +11,7 @@ import {
 import Button from "@/components/common/ui/Button";
 import getChallanItemListColumn from "./challanItemListColumn";
 import Table from "@/components/common/table/Table";
-import ChallanStickyNotes from "./ChallanStickyNotes"
+import ChallanStickyNotes from "./ChallanStickyNotes";
 import TotalOrderChallan from "./TotalOrderChallan";
 
 export default function ViewDetailsChallan() {
@@ -151,16 +151,20 @@ export default function ViewDetailsChallan() {
 
   return (
     <div className="space-y-4">
-        <div>
-            <Button variant="outline" onClick={() => history.back()}> Back</Button>
-        </div>
-      <div className="bg-white p-3 rounded-lg shadow-sm">
+      <Button variant="outline" onClick={() => history.back()}>
+        {" "}
+        &lt; Back{" "}
+      </Button>
+      <div className="bg-white p-8 rounded-lg shadow-sm">
         <div className="mb-2">
           <h1 className="font-semibold text-2xl">Challan Details</h1>
         </div>
         <div className="flex flex-wrap justify-between h-[40vh]">
           {challanDetailsData.map((data, index) => (
-            <ChallanStickyNotes key={index} fullWidth={data.title === "Address"}>
+            <ChallanStickyNotes
+              key={index}
+              fullWidth={data.title === "Address"}
+            >
               <div className="flex items-center gap-2 w-full">
                 <div className="mr-3 text-lg">{data.icon}</div>
                 <div>
@@ -173,11 +177,16 @@ export default function ViewDetailsChallan() {
         </div>
       </div>
       <div>
-          {/* <TotalOrderCard /> */}
-          <TotalOrderChallan />
+        {/* <TotalOrderCard /> */}
+        <TotalOrderChallan />
       </div>
       <div>
-          <Table columns={challanItemColumn} rows={challanItemListData} onRefresh={handleChallanItemListRefresh} rowsPerPage={4}  />
+        <Table
+          columns={challanItemColumn}
+          rows={challanItemListData}
+          onRefresh={handleChallanItemListRefresh}
+          rowsPerPage={4}
+        />
       </div>
     </div>
   );

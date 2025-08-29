@@ -394,65 +394,6 @@ const Table: React.FC<TableProps> = ({
               showFirstButton
               showLastButton
               size="medium"
-              // renderItem={(item) => {
-              //   const baseSx = {
-              //     minWidth: "40px",
-              //     height: "36px",
-              //     fontSize: 16,
-              //     fontWeight: 600,
-              //     color: "#415387",
-              //     borderRadius: "999px",
-              //     border: "1.5px solid #BFC6D7",
-              //     backgroundColor: "#F4F8FE",
-              //     transition: "background 0.15s, color 0.15s, border 0.15s",
-              //     "&:hover": { backgroundColor: "#DCE6F7" },
-              //   };
-
-              //   // First / Last arrows
-              //   if (item.type === "first" || item.type === "last") {
-              //     return (
-              //       <PaginationItem
-              //         {...item}
-              //         sx={baseSx}
-              //         children={
-              //           <span style={{ fontSize: 18, fontWeight: 700 }}>
-              //             {item.type === "first" ? "«" : "»"}
-              //           </span>
-              //         }
-              //       />
-              //     );
-              //   }
-
-              //   // Previous / Next with labels
-              //   if (item.type === "previous" || item.type === "next") {
-              //     return (
-              //       <PaginationItem
-              //         {...item}
-              //         sx={baseSx}
-              //         children={
-              //           <span style={{ fontSize: 16, fontWeight: 700 }}>
-              //             {item.type === "previous" ? "‹ Previous" : "Next ›"}
-              //           </span>
-              //         }
-              //       />
-              //     );
-              //   }
-
-              //   // Page numbers
-              //   return (
-              //     <PaginationItem
-              //       {...item}
-              //       sx={{
-              //         ...baseSx,
-              //         color: item.selected ? "#FFF" : "#415387",
-              //         backgroundColor: item.selected
-              //           ? "#5C6B9C"
-              //           : baseSx.backgroundColor,
-              //         border: item.selected ? "none" : baseSx.border,
-              //       }}
-              //     />
-              //   );
-              // }}
               renderItem={(item) => {
                 const baseSx = {
                   minWidth: "40px",
