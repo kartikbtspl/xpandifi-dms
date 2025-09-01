@@ -6,7 +6,7 @@ import React from 'react';
 
 export default function SidebarItem({ name, icon: Icon, path }: MenuItem){
   const pathname = usePathname();
-  const active = pathname === path;
+   const active = pathname.startsWith(path);
   return (
     <Link href={path} className={'flex items-center gap-3 p-2 rounded ' + (active ? 'bg-[#445E94]' : 'hover:bg-[#445E94]')}>
       <span><Icon className="text-lg" /></span>
