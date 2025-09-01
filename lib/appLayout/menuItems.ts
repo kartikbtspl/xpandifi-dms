@@ -1,6 +1,5 @@
 import { MenuItem } from '@/types/index';
 import { AiOutlineHome, AiOutlineBarChart } from 'react-icons/ai';
-import React from 'react';
 
 
 
