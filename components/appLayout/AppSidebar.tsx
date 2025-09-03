@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SidebarItem from './SidebarItem';
+import SidebarItemWrapper from './SidebarItemWrapper';
 import { oemMenuItems, dmsMenuItems } from '@/lib/appLayout/menuItems';
 import {useAuthStore} from '@/store/authStore';
 import useSidebarStore from '@/store/useSidebarStore';
@@ -34,14 +34,11 @@ export default function AppSidebar() {
       </div>
 
       {/* Sidebar Menu Items */}
-      <nav className="flex flex-col gap-4">
+      <nav className="flex flex-col gap-2">
         {items.map((item) => (
-          <SidebarItem
-            name={item.name}
+          <SidebarItemWrapper
             key={item.path}
-            label={item.name}
-            icon={item.icon}
-            path={item.path}
+            {...item}
             toggleSidebar={close}
           />
         ))}
