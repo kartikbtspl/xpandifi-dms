@@ -1,106 +1,125 @@
-// pages/dms/my-stock/page.tsx or components/stock/MyStockPage.tsx
-"use client";
-
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { StockFilters } from "./components/StockFilters";
-import { StockListHeader } from "./components/StockListHeader";
+"use client"
+import { useState } from "react";
+import SearchDistributers from "./components/SearchDistributers";
+import Button from "@/components/common/ui/Button";
+import getRetailerStockColumns from "./components/retailerStockColumn";
 import Table from "@/components/common/table/Table";
-import getStockColumns from "./components/getStockColumns";
 
-export default function MyStockPage() {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
+export default function RetailerStock() {
 
-  // Sample stock data matching your screenshot
-  const stockData = [
+  const [retailColumnData, setretailColumnData] = useState([
     {
       id: 1,
-      productName: "Cashew",
-      productCategory: "Beverage",
-      pack: "Cashew",
-      distributorName: "Teamspring",
-      codeLocation: "Baner-Baner",
-      actualStock: 110.0,
-      minimumStock: 0.0,
-      updatedOn: "23-07-25 09:29:55",
+      srNo : "01",
+      productName : "Karnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
     },
     {
       id: 2,
-      productName: "Cashew",
-      productCategory: "Beverage",
-      pack: "Cashew",
-      distributorName: "Teamspring",
-      codeLocation: "Baner-Baner",
-      actualStock: 110.0,
-      minimumStock: 0.0,
-      updatedOn: "23-07-25 09:29:55",
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
     },
     {
       id: 3,
-      productName: "Cashew",
-      productCategory: "Beverage",
-      pack: "Cashew",
-      distributorName: "Teamspring",
-      codeLocation: "Baner-Baner",
-      actualStock: 110.0,
-      minimumStock: 0.0,
-      updatedOn: "23-07-25 09:29:55",
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
     },
     {
       id: 4,
-      productName: "Cashew",
-      productCategory: "Beverage",
-      pack: "Cashew",
-      distributorName: "Teamspring",
-      codeLocation: "Baner-Baner",
-      actualStock: 110.0,
-      minimumStock: 0.0,
-      updatedOn: "23-07-25 09:29:55",
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
     },
-    // Add more rows as needed...
-  ];
+    {
+      id: 5,
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
+    },
+    {
+      id: 6,
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
+    },
+    {
+      id: 7,
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
+    },
+    {
+      id: 8,
+      srNo : "01",
+      productName : "Garnier mens face wash",
+      pack : "5",
+      stock : "15",
+      stockUpdatedDate : "22 june 2025",
+      asOnDate : "12 july 2025",
+      stockDate : "5 aug 2025",
+    },
+  ])
 
-  const columns = getStockColumns();
+  const retailColumns = getRetailerStockColumns();
+  const [loadingRetailData, setloadingRetailData] = useState(false);
 
-  const handleRefresh = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 800);
-  };
-
-  const handleAddStock = () => {
-    router.push("/oem/reports/stock-reports/retailer-stock/add/");
+  const handleRetailerRefresh = () => {
+    setloadingRetailData(true);
+    setTimeout(() => setloadingRetailData(false), 1000);
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Page Header */}
-      <div className="mb-6">
-        <div className="flex items-center text-sm text-gray-500 mb-2">
-          <span>Dashboard</span>
-          <span className="mx-2">›</span>
-          <span>My Stock</span>
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-1">My Stock</h1>
-        <p className="text-gray-600">Manage and track your stock</p>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold">Retailer Stock</h1>
+        <p className="text-[#969BA0] ">Monitor and manage your retailer stock</p>
       </div>
-
-      {/* Filters */}
-      <StockFilters />
-
-      {/* Stock List Header */}
-      <StockListHeader onAddStock={handleAddStock} />
-
-      {/* Stock Table */}
-      <Table
-        columns={columns}
-        rows={stockData}
-        onRefresh={handleRefresh}
-        loading={loading}
-        showPagination
-        rowsPerPage={10}
-        isFilter={false} // Disable table's built-in filter since we have custom filters
-      />
+      <div>
+        <SearchDistributers />
+      </div>
+      <div className="flex flex-wrap w-full justify-between ">
+        <h1 className="text-2xl font-semibold">Stock Report List</h1>
+        <Button className="w-32">Export</Button>
+      </div>
+      <div>
+        <Table 
+          columns={retailColumns} 
+          rows={retailColumnData} 
+          onRefresh={handleRetailerRefresh} 
+          loading={loadingRetailData} 
+          filterKey="productName"
+          rowsPerPage={4}/>
+      </div>
     </div>
   );
 }
