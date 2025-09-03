@@ -64,11 +64,11 @@ export default function ProductView() {
       {/* Tabs + Content */}
       <div className="bg-white p-6 rounded-xl shadow-md mt-8">
         {/* 🔹 Tabs Header */}
-        <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-6 justify-between">
+        <div className="p-1 flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-6 justify-between">
           <div
             className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
               activeTab === "basic"
-                ? "border-2 bg-white rounded-full text-black shadow-sm"
+                ? " bg-white rounded-full text-black shadow-sm"
                 : "hover:text-black"
             }`}
             onClick={() => setActiveTab("basic")}
@@ -78,7 +78,7 @@ export default function ProductView() {
           <div
             className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
               activeTab === "packaging"
-                ? "border-2 bg-white rounded-full text-black shadow-sm"
+                ? " bg-white rounded-full text-black shadow-sm"
                 : "hover:text-black"
             }`}
             onClick={() => setActiveTab("packaging")}
@@ -88,7 +88,7 @@ export default function ProductView() {
           <div
             className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
               activeTab === "additional"
-                ? "border-2 bg-white rounded-full text-black shadow-sm"
+                ? " bg-white rounded-full text-black shadow-sm"
                 : "hover:text-black"
             }`}
             onClick={() => setActiveTab("additional")}

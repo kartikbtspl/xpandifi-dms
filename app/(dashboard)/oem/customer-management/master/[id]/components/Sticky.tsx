@@ -6,7 +6,7 @@ type StickyNotesDataProps = {
 export default function StickyNotesData({ children, fullWidth }: StickyNotesDataProps) {
   return (
     <div
-      className={`bg-slate-100 ${fullWidth ? 'w-full' : 'w-[30%]'} h-[10vh] border rounded-lg flex p-8`}
+      className={`bg-slate-100 ${fullWidth ? 'w-full' : 'w-[30%]'} h-[10vh] rounded-lg flex p-8`}
     >
       {children}
     </div>

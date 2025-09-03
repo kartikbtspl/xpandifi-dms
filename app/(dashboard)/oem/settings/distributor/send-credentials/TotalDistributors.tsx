@@ -6,9 +6,9 @@ export default function TotalDistributers() {
     {
       label: "Total Distributors",
       value: 16,
-      color: "text-blue-600",
+      color: "text-[#445E94]",
       bg: "bg-blue-50",
-      iconColor: "text-blue-600",
+      iconColor: "text-[#445E94]",
     },
     {
       label: "Active",
@@ -31,7 +31,7 @@ export default function TotalDistributers() {
       {stats.map((stat, idx) => (
         <div
           key={idx}
-          className="flex items-center justify-between p-4 bg-white border rounded-2xl shadow-sm"
+          className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm"
         >
           <div>
             <p className="text-sm text-gray-600">{stat.label}</p>

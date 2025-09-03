@@ -27,7 +27,7 @@ export default function OrderDetailNotes() {
   ]);
 
   return (
-    <div className="p-3 bg-white rounded-lg shadow">
+    <div className="p-8 bg-white rounded-lg shadow">
       <h2 className="text-lg font-semibold mb-4">Primary Order Details</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {orderDetailData.map((item, index) => (

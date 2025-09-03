@@ -19,7 +19,7 @@ export default function AddDistributorLocation() {
     setTimeout(() => setLoadingLocationColumn(false), 1000);
   };
   return (
-    <div className="bg-white p-3 rounded-xl shadow-md space-y-6">
+    <div className="bg-white p-8 rounded-xl shadow-md space-y-6">
       {/* Row 1 */}
       <div className="grid grid-cols-2 gap-6">
         <div className="space-y-2">

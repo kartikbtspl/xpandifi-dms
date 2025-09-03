@@ -10,13 +10,13 @@ export default function ToggleBasicInfo() {
   const router = useRouter();
 
   return (
-    <div className="bg-white p-3 rounded-xl shadow-md mt-8">
+    <div className="bg-white p-8 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
-      <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
+      <div className="p-1 flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "basic"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? "bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("basic")}
@@ -26,7 +26,7 @@ export default function ToggleBasicInfo() {
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "location"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? "bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("location")}
@@ -36,7 +36,7 @@ export default function ToggleBasicInfo() {
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "additional"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? "bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("additional")}

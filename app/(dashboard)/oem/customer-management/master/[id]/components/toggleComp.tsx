@@ -252,11 +252,11 @@ export default function ToggleComp() {
   return (
     <div className="bg-white p-6 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
-      <div className="flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
+      <div className="p-1 flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "other"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? " bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("other")}
@@ -266,7 +266,7 @@ export default function ToggleComp() {
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "contacts"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? " bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("contacts")}
@@ -276,7 +276,7 @@ export default function ToggleComp() {
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "documents"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? " bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("documents")}
@@ -286,7 +286,7 @@ export default function ToggleComp() {
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "targets"
-              ? "border-2 bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? "bg-[#FFFFFF] rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("targets")}
