@@ -1,10 +1,12 @@
 import React from 'react'
+import Breadcrumb from "./components/BreadCrumb"
+import Tabs from './components/Tabs'
 
 const Configuration = () => {
   return (
-   <div>
-      <h1 className="text-3xl font-bold mb-4">Configuration</h1>
-      <p>Work In Progress</p>
+    <div className='space-y-6'>
+      <Breadcrumb />
+      <Tabs />
     </div>
   )
 }
