@@ -43,7 +43,7 @@ function RequiredDocumentCol() {
       </button>
       </div>
       
-      <Table rows={documentData} columns={documentColumns} onRefresh={handleRefreshDocuments} loading = {loadingDocument} filterKey="customerDocumnetName"/>
+      <Table rows={documentData} columns={documentColumns} onRefresh={handleRefreshDocuments} loading = {loadingDocument} filterKey="customerDocumnetName" rowsPerPage={2}/>
     </div>
   )
 }

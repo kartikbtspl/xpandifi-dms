@@ -6,6 +6,8 @@ import CustomerType from "./CustomerType";
 import CustomerWiseDocs from "./CustomerWiseDocs";
 import StoreType from "./StoreType";
 import ClassType from "./ClassType";
+import FirmType from "./FirmType";
+import BusinessSegment from "./BusinessSegment";
 
 export default function Tabs() {
   const tabs = [
@@ -15,8 +17,8 @@ export default function Tabs() {
     { label: "Customer Wise Docs", content: <><CustomerWiseDocs /></> },
     { label: "Store Type", content: <><StoreType /></> },
     { label: "Class Type", content: <><ClassType /></> },
-    { label: "Firm Type", content: <p>🏢 Manage firm types.</p> },
-    { label: "Business Segment", content: <p>📊 Configure business segments.</p> },
+    { label: "Firm Type", content: <><FirmType /></> },
+    { label: "Business Segment", content: <><BusinessSegment /></> },
   ];
 
   const [active, setActive] = useState(tabs[0].label);

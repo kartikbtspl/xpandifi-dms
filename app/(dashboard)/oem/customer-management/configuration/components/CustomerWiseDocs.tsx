@@ -138,7 +138,7 @@ const CustomerDocumentForm: React.FC = () => {
         </form>
       </div>
       <div>
-        <Table rows={docsData} columns={customerWiseDocsColumns}onRefresh={handleRefreshCustomerWiseDocs} loading={loadingDocs}/>
+        <Table rows={docsData} columns={customerWiseDocsColumns}onRefresh={handleRefreshCustomerWiseDocs} loading={loadingDocs} rowsPerPage={2}/>
       </div>
     </div>
   );

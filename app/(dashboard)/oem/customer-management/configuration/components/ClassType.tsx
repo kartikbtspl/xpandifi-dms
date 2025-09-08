@@ -56,7 +56,7 @@ function ClassType() {
           <Button>+ Add Class Type</Button>
         </div>
       </div>
-      <Table rows={classTypeData} columns={classTypeColumns} onRefresh={handleRefreshClassType} loading={loadingClassType}filterKey='type'/>
+      <Table rows={classTypeData} columns={classTypeColumns} onRefresh={handleRefreshClassType} loading={loadingClassType}filterKey='type' rowsPerPage={2}/>
     </div>  
   )
 }

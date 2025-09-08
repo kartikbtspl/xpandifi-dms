@@ -52,7 +52,7 @@ function CustomerType() {
           </div>
         </div>
         <div>
-          <Table rows={typeData} columns={customerTypeColumns} onRefresh={handleRefreshCustomerType} loading={loadingType} filterKey='customerType'/>
+          <Table rows={typeData} columns={customerTypeColumns} onRefresh={handleRefreshCustomerType} loading={loadingType} filterKey='customerType' rowsPerPage={2}/>
         </div>
       </div>
     )

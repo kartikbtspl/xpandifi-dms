@@ -42,7 +42,7 @@ function StoreType() {
         </div>
         <Button className='mt-7'>+ Add new store type</Button>
       </div>
-      <Table rows={storeTypeData} columns={storeTypeCols} onRefresh={handleRefreshStoretype} loading={loadingStoreType} filterKey='storeTypeName'/>
+      <Table rows={storeTypeData} columns={storeTypeCols} onRefresh={handleRefreshStoretype} loading={loadingStoreType} filterKey='storeTypeName' rowsPerPage={2}/>
     </div>
   )
 }
