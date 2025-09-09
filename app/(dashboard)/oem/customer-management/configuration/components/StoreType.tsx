@@ -36,11 +36,11 @@ function StoreType() {
   return (
     <div className='space-y-6'>
       <div className='flex gap-10 bg-white rounded-lg p-5'>
-        <div>
+        <div className='w-1/4'>
           <label>Store Type Name</label>
-          <Input placeholder='Store type name' />
+          <Input placeholder='Store type name' size='sm'/>
         </div>
-        <Button className='mt-7'>+ Add new store type</Button>
+        <Button className='mt-6'>+ Add new store type</Button>
       </div>
       <Table rows={storeTypeData} columns={storeTypeCols} onRefresh={handleRefreshStoretype} loading={loadingStoreType} filterKey='storeTypeName' rowsPerPage={2}/>
     </div>

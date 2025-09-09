@@ -79,7 +79,7 @@ const CustomerDocumentForm: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="bg-white p-6 rounded-lg shadow-sm w-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 lg:grid-cols-4 gap-4 items-end"
@@ -91,6 +91,7 @@ const CustomerDocumentForm: React.FC = () => {
             render={({ field, fieldState }) => (
               <Dropdown
                 {...field}
+                size="sm"
                 label="Select Customer Type"
                 placeholder="Select Customer Type"
                 options={customerTypeOptions}
@@ -106,6 +107,7 @@ const CustomerDocumentForm: React.FC = () => {
             render={({ field, fieldState }) => (
               <Dropdown
                 {...field}
+                size="sm"
                 label="Select Sub Type"
                 placeholder="Select Sub Type"
                 options={subTypeOptions}
@@ -121,6 +123,7 @@ const CustomerDocumentForm: React.FC = () => {
             render={({ field, fieldState }) => (
               <Dropdown
                 {...field}
+                size="sm"
                 label="Select Document"
                 placeholder="Select Document"
                 options={documentOptions}
@@ -130,7 +133,7 @@ const CustomerDocumentForm: React.FC = () => {
           />
 
           {/* Add Button */}
-          <div className="flex justify-start lg:justify-end mb-1">
+          <div className="flex justify-start mb-1">
             <Button type="submit" rounded="full" className="px-6">
               + Add Customer Document
             </Button>

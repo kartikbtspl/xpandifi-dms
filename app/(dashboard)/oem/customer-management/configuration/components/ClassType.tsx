@@ -40,19 +40,19 @@ function ClassType() {
   return (
     <div className='space-y-6'>
       <div className="flex gap-10 p-6 justify-between bg-white rounded-lg">
-        <div>
+        <div className='w-1/4'>
           <label className="block mb-1">Type</label>
-          <Input placeholder="Class Type Name" />
+          <Input placeholder="Class Type Name" size='sm'/>
         </div>
-        <div>
+        <div className='w-1/4'>
           <label className="block mb-1">Frequency</label>
-          <Input placeholder="1" />
+          <Input placeholder="1" size='sm'/>
         </div>
-        <div>
+        <div className='w-1/4'>
           <label className="block mb-1">Sequence</label>
-          <Input placeholder="1" />
+          <Input placeholder="1" size='sm'/>
         </div>
-        <div className="mt-7">
+        <div className="mt-6">
           <Button>+ Add Class Type</Button>
         </div>
       </div>

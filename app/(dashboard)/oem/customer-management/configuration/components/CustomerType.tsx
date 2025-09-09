@@ -38,18 +38,16 @@ function CustomerType() {
 
     return (
       <div className='space-y-6 '>
-        <div className='flex gap-10 p-6 pr-[100px] bg-white'>
-          <div>
+        <div className='flex gap-8 p-6 pr-[100px] bg-white rounded-lg'>
+          <div className='w-1/4 '>
             <label>Main Type :</label>
-            <Input placeholder='Customer type' />
+            <Input placeholder='Customer type'  size='sm'/>
           </div>
-          <div>
+          <div className='w-1/4'>
             <label>Sub type :</label>
-            <Input placeholder='Customer sub type' />
+            <Input placeholder='Customer sub type' size='sm'/>
           </div>
-          <div className='mt-7'>
-            <Button>+ Add cutsomer type</Button>
-          </div>
+          <Button className='mt-6'>+ Add cutsomer type</Button>
         </div>
         <div>
           <Table rows={typeData} columns={customerTypeColumns} onRefresh={handleRefreshCustomerType} loading={loadingType} filterKey='customerType' rowsPerPage={2}/>

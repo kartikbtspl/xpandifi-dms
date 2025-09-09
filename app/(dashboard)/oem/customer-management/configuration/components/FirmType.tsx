@@ -36,11 +36,11 @@ function FirmType() {
   return (
     <div className='space-y-6'>
       <div className='flex gap-10 bg-white rounded-lg p-5'>
-        <div>
+        <div className='w-1/4'>
           <label>Name</label>
-          <Input placeholder='Firm type' />
+          <Input placeholder='Firm type' size='sm'/>
         </div>
-        <Button className='mt-7'>+ Add Firm Type</Button>
+        <Button className='mt-6'>+ Add Firm Type</Button>
       </div>
       <Table rows={firmTypeData} columns={firmTypeCols} onRefresh={handleRefreshFirmtype} loading={loadingFirmType} filterKey='firmTypeName' rowsPerPage={2}/>
     </div>

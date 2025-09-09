@@ -36,11 +36,11 @@ function BusinessSegment() {
   return (
     <div className='space-y-6'>
       <div className='flex gap-10 bg-white rounded-lg p-5'>
-        <div>
+        <div className='w-1/4'>
           <label>Segment Name</label>
-          <Input placeholder='Segament Name' />
+          <Input placeholder='Segament Name' size='sm'/>
         </div>
-        <Button className='mt-7'>+ Add Segment Name</Button>
+        <Button className='mt-6'>+ Add Segment Name</Button>
       </div>
       <Table rows={segmentData} columns={segmentTypeCols} onRefresh={handleBusinessSegment} loading={loadingSegment} filterKey='segmentType' rowsPerPage={2}/>
     </div>
