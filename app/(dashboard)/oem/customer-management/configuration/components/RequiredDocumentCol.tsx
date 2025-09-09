@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import getDocumentCol from './documentCol';
 import Table from '@/components/common/table/Table';
+import Button from '@/components/common/ui/Button';
 
 function RequiredDocumentCol() {
 
@@ -37,10 +38,10 @@ function RequiredDocumentCol() {
   return (
     <div className='space-y-6'>
       <div className='flex justify-end'>
-        <button className="flex items-center gap-2 px-4 border border-[#5D6F9E] text-[#5D6F9E] rounded-md text-sm font-medium ">
+        <Button >
         <span className="text-lg">+</span>
         Add required documents
-      </button>
+      </Button>
       </div>
       
       <Table rows={documentData} columns={documentColumns} onRefresh={handleRefreshDocuments} loading = {loadingDocument} filterKey="customerDocumnetName" rowsPerPage={2}/>
