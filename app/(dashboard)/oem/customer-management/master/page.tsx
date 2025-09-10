@@ -215,9 +215,9 @@ export default function Customer() {
         <button
           onClick={() => {setIsMapView(!isMapView) 
             setIsArchived(false)}}
-          className={`px-4 py-2 rounded-full text-sm font-medium shadow 
+          className={`px-4 py-2 rounded-full text-sm font-medium shadow
             ${isMapView
-              ? "bg-green-600 text-white hover:bg-green-700"
+              ? "bg-[#709EFF33] text-black hover:bg-blue-200"
               : "bg-white text-gray-600 hover:bg-gray-100"
             }`}
         >
@@ -225,7 +225,8 @@ export default function Customer() {
         </button>
 
         {/* Action Buttons */}
-        <button className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white shadow hover:bg-gray-100">
+        <button className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white shadow hover:bg-gray-100"
+          onClick={() => router.push('/oem/customer-management/master/add-customer')}>
           + Add New Customer
         </button>
         <button className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white shadow hover:bg-gray-100" onClick={() => setIsOpen(true)}>
@@ -246,12 +247,18 @@ export default function Customer() {
               {/* Archive selected customer */}
               <button
                 // disabled={selectedCount === 0}
-                onClick={() => {setArchiveOpen(true)
-                  setIsMapView(false)
+                onClick={() => {
+                  if(isArchived) {
+                    setIsArchived(false)
+                  }else{
+                    setArchiveOpen(true)
+                    setIsMapView(false)
+                  }
+                  
                 }}
                 className="flex items-center px-6 py-2 bg-[#445E94] text-white hover:bg-[#445E99] rounded-full"
               >
-                Archive selected customer
+                {isArchived ? "Show Active Customers" : "Archive selected customer"}
               </button>
 
               {/* Assign Routes Distributor */}
@@ -286,6 +293,7 @@ export default function Customer() {
 
         {isArchived === true ? (
           <>
+            {/* <Button>Active List</Button> */}
             <Table
               columns={columns}
               rows={customers}

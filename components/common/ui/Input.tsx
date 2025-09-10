@@ -10,6 +10,7 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "
   endIcon?: React.ReactNode;
   variant?: "default" | "filled" | "outlined";
   size?: "sm" | "md" | "lg";
+  required?: boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -25,6 +26,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       variant = "default",
       size = "md",
       disabled,
+      required,
       ...props
     },
     ref
@@ -68,6 +70,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label className="text-sm font-medium text-gray-700">
             {label}
+            {required && <span className="text-red-500 ">*</span>}
           </label>
         )}
         

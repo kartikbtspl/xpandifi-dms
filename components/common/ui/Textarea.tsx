@@ -4,6 +4,7 @@ import React, { forwardRef } from "react"
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string
   error?: string
+  required?: boolean
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
@@ -11,12 +12,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
   error,
   rows = 4,
   className = "",
+  required,
   ...props
 }, ref) => {
   const base = "w-full border border-gray-300 rounded-3xl p-3 focus:outline-none focus:ring-2 focus:ring-blue-200"
   return (
     <div className="w-full">
-      {label && <label className="block mb-1 text-gray-700">{label}</label>}
+      {label && <label className="block mb-1 text-gray-700">{label}{required && <span className="text-red-500 ">*</span>}</label>}
       <textarea
         ref={ref}
         rows={rows}

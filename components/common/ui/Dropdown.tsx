@@ -24,6 +24,8 @@ interface DropdownProps {
   clearable?: boolean;
   className?: string;
   name?: string;
+  required?: boolean;
+  plusButton?: React.ReactNode;
 }
 
 const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
@@ -43,6 +45,8 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       clearable = false,
       className = "",
       name,
+      required,
+      plusButton,
       ...props
     },
     ref
@@ -135,7 +139,15 @@ const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     return (
       <div className="flex flex-col space-y-1" ref={dropdownRef}>
         {label && (
-          <label className="text-sm font-medium text-gray-700">{label}</label>
+          <label className="text-sm font-medium text-gray-700">
+            {label}
+            {required && <span className="text-red-500">*</span>}
+            {plusButton && (
+              <span className="ml-2 cursor-pointer hover:text-blue-700">
+                {plusButton}
+              </span>
+            )}
+          </label>
         )}
 
         <div className="relative">

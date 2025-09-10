@@ -60,9 +60,9 @@ export default function LoginPage() {
 
       if (success) {
         if (role === "OEM") {
-          router.push("/oem");
+          router.push("/oem/dashboard");
         } else if (role === "DMS") {
-          router.push("/dms");
+          router.push("/dms/dashboard");
         }
       } else {
         setError("Email address and Password not matching");

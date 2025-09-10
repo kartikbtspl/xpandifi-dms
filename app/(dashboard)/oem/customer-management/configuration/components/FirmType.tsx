@@ -22,7 +22,7 @@ function FirmType() {
         },
       ])
 
-      const firmTypeCols = getStoreTypeCol();
+    const firmTypeCols = getStoreTypeCol();
   
     const [loadingFirmType, setLoadingFirmType] = useState(false);
   
