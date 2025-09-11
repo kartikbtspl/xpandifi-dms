@@ -140,7 +140,7 @@ const SearchDistributors: React.FC = () => {
         <Button variant="outline" onClick={handleReset} size="sm">
           Reset
         </Button>
-        <Button size="sm" >Show Archive Distributors</Button>
+        <Button size="sm" className="">Show Archive Distributors</Button>
       </div>
     </div>
   );

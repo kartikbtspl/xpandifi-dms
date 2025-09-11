@@ -105,10 +105,13 @@ export default function AddNewCustomer() {
   const customerTypeOptions = [
     { value: "cType1", label: "CType 1" },
     { value: "cType2", label: "CType 2" },
+    
   ];
   const customerSubTypeOptions = [
     { value: "subtype1", label: "Subtype 1" },
     { value: "subtype2", label: "Subtype 2" },
+    { value: "cType3", label: "CType 3" },
+    { value: "cType4", label: "CType 4" },
   ];
 
   const onSubmit: SubmitHandler<CustomerFormData> = (data) => {

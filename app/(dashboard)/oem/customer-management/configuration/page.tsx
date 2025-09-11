@@ -7,9 +7,9 @@ const Configuration = () => {
     <div className='space-y-6'>
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/dashboard" },
-          { label: "Customer Management", href: "/customer-management" },
-          { label: "Customer Configuration", href: "/customer-management/configuration" },
+          { label: "Home", href: "/oem" },
+          { label: "Customer Management", href: "/oem/customer-management" },
+          { label: "Customer Configuration", href: "/oem/customer-management/configuration" },
         ]}
       />
       <Tabs />
