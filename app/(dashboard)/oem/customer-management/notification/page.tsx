@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react'
 import BreadCrumb from '@/components/common/ui/BreadCrumb'
-import SearchCustomer from './components/SearchCustomer'
 import getCustomerNotificationCol from './components/customerNotificationCol'
 import Table from '@/components/common/table/Table'
 
@@ -48,12 +47,11 @@ const Notification = () => {
    <div className='space-y-6'>
     <BreadCrumb 
     crumbs={[
-          { label: "Home", href: "/dashboard" },
-          { label: "Customer Management", href: "/customer-management" },
-          { label: "Customer Notification", href: "/customer-management/notification" },
+          { label: "Home", href: "/oem" },
+          { label: "Customer Management", href: "/oem/customer-management" },
+          { label: "Customer Notification", href: "/oem/customer-management/notification" },
         ]}/>
       <h1 className="text-3xl text-[#5D6F9E] font-bold mb-4">Customer Notification</h1>
-      <SearchCustomer />
       <Table rows={searchData} columns={notificationColumns} onRefresh={handleRefreshNotification} loading = {loadingNotification} filterKey="customerName" rowsPerPage={3}/>
     </div>
   )

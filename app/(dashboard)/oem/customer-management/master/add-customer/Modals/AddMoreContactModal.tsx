@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Modal from "@/components/common/ui/Modal";
 import Button from "@/components/common/ui/Button";
+import { useRouter } from "next/navigation";
 
 interface AddMoreContactModalProps {
   isOpen: boolean;
@@ -25,10 +26,37 @@ const AddMoreContactModal: React.FC<AddMoreContactModalProps> = ({
     mobile: "",
     designation: "",
   });
+  const router = useRouter();
+  const [contacts, setContacts] = useState<
+    { customerName: string; email: string; mobile: string; designation: string }[]
+  >([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleAdd = () => {
+    // Save to internal state
+    setContacts((prev) => {
+      const updated = [...prev, formData];
+      console.log("✅ Contacts List:", updated); // log all saved contacts
+      return updated;
+    });
+
+    // Still notify parent if needed
+    onConfirm(formData);
+
+    // Reset form
+    setFormData({ customerName: "", email: "", mobile: "", designation: "" });
+
+       
+    // Close modal (optional)
+    onClose();
+  };
+  const handleAddRedirect = () => {
+    handleAdd();
+    router.push("/oem/customer-management/master/more-contacts"); 
+  }
 
   const footer = (
     <div className="flex justify-center gap-4">
@@ -41,7 +69,7 @@ const AddMoreContactModal: React.FC<AddMoreContactModalProps> = ({
       </Button>
       <Button
         variant="primary"
-        onClick={() => onConfirm(formData)}
+        onClick={handleAddRedirect}
         className="px-8 rounded-full"
         disabled={
           !formData.customerName ||

@@ -207,7 +207,7 @@ export default function Customer() {
         { label: "Customer Management", href: "/customer-management" },
         { label: "Customer Master", href: "/customer-management/master" },
       ]} />
-      <h1 className="text-3xl font-bold mb-4">Customer Master</h1>
+      <h1 className="text-3xl font-bold mb-4 text-[#5D6F9E]">Customer Master</h1>
       <SearchFilters />
 
       <div className="flex items-center gap-2 p-2 rounded-full">

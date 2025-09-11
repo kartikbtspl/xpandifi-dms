@@ -1,11 +1,11 @@
 import React from 'react'
+import CustomerApprovalRequest from './approval-request/page'
 
 const CustomerManagement = () => {
   return (
-   <div>
-      <h1 className="text-3xl font-bold mb-4">Customer Management</h1>
-      <p>Work In Progress</p>
-    </div>
+   <>
+   <CustomerApprovalRequest />
+   </>
   )
 }
 
