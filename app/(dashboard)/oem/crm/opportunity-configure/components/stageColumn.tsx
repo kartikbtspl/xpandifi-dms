@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { FiTrash2 } from "react-icons/fi";
-import { MdAttachFile, MdModeEditOutline } from "react-icons/md"; 
+import { MdAttachFile, MdModeEditOutline } from "react-icons/md";
 
 export interface Column {
   id: string; // ✅ Correct key name
@@ -9,7 +9,7 @@ export interface Column {
   render?: (row: any) => React.ReactNode;
 }
 
-const getStageCol = (): Column[] => [
+const getStageCol = (onEdit: (row: any) => void, onDelete?: (row: any) => void): Column[] => [
   {
     id: 'srNo',
     label: 'Sr. No',
@@ -39,22 +39,28 @@ const getStageCol = (): Column[] => [
     ),
   },
   {
-      id: "action",
-      label: "Action",
-      render: (row) => (
-        <div className="flex items-center gap-3 text-gray-600">
-          {/* Edit Icon */}
-          <MdModeEditOutline
-            size={20}
-            // className="cursor-pointer hover:text-blue-500"
-          />
-  
-          {/* Delete Icon */}
-          <FiTrash2 size={20}/>
-        </div>
-      ),
-    },
-  
+    id: "action",
+    label: "Action",
+    render: (row) => (
+      <div className="flex items-center gap-3 text-gray-600">
+        {/* Edit Icon */}
+        <MdModeEditOutline
+          size={20}
+          title="Edit"
+          className="cursor-pointer hover:text-blue-500"
+          onClick={() => onEdit(row)}
+        />
+        {/* Delete Icon */}
+        <FiTrash2
+          size={20}
+          title="Delete"
+          className="cursor-pointer hover:text-red-500"
+          onClick={() => onDelete && onDelete(row)}
+        />
+      </div>
+    ),
+  },
+
 ];
 
 export default getStageCol;

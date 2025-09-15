@@ -7,6 +7,8 @@ import Dropdown from "@/components/common/ui/Dropdown";
 import Button from "@/components/common/ui/Button";
 import getStageCol from "./stageColumn";
 import Table from "@/components/common/table/Table";
+import EditStageModal from "./Modals/EditStageModal";
+import DeleteStageModal from "./Modals/DeleteStageModal";
 
 type FormValues = {
   stage: string;
@@ -29,21 +31,47 @@ const StageSearch: React.FC = () => {
     { value: "zone3", label: "Zone 3" },
   ];
 
-  const [stageeData, setStageData] = useState([
+  const [stageData, setStageData] = useState([
     { id: 1, srNo: "1", stage: 'ABC', sequence: 1, percentage: "12", action: "" },
     { id: 2, srNo: "2", stage: 'XYZ', sequence: 2, percentage: "42", action: "" },
     { id: 3, srNo: "3", stage: 'PQR', sequence: 3, percentage: "25", action: "" },
   ])
 
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState<any>(null);
+
   const [loadingStage, setloadingStage] = useState(false);
 
-  const stageColumns = getStageCol();
+   const handleEdit = (row: any) => {
+    setSelectedRow(row);
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteClick = (row: any) => {
+    setSelectedRow(row);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleSaveEdit = (updatedRow: any) => {
+    setStageData((prev) =>
+      prev.map((item) => (item.id === updatedRow.id ? updatedRow : item))
+    );
+  };
+
+  const confirmDelete = () => {
+    setStageData((prev) => prev.filter((item) => item.id !== selectedRow.id));
+    setIsDeleteModalOpen(false);
+    setSelectedRow(null);
+  };
+
+  const stageColumns = getStageCol(handleEdit, handleDeleteClick);
 
   const handleRefreshStage = () => {
     setloadingStage(true);
     setTimeout(() => {
       setloadingStage(false);
-      setStageData(stageeData);
+      setStageData(stageData);
     }, 1000)
   };
 
@@ -115,7 +143,22 @@ const StageSearch: React.FC = () => {
           </div>
         </form>
       </div>
-      <Table rows={stageeData} columns={stageColumns} loading={loadingStage} onRefresh={handleRefreshStage} filterKey='stage' />
+      <Table rows={stageData} columns={stageColumns} loading={loadingStage} onRefresh={handleRefreshStage} filterKey='stage' />
+
+      {/* Edit Modal  */}
+      <EditStageModal 
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        row={selectedRow}
+        onSave={handleSaveEdit}
+      />
+
+      {/* Delete Modal  */}
+      <DeleteStageModal 
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 };

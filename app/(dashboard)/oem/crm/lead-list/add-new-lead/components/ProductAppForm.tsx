@@ -6,6 +6,7 @@ import Dropdown from "@/components/common/ui/Dropdown";
 import Button from "@/components/common/ui/Button";
 import getProductAppCol from "./productAppCol";
 import Table from "@/components/common/table/Table";
+import ProductAppDeleteModal from "./Modal/ProductAppDeleteModal";
 
 type FormValues = {
   productApplication: string;
@@ -32,8 +33,22 @@ const ProductAppForm: React.FC = () => {
     ])
   
     const [loadingProductApp, setLoadingProductApp] = useState(false);
+
+      const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+      const [selectedRow, setSelectedRow] = useState<any>(null);
+
+    const handleDeleteClick = (row: any) => {
+      setSelectedRow(row);
+      setIsDeleteModalOpen(true);
+    };
+
+    const confirmDelete = () => {
+    setAppData((prev) => prev.filter((item) => item.id !== selectedRow.id));
+    setIsDeleteModalOpen(false);
+    setSelectedRow(null);
+  };
   
-    const appColumns = getProductAppCol();
+    const appColumns = getProductAppCol(handleDeleteClick);
   
     const handleRefreshAppProduct = () => {
         setLoadingProductApp(true);
@@ -128,6 +143,13 @@ const ProductAppForm: React.FC = () => {
       </div>
     </form>
     <Table rows={appData} columns={appColumns} onRefresh={handleRefreshAppProduct}loading={loadingProductApp} filterKey="productApplication" />
+
+    {/* Delete Modal  */}
+    <ProductAppDeleteModal 
+      isOpen={isDeleteModalOpen}
+      onClose={() => setIsDeleteModalOpen(false)}
+      onConfirm={confirmDelete}
+    />
     </div>
   );
 };

@@ -1,54 +1,50 @@
-"use client"
+// leadTypeColumn.tsx
+"use client";
 import React from "react";
 import { FiTrash2 } from "react-icons/fi";
-import { MdAttachFile, MdModeEditOutline } from "react-icons/md"; 
 
 export interface Column {
-  id: string; // ✅ Correct key name
+  id: string;
   label: string;
   render?: (row: any) => React.ReactNode;
 }
 
-const getProductAppCol = (): Column[] => [
+const getProductAppCol = (onDelete?: (row: any) => void): Column[] => [
   {
-    id: 'srNo',
-    label: 'Sr. No',
-    render: (row) => (
-      <span className="text-gray-700 cursor-pointer">{row.srNo}</span>
-    ),
+    id: "srNo",
+    label: "Sr. No",
+    render: (row) => <span className="text-gray-700">{row.srNo}</span>,
   },
   {
-    id: 'productApplication',
-    label: 'Product Application',
-    render: (row) => (
-      <span className="text-gray-700 cursor-pointer">{row.productApplication}</span>
-    ),
+    id: "productApplication",
+    label: "Product Application",
+    render: (row) => <span className="text-gray-700">{row.productApplication}</span>,
   },
   {
-    id: 'quantity',
-    label: 'Quantity',
-    render: (row) => (
-      <span className="text-gray-700 cursor-pointer">{row.quantity}</span>
-    ),
+    id: "quantity",
+    label: "Quantity",
+    render: (row) => <span className="text-gray-700">{row.quantity}</span>,
   },
   {
-    id: 'umoSize',
-    label: 'UmoSize',
-    render: (row) => (
-      <span className="text-gray-700 cursor-pointer">{row.umoSize}</span>
-    ),
+    id: "umoSize",
+    label: "UMO Size",
+    render: (row) => <span className="text-gray-700">{row.umoSize}</span>,
   },
   {
-      id: "action",
-      label: "Action",
-      render: (row) => (
-        <div className="flex items-center gap-3 text-gray-600">
-          {/* Delete Icon */}
-          <FiTrash2 size={20}/>
-        </div>
-      ),
-    },
-  
+    id: "action",
+    label: "Action",
+    render: (row) => (
+      <div className="flex items-center gap-3 text-gray-600">
+        {/* Delete Icon */}
+        <FiTrash2
+          size={20}
+          title="Delete"
+          className="cursor-pointer hover:text-red-500"
+          onClick={() => onDelete && onDelete(row)}
+        />
+      </div>
+    ),
+  },
 ];
 
 export default getProductAppCol;
