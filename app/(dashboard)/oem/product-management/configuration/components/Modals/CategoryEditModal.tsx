@@ -17,12 +17,19 @@ const CategoryEditModal: React.FC<CategoryEditModalProps> = ({
   row,
   onSave,
 }) => {
+
+  const [categoryName, setCategoryName] = React.useState(row?.categoryName || "");
+
+  React.useEffect(() => {
+        if (row) {
+          setCategoryName(row.stage || "");
+        }
+      }, [row]);
+
   if (!row) return null;
 
-  const [categroyName, setCategroyName] = React.useState(row.categroyName);
-
   const handleSave = () => {
-    onSave({ ...row, categroyName });
+    onSave({ ...row, categoryName });
     onClose();
   };
 
@@ -50,11 +57,11 @@ const CategoryEditModal: React.FC<CategoryEditModalProps> = ({
     >
       <div className="flex flex-col gap-4">
         <div>
-          <label className="block text-sm font-medium">Brand Name:</label>
+          <label className="block text-sm font-medium">Category:</label>
           <Input
             type="text"
-            value={categroyName}
-            onChange={(e) => setCategroyName(e.target.value)}
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
           />
         </div>
       </div>

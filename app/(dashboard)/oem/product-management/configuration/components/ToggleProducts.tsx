@@ -1,13 +1,16 @@
 "use client"
 import { useState } from "react";
 import BrandDetails from "./BrandDetails";
+import Category from "./Category";
+import SubCategory from "./SubCategory";
+import PackUnits from "./PackUnits"
 
 export default function LeadTabs() {
   const tabs = [
     { label: "Brand Details", content: <><BrandDetails /></> },
-    { label: "Category", content: <></> },
-    { label: "Sub-category", content:  <></> },
-    { label: "Pack Units", content: <></> },
+    { label: "Category", content: <><Category /></> },
+    { label: "Sub-category", content:  <><SubCategory /></> },
+    { label: "Pack Units", content: <><PackUnits /></> },
   ];
 
   const [active, setActive] = useState(tabs[0].label);

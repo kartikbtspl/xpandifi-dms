@@ -5,6 +5,7 @@ import Button from "@/components/common/ui/Button";
 import Input from "@/components/common/ui/Input";
 import { Textarea } from "@/components/common/ui/Textarea";
 import Image from "next/image";
+import Breadcrumb from "@/components/common/ui/BreadCrumb";
 
 export default function ProductView() {
   const [activeTab, setActiveTab] = useState("basic");
@@ -47,18 +48,21 @@ export default function ProductView() {
   ];
 
   return (
-    <div>
+    <div className="space-y-4">
       <div>
         {/* Back Button */}
-        <Button variant="outline" className="rounded-full px-4 mb-2" onClick={() => history.back()}>
+        <Button  className="rounded-full px-4 mb-4 cursor-pointer" onClick={() => history.back()}>
           ← Back
         </Button>
 
         {/* Breadcrumb */}
-        <p className="text-sm text-gray-500 mb-2">
-          Dashboard &gt; Product &gt;{" "}
-          <span className="text-[#445E94] font-medium">View Product</span>
-        </p>
+        <Breadcrumb
+                crumbs={[
+                  { label: "Home", href: "/oem" },
+                  { label: "Product Management", href: "/oem/product-management" },
+                  { label: "View Product", href: `/oem/product-management/products/` },
+                ]}
+              />
       </div>
 
       {/* Tabs + Content */}

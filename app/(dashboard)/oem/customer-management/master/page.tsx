@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import { FiMoreVertical } from "react-icons/fi";
 import Breadcrumb from "@/components/common/ui/BreadCrumb";
 import ImportCreditModal from "./components/modals/ImportCreditModal";
+import CustomerEditModal from "./components/modals/CustomerEditModal";
+import CustomerDeleteModal from "./components/modals/CustomerDeleteModal";
 
 export default function Customer() {
   const router = useRouter();
@@ -42,7 +44,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 2,
@@ -56,7 +59,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 3,
@@ -70,7 +74,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 4,
@@ -84,7 +89,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 5,
@@ -98,7 +104,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 6,
@@ -112,7 +119,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 7,
@@ -126,7 +134,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 8,
@@ -140,7 +149,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 9,
@@ -154,7 +164,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 10,
@@ -168,7 +179,8 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
     {
       id: 11,
@@ -182,19 +194,40 @@ export default function Customer() {
       createdBy: "Anup Naik",
       mobile: "77220116",
       createdDate: "2019-08-01 13:14:00.0",
-      blank: <FiMoreVertical />
+      // blank: <FiMoreVertical />
+      action: "",
     },
   ]);
 
   const [loading, setLoading] = useState(false);
   const [selectedRow, setSelectedRow] = useState<any>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const columns = getCustomerColumns((row) => {
-    router.push(`/oem/customer-management/master/${row.id}`);
+  const handleEdit = (row: any) => {
     setSelectedRow(row);
-    setModalOpen(true);
-  });
+    setIsEditModalOpen(true);
+  };
+
+  const handleDeleteClick = (row: any) => {
+    setSelectedRow(row);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleSaveEdit = (updatedRow: any) => {
+    setCustomers(prev =>
+      prev.map(item => (item.id === updatedRow.id ? updatedRow : item))
+    );
+  };
+
+  const confirmDelete = () => {
+    setCustomers((prev) => prev.filter((item) => item.id !== selectedRow.id));
+    setIsDeleteModalOpen(false);
+    setSelectedRow(null);
+  };
+
+  const columns = getCustomerColumns(handleEdit, handleDeleteClick, router);
 
   const handleRefresh = () => {
     setLoading(true);
@@ -213,8 +246,10 @@ export default function Customer() {
       <div className="flex items-center gap-2 p-2 rounded-full">
         {/* Toggle: Map View / List */}
         <button
-          onClick={() => {setIsMapView(!isMapView) 
-            setIsArchived(false)}}
+          onClick={() => {
+            setIsMapView(!isMapView)
+            setIsArchived(false)
+          }}
           className={`px-4 py-2 rounded-full text-sm font-medium shadow
             ${isMapView
               ? "bg-[#709EFF33] text-black hover:bg-blue-200"
@@ -248,13 +283,13 @@ export default function Customer() {
               <button
                 // disabled={selectedCount === 0}
                 onClick={() => {
-                  if(isArchived) {
+                  if (isArchived) {
                     setIsArchived(false)
-                  }else{
+                  } else {
                     setArchiveOpen(true)
                     setIsMapView(false)
                   }
-                  
+
                 }}
                 className="flex items-center px-6 py-2 bg-[#445E94] text-white hover:bg-[#445E99] rounded-full"
               >
@@ -297,7 +332,6 @@ export default function Customer() {
             <Table
               columns={columns}
               rows={customers}
-              onRowClick={row => router.push(`/oem/customer-management/master/${row.id}`)}
               filterKey="cityType"
               onRefresh={handleRefresh}
               loading={loading}
@@ -307,24 +341,23 @@ export default function Customer() {
           </>
         ) : (
           <>
-          {
-            isMapView === true ? (<>
-            <div className="w-full h-[500px] rounded-lg overflow-hidden shadow">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16982.716348798855!2d73.77523134811534!3d18.552841063341223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1757420314356!5m2!1sen!2sin" width="100%" height="450" loading="lazy"></iframe>
-            </div>
-            </> ) : (<>
-            <Table
-              columns={columns}
-              rows={customers}
-              onRowClick={row => router.push(`/oem/customer-management/master/${row.id}`)}
-              filterKey="cityType"
-              onRefresh={handleRefresh}
-              loading={loading}
-              showPagination={true}
-              rowsPerPage={10}
-            />
-            </>)
-          }  
+            {
+              isMapView === true ? (<>
+                <div className="w-full h-[500px] rounded-lg overflow-hidden shadow">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16982.716348798855!2d73.77523134811534!3d18.552841063341223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1757420314356!5m2!1sen!2sin" width="100%" height="450" loading="lazy"></iframe>
+                </div>
+              </>) : (<>
+                <Table
+                  columns={columns}
+                  rows={customers}
+                  filterKey="cityType"
+                  onRefresh={handleRefresh}
+                  loading={loading}
+                  showPagination={true}
+                  rowsPerPage={10}
+                />
+              </>)
+            }
           </>
         )
         }
@@ -344,6 +377,19 @@ export default function Customer() {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         onConfirm={handleConfirm}
+      />
+
+      <CustomerEditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        row={selectedRow}
+        onSave={handleSaveEdit}
+      />
+
+      <CustomerDeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
       />
     </div>
   );

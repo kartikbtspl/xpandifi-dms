@@ -17,9 +17,16 @@ const BrandEditModal: React.FC<BrandEditModalProps> = ({
   row,
   onSave,
 }) => {
-  if (!row) return null;
 
-  const [brandName, setBrandName] = React.useState(row.brandName);
+  const [brandName, setBrandName] = React.useState(row?.brandName || "");
+
+  React.useEffect(() => {
+      if (row) {
+        setBrandName(row.stage || "");
+      }
+    }, [row]);
+
+  if (!row) return null;
 
   const handleSave = () => {
     onSave({ ...row, brandName });

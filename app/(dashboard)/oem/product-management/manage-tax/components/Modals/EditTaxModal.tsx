@@ -17,11 +17,20 @@ const EditTaxModal: React.FC<EditTaxModalProps> = ({
   row,
   onSave,
 }) => {
-  if (!row) return null;
 
-  const [taxCode, setTaxCode] = React.useState(row.taxCode);
-  const [taxName, setTaxName] = React.useState(row.taxName);
-  const [percentage, setPercentage] = React.useState(row.percentage);
+  const [taxCode, setTaxCode] = React.useState(row?.taxCode || "");
+  const [taxName, setTaxName] = React.useState(row?.taxName || "");
+  const [percentage, setPercentage] = React.useState(row?.percentage || "");
+
+  React.useEffect(() => {
+      if (row) {
+        setTaxCode(row.shortForm || "");
+        setTaxName(row.longForm || "");
+        setPercentage(row.defaultValue || "");
+      }
+    }, [row]);
+
+  if (!row) return null;
 
   const handleSave = () => {
     onSave({ ...row, taxCode, taxName, percentage });

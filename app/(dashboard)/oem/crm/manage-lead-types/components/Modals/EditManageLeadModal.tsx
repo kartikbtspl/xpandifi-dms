@@ -17,10 +17,17 @@ const EditManageLeadModal: React.FC<EditManageLeadModalProps> = ({
   row,
   onSave,
 }) => {
-  if (!row) return null;
+  const [leadTypeName, setLeadTypeName] = React.useState(row?.leadTypeName || "");
+  const [sequence, setSequence] = React.useState(row?.sequence || 0);
 
-  const [leadTypeName, setLeadTypeName] = React.useState(row.leadTypeName);
-  const [sequence, setSequence] = React.useState(row.sequence);
+  React.useEffect(() => {
+    if (row) {
+      setLeadTypeName(row.leadTypeName || "");
+      setSequence(row.sequence || 0);
+    }
+  }, [row]);
+
+  if (!row) return null;
 
   const handleSave = () => {
     onSave({ ...row, leadTypeName, sequence });
@@ -35,17 +42,8 @@ const EditManageLeadModal: React.FC<EditManageLeadModalProps> = ({
       size="md"
       footer={
         <div className="flex justify-end gap-2">
-          <Button
-            onClick={onClose}
-            variant="outline"
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleSave}
-          >
-            Save
-          </Button>
+          <Button onClick={onClose} variant="outline">Cancel</Button>
+          <Button onClick={handleSave}>Save</Button>
         </div>
       }
     >

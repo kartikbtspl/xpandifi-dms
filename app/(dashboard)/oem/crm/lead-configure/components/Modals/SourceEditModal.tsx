@@ -17,13 +17,22 @@ const SourceEditModal: React.FC<SourceEditModalProps> = ({
   row,
   onSave,
 }) => {
+  
+
+  const [leadSourceName, setLeadSourceName] = React.useState(row?.leadSourceName || "");
+  const [sequence, setSequence] = React.useState(row?.sequence || 0);
+  
+  React.useEffect(() => {
+    if (row) {
+      setLeadSourceName(row.leadSourceName || "");
+      setSequence(row.sequence || 0);
+    }
+  }, [row]);
+
   if (!row) return null;
 
-  const [leadTypeName, setLeadTypeName] = React.useState(row.leadTypeName);
-  const [sequence, setSequence] = React.useState(row.sequence);
-
   const handleSave = () => {
-    onSave({ ...row, leadTypeName, sequence });
+    onSave({ ...row, leadSourceName, sequence });
     onClose();
   };
 
@@ -54,8 +63,8 @@ const SourceEditModal: React.FC<SourceEditModalProps> = ({
           <label className="block text-sm font-medium">Lead Type:</label>
           <Input
             type="text"
-            value={leadTypeName}
-            onChange={(e) => setLeadTypeName(e.target.value)}
+            value={leadSourceName}
+            onChange={(e) => setLeadSourceName(e.target.value)}
           />
         </div>
         <div>

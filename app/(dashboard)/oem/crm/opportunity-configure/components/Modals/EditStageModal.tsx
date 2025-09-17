@@ -17,11 +17,19 @@ const EditStageModal: React.FC<EditStageModalProps> = ({
   row,
   onSave,
 }) => {
-  if (!row) return null;
+  const [stage, setStage] = React.useState(row?.stage || "");
+  const [sequence, setSequence] = React.useState(row?.sequence || 0);
+  const [percentage, setPercentage] = React.useState(row?.percentage || 0);
 
-  const [stage, setStage] = React.useState(row.stage);
-  const [sequence, setSequence] = React.useState(row.sequence);
-  const [percentage, setPercentage] = React.useState(row.percentage);
+  React.useEffect(() => {
+    if (row) {
+      setStage(row.stage || "");
+      setSequence(row.sequence || 0);
+      setPercentage(row.percentage || 0);
+    }
+  }, [row]);
+
+  if (!row) return null;
 
   const handleSave = () => {
     onSave({ ...row, stage, sequence, percentage });
@@ -36,17 +44,10 @@ const EditStageModal: React.FC<EditStageModalProps> = ({
       size="md"
       footer={
         <div className="flex justify-end gap-2">
-          <Button
-            onClick={onClose}
-            variant="outline"
-          >
+          <Button onClick={onClose} variant="outline">
             Cancel
           </Button>
-          <Button
-            onClick={handleSave}
-          >
-            Save
-          </Button>
+          <Button onClick={handleSave}>Save</Button>
         </div>
       }
     >

@@ -14,9 +14,7 @@ const getActiveProductColumns = (
   {
     id: "srNo",
     label: "Sr. No",
-    render: (_, index) => (
-      <span className="text-gray-700">{String(index! + 1).padStart(2, "0")}</span>
-    ),
+    render: (row) => <span className="text-gray-700">{row.srNo}</span>,
   },
   {
     id: "productName",

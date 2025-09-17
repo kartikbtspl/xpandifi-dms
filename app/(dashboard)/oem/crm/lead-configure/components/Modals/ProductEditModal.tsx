@@ -17,11 +17,20 @@ const ProductEditModal: React.FC<EditLeadTypeModalProps> = ({
   row,
   onSave,
 }) => {
-  if (!row) return null;
+  const [productApplication, setProductApplication] = React.useState(row?.productApplication || "");
+  const [sequence, setSequence] = React.useState(row?.sequence || 0);
+  const [umoSize, setUmoSize] = React.useState(row?.umoSize || "");
 
-  const [productApplication, setProductApplication] = React.useState(row.productApplication);
-  const [sequence, setSequence] = React.useState(row.sequence);
-  const [umoSize, setUmoSize] = React.useState(row.umoSize);
+  // ✅ Sync internal state with row data when it changes
+  React.useEffect(() => {
+    if (row) {
+      setProductApplication(row.productApplication || "");
+      setSequence(row.sequence || 0);
+      setUmoSize(row.umoSize || "");
+    }
+  }, [row]);
+
+  if (!row) return null;
 
   const handleSave = () => {
     onSave({ ...row, productApplication, sequence, umoSize });
@@ -36,17 +45,8 @@ const ProductEditModal: React.FC<EditLeadTypeModalProps> = ({
       size="md"
       footer={
         <div className="flex justify-end gap-2">
-          <Button
-            onClick={onClose}
-            variant="outline"
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleSave}
-          >
-            Save
-          </Button>
+          <Button onClick={onClose} variant="outline">Cancel</Button>
+          <Button onClick={handleSave}>Save</Button>
         </div>
       }
     >

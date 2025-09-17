@@ -17,13 +17,21 @@ const IndustryEditModal: React.FC<IndustryEditModalProps> = ({
   row,
   onSave,
 }) => {
+
+  const [leadIndustryName, setLeadIndustryName] = React.useState(row?.leadIndustryName || "");
+  const [sequence, setSequence] = React.useState(row?.sequence || 0);
+
+  React.useEffect(() => {
+    if (row) {
+      setLeadIndustryName(row.leadIndustryName || "");
+      setSequence(row.sequence || 0);
+    }
+  }, [row]);
+  
   if (!row) return null;
 
-  const [leadTypeName, setLeadTypeName] = React.useState(row.leadTypeName);
-  const [sequence, setSequence] = React.useState(row.sequence);
-
   const handleSave = () => {
-    onSave({ ...row, leadTypeName, sequence });
+    onSave({ ...row, leadIndustryName, sequence });
     onClose();
   };
 
@@ -51,11 +59,11 @@ const IndustryEditModal: React.FC<IndustryEditModalProps> = ({
     >
       <div className="flex flex-col gap-4">
         <div>
-          <label className="block text-sm font-medium">Lead Type:</label>
+          <label className="block text-sm font-medium">Lead Industry Name:</label>
           <Input
             type="text"
-            value={leadTypeName}
-            onChange={(e) => setLeadTypeName(e.target.value)}
+            value={leadIndustryName}
+            onChange={(e) => setLeadIndustryName(e.target.value)}
           />
         </div>
         <div>

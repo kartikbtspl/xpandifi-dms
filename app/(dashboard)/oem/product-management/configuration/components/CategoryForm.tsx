@@ -49,7 +49,7 @@ export default function CategoryForm({ onAddCategory }: CategoryFormProps) {
 
         <div className="flex justify-start mt-6">
           <Button type="submit" size="sm" className="flex items-center gap-2">
-            <span className="text-xl">+</span> Add Brand Details
+            <span className="text-xl">+</span> Add Category
           </Button>
         </div>
       </form>
