@@ -20,7 +20,8 @@ export default function BrandDetailsForm({ onAddBrand }: BrandDetailsFormProps) 
   });
 
   const onSubmit = (data: FormValues) => {
-    onAddBrand(data); // ✅ send to parent
+    if (!data.brandName.trim()) return; // 🚫 prevent empty value
+    onAddBrand(data); 
     reset();
   };
 
