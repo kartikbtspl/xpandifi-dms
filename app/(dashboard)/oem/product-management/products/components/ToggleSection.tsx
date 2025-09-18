@@ -127,31 +127,28 @@ export default function SegmentedControl() {
             setActiveTab("archive");
             setShowArchive(!showArchive); // toggle here
           }}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-            activeTab === "archive"
+          className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === "archive"
               ? "bg-[#445E94] text-white"
               : "text-gray-600 hover:text-[#445E94]"
-          }`}
+            }`}
         >
           {showArchive ? "Show Active Products" : "Show Archive Products"}
         </button>
         <button
           onClick={() => setActiveTab("price")}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-            activeTab === "price"
+          className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === "price"
               ? "bg-[#445E94] text-white"
               : "text-gray-600 hover:text-[#445E94]"
-          }`}
+            }`}
         >
           Show Price Master
         </button>
         <button
           onClick={() => setActiveTab("export")}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-            activeTab === "export"
+          className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === "export"
               ? "bg-[#445E94] text-white"
               : "text-gray-600 hover:text-[#445E94]"
-          }`}
+            }`}
         >
           Export Price Master
         </button>
@@ -170,11 +167,10 @@ export default function SegmentedControl() {
               <Button variant="primary">Export</Button>
             </div>
           </div>
-
+          <hr className="text-gray-200" />
           <Table
             columns={columns}
             rows={showArchive ? archiveProducts : products}
-            // onRowClick={handleRowClick}
             showPagination={true}
             rowsPerPage={10}
           />
@@ -183,28 +179,28 @@ export default function SegmentedControl() {
       {
         activeTab === "price" && (
           <>
-          
-          <div className="bg-white rounded-2xl shadow-sm p-4">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-[#4B5565]">
-              Product Price Master List
-            </h2>
-            <div className="flex items-center gap-3">
-              <Button variant="outline">Import</Button>
-              <Button variant="primary">Export</Button>
-            </div>
-          </div>
 
-          <Table
-            columns={priceMasterColumns}
-            rows={priceMasterListData}
-            showPagination={true}
-            onRefresh={handleRefreshPriceMaster}
-            loading={loadingPriceMaster}
-            filterKey="priceMasterId"
-            rowsPerPage={10}
-          />
-        </div>
+            <div className="bg-white rounded-2xl shadow-sm p-4">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-[#4B5565]">
+                  Product Price Master List
+                </h2>
+                <div className="flex items-center gap-3">
+                  <Button variant="outline">Import</Button>
+                  <Button variant="primary">Export</Button>
+                </div>
+              </div>
+              <hr className="text-gray-200" />
+              <Table
+                columns={priceMasterColumns}
+                rows={priceMasterListData}
+                showPagination={true}
+                onRefresh={handleRefreshPriceMaster}
+                loading={loadingPriceMaster}
+                filterKey="priceMasterId"
+                rowsPerPage={10}
+              />
+            </div>
           </>
         )
       }

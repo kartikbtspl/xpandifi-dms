@@ -22,7 +22,7 @@ const BrandEditModal: React.FC<BrandEditModalProps> = ({
 
   React.useEffect(() => {
       if (row) {
-        setBrandName(row.stage || "");
+        setBrandName(row.brandName || "");
       }
     }, [row]);
 
