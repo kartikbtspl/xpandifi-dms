@@ -1,18 +1,18 @@
 "use client";
 
 import { useForm, Controller } from "react-hook-form";
-import Input from "@/components/common/ui/Input";
 import Dropdown from "@/components/common/ui/Dropdown";
 import Button from "@/components/common/ui/Button";
-import { DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { addDays } from "date-fns";
+import { useState } from "react";
+import { format } from "date-fns";
+import Input from "@/components/common/ui/Input";
 
 type FormValues = {
   country: string;
-  startDate: string,
-  endDate: string;
+  dateRange: { startDate: Date; endDate: Date; key: string };
   user: string;
   state: string;
   city: string;
@@ -42,16 +42,25 @@ export default function BeatPlanReportForm() {
   const { control, handleSubmit, reset } = useForm<FormValues>({
     defaultValues: {
       country: "",
-      startDate: "",
-      endDate: "",
+      dateRange: {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
       user: "",
       state: "",
       city: "",
     },
   });
 
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
   const onSubmit = (data: FormValues) => {
-    console.log("Form Data:", data);
+    console.log("Form Data:", {
+      ...data,
+      startDate: format(data.dateRange.startDate, "yyyy-MM-dd"),
+      endDate: format(data.dateRange.endDate, "yyyy-MM-dd"),
+    });
   };
 
   const onReset = () => {
@@ -59,7 +68,7 @@ export default function BeatPlanReportForm() {
   };
 
   return (
-    <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+    <div className="bg-white p-6 rounded-xl shadow-sm">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
         {/* Row 1: Country, Date Range, User */}
         <div className="grid grid-cols-3 gap-6">
@@ -80,32 +89,43 @@ export default function BeatPlanReportForm() {
           />
 
           {/* Date Range */}
-          <div className="grid grid-cols-2 gap-3">
-            <Controller
-              name="startDate"
-              control={control}
-              render={({ field }) => (
-                <>
-                <Input
-                  {...field}
-                  type="date"
-                  label="Start Date:"
+          <Controller
+            name="dateRange"
+            control={control}
+            render={({ field }) => (
+              <div className="flex flex-col">
+                <label className="mb-1 text-sm font-medium text-gray-700">
+                  Date Range:
+                </label>
+                <div
+                  className="relative w-full"
+                  onClick={() => setShowDatePicker(!showDatePicker)}
+                >
+                  <Input
                   size="sm"
-                  className="text-gray-500"
-                  onChange={(e) => field.onChange(e.target.value)}
-                />
-                <Input
-                  {...field}
-                  type="date"
-                  label="End Date:"
-                  size="sm"
-                  className="text-gray-500"
-                  onChange={(e) => field.onChange(e.target.value)}
-                />
-                </>
-              )}
-            />
-          </div>
+                    readOnly
+                    value={`${format(field.value.startDate, "dd/MM/yyyy")} - ${format(
+                      field.value.endDate,
+                      "dd/MM/yyyy"
+                    )}`}
+                    className="w-full rounded-full border border-gray-300 px-3 py-2 text-gray-600 cursor-pointer focus:outline-none"
+                  />
+                  {showDatePicker && (
+                    <div className="absolute z-10 mt-2">
+                      <DateRange
+                        editableDateInputs={true}
+                        onChange={(ranges) => {
+                          field.onChange(ranges.selection);
+                        }}
+                        moveRangeOnFirstSelection={false}
+                        ranges={[field.value]}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          />
 
           {/* User */}
           <Controller
@@ -164,9 +184,7 @@ export default function BeatPlanReportForm() {
           <Button type="button" variant="outline" onClick={onReset}>
             Reset
           </Button>
-          <Button type="submit">
-            Submit
-          </Button>
+          <Button type="submit">Submit</Button>
         </div>
       </form>
     </div>

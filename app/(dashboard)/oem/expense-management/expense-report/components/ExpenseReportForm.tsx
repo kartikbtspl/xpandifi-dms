@@ -1,0 +1,209 @@
+"use client";
+
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import Dropdown from "@/components/common/ui/Dropdown";
+import Input from "@/components/common/ui/Input";
+import Button from "@/components/common/ui/Button";
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+
+type FormValues = {
+  country: string;
+  dateRange: { startDate: Date; endDate: Date; key: string };
+  user: string;
+  state: string;
+  city: string;
+};
+
+export default function ExpenseReportForm() {
+  const { control, handleSubmit, reset } = useForm<FormValues>({
+    defaultValues: {
+      country: "",
+      dateRange: {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
+      user: "",
+      state: "",
+      city: "",
+    },
+  });
+
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const countryOptions = [
+    { value: "", label: "--Select Country--" },
+    { value: "india", label: "India" },
+    { value: "usa", label: "USA" },
+    { value: "uk", label: "UK" },
+  ];
+
+  const userOptions = [
+    { value: "", label: "--Select User--" },
+    { value: "user1", label: "User 1" },
+    { value: "user2", label: "User 2" },
+  ];
+
+  const stateOptions = [
+    { value: "", label: "--Select State--" },
+    { value: "maharashtra", label: "Maharashtra" },
+    { value: "karnataka", label: "Karnataka" },
+  ];
+
+  const cityOptions = [
+    { value: "", label: "--Select City--" },
+    { value: "pune", label: "Pune" },
+    { value: "mumbai", label: "Mumbai" },
+    { value: "bangalore", label: "Bangalore" },
+  ];
+
+  const onSubmit = (data: FormValues) => {
+    console.log("Filter Data:", {
+      ...data,
+      dateRange: {
+        start: format(data.dateRange.startDate, "dd/MM/yyyy"),
+        end: format(data.dateRange.endDate, "dd/MM/yyyy"),
+      },
+    });
+  };
+
+  return (
+    <div className="bg-white p-6 rounded-xl shadow-sm">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end"
+      >
+        {/* Country */}
+        <Controller
+          name="country"
+          control={control}
+          render={({ field }) => (
+            <Dropdown
+              {...field}
+              label="Country:"
+              placeholder="--Select Country--"
+              options={countryOptions}
+              size="sm"
+              className="text-gray-500"
+              onChange={(val) => field.onChange(val)}
+            />
+          )}
+        />
+
+        {/* Date Range */}
+        <Controller
+          name="dateRange"
+          control={control}
+          render={({ field }) => (
+            <div className="flex flex-col relative">
+              <label className="mb-1 text-sm font-medium text-gray-700">
+                Date Range:
+              </label>
+              <Input
+                size="sm"
+                readOnly
+                value={
+                  field.value?.startDate && field.value?.endDate
+                    ? `${format(field.value.startDate, "dd/MM/yyyy")} - ${format(
+                        field.value.endDate,
+                        "dd/MM/yyyy"
+                      )}`
+                    : ""
+                }
+                placeholder="Select Date"
+                className="text-gray-500 cursor-pointer"
+                onClick={() => setShowDatePicker((prev) => !prev)}
+              />
+
+              {showDatePicker && (
+                <div className="absolute z-10 mt-2 bg-white shadow-lg rounded-lg">
+                  <DateRange
+                    editableDateInputs
+                    moveRangeOnFirstSelection={false}
+                    ranges={[field.value]}
+                    onChange={(ranges) => field.onChange(ranges.selection)}
+                  />
+                  <div className="flex justify-end p-2">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => setShowDatePicker(false)}
+                    >
+                      Done
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        />
+
+        {/* User */}
+        <Controller
+          name="user"
+          control={control}
+          render={({ field }) => (
+            <Dropdown
+              {...field}
+              label="User:"
+              placeholder="--Select User--"
+              options={userOptions}
+              size="sm"
+              className="text-gray-500"
+              onChange={(val) => field.onChange(val)}
+            />
+          )}
+        />
+
+        {/* State */}
+        <Controller
+          name="state"
+          control={control}
+          render={({ field }) => (
+            <Dropdown
+              {...field}
+              label="State:"
+              placeholder="--Select State--"
+              options={stateOptions}
+              size="sm"
+              className="text-gray-500"
+              onChange={(val) => field.onChange(val)}
+            />
+          )}
+        />
+
+        {/* City */}
+        <Controller
+          name="city"
+          control={control}
+          render={({ field }) => (
+            <Dropdown
+              {...field}
+              label="City:"
+              placeholder="--Select City--"
+              options={cityOptions}
+              size="sm"
+              className="text-gray-500"
+              onChange={(val) => field.onChange(val)}
+            />
+          )}
+        />
+
+        {/* Buttons */}
+        <div className="col-span-1 md:col-span-3 flex justify-end gap-3 mt-4">
+          <Button type="button" variant="outline" onClick={() => reset()}>
+            Reset
+          </Button>
+          <Button type="submit">
+            Submit
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
+}

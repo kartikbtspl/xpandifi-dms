@@ -77,6 +77,7 @@ export const oemMenuItems: MenuItem[] = [
       { name: "Auto Beat Plan", icon: AiOutlineCalendar, path: "/oem/beat-plan/auto-beat-plan", level: 1 },
       { name: "Best Plan Report", icon: HiOutlineDocumentReport, path: "/oem/beat-plan/best-plan-report", level: 1 },
       { name: "Beat Plan List", icon: FiList, path: "/oem/beat-plan/beat-plan-list", level: 1 },
+      { name: "Manage Beat Plan", icon: FiSettings, path: "/oem/beat-plan/manage-beat-plan", level: 1 },
       { name: "Manage Beat Reason", icon: FiSettings, path: "/oem/beat-plan/manage-beat-reason", level: 1 },
       { name: "Manage Frequency", icon: AiOutlineClockCircle, path: "/oem/beat-plan/manage-frequency", level: 1 }
     ]
@@ -99,7 +100,7 @@ export const oemMenuItems: MenuItem[] = [
     isExpandable: true,
     level: 0,
     children: [
-      { name: "Advance Request", icon: FiCreditCard, path: "/oem/expense-management/advance-request", level: 1 },
+      { name: "Advance Report", icon: FiCreditCard, path: "/oem/expense-management/advance-report", level: 1 },
       { name: "Expense Report", icon: HiOutlineDocumentReport, path: "/oem/expense-management/expense-report", level: 1 },
       { name: "Manage Expense Configuration", icon: FiSettings, path: "/oem/expense-management/manage-expense-configuration", level: 1 },
       { name: "Monthly Expense Report", icon: FiBarChart, path: "/oem/expense-management/monthly-expense-report", level: 1 },
