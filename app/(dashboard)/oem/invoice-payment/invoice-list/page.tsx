@@ -5,11 +5,13 @@ import { useState } from "react";
 import { FiMoreVertical } from "react-icons/fi";
 import Table from "@/components/common/table/Table";
 import getInvoiceListColumns from "./components/invoiceListcolumn";
+import Breadcrumb from "@/components/common/ui/BreadCrumb";
 
 export default function InvoiceList() {
   const [invoiceListData, setInvoiceListData] = useState([
     {
       id: 1,
+      srNo: "01",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -23,6 +25,7 @@ export default function InvoiceList() {
     },
     {
       id: 2,
+      srNo: "02",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -36,6 +39,7 @@ export default function InvoiceList() {
     },
     {
       id: 3,
+      srNo: "03",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -49,6 +53,7 @@ export default function InvoiceList() {
     },
     {
       id: 4,
+      srNo: "04",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -62,6 +67,7 @@ export default function InvoiceList() {
     },
     {
       id: 5,
+      srNo: "05",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -75,6 +81,7 @@ export default function InvoiceList() {
     },
     {
       id: 6,
+      srNo: "06",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -88,6 +95,7 @@ export default function InvoiceList() {
     },
     {
       id: 7,
+      srNo: "07",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -101,6 +109,7 @@ export default function InvoiceList() {
     },
     {
       id: 8,
+      srNo: "08",
       invoiceId: "672938",
       invoiceNo: "923820",
       salesOrderNo: "235",
@@ -124,26 +133,43 @@ export default function InvoiceList() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
+      <Breadcrumb
+        crumbs={[
+          { label: "Home", href: "/oem" },
+          { label: "Invoice & Payment", href: "/oem/invoice-payment" },
+          {
+            label: "Invoice List",
+            href: "/oem/invoice-payment/invoice-list",
+          },
+        ]}
+      />
       <div>
-        <h1 className="text-3xl font-bold">Invoice List</h1>
-        <p className="text-[#969BA0]">Monitor and manage your invoice list</p>
+        <h1 className="text-3xl font-semibold text-[#445E94]">Invoice List</h1>
       </div>
       <div>
         <SearchInvoices />
       </div>
-      <div className="flex flex-wrap justify-between">
-        <h1 className="text-2xl font-semibold">Invoice List</h1>
-        <Button className="px-12">Import</Button>
+      <div className="space-y-4 rounded-lg bg-white">
+        {/* Header */}
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl font-semibold text-[#445E94]">Invoice List</h1>
+          <Button className="px-12">Import</Button>
+        </div>
+
+        <hr className="text-gray-200" />
+
+        {/* Table */}
+        <div className="px-6 pb-4 w-[1200px]">
+          <Table
+            rows={invoiceListData}
+            columns={invoiceColumn}
+            rowsPerPage={4}
+            onRefresh={handleInvoiceListRefresh}
+          />
+        </div>
       </div>
-      <div>
-        <Table
-          rows={invoiceListData}
-          columns={invoiceColumn}
-          rowsPerPage={4}
-          onRefresh={handleInvoiceListRefresh}
-        />
-      </div>
+
     </div>
   );
 }

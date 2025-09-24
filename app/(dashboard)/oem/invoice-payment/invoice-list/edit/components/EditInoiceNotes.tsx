@@ -53,8 +53,8 @@ export default function EditInvoiceNotes() {
       <h2 className="text-lg font-semibold mb-4">Invoice Details</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {invoiceDetailData.map((item, index) => (
-          <div key={index} className="flex items-start bg-[#F8FAFB] p-4 rounded-lg">
-            <div className="text-sm mr-3 mt-3 text-[#445E94] ">{item.icon}</div>
+          <div key={index} className="flex items-start bg-slate-100 p-4 rounded-lg">
+            <div className=" mr-3 mt-3 text-blue-500 ">{item.icon}</div>
             <div>
               <p className="text-sm text-gray-500">{item.title}</p>
               <p className="font-semibold">{item.value}</p>

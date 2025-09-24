@@ -3,8 +3,8 @@ import Breadcrumb from '@/components/common/ui/BreadCrumb'
 import React, { useState } from 'react'
 import MonthlyExpenseForm from './components/MonthlyExpenseForm'
 import getMonthlyExpenseCol from './components/getMonthlyExpeseCol'
-import { Button } from '@mui/material'
 import Table from '@/components/common/table/Table'
+import Button from '@/components/common/ui/Button'
 
 const MonthlyExpenseReport = () => {
 
@@ -70,8 +70,9 @@ const MonthlyExpenseReport = () => {
       <div className="space-y-4 rounded-lg bg-white">
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">Expense List</h1>
-          <div>
+          <div className='flex gap-3'>
             <Button>Export</Button>
+            <Button>Monthly Export</Button>
           </div>
           
         </div>

@@ -88,7 +88,7 @@ const getInvoiceListColumns = (): Column[] => [
   },
   {
     id: 'blank',
-    label: '',
+    label: 'Action',
     render: (row) => <InvoiceActionsMenu />
   },
 ];

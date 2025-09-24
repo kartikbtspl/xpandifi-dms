@@ -122,7 +122,8 @@ export const oemMenuItems: MenuItem[] = [
       { name: "Invoice List", icon: FiList, path: "/oem/invoice-payment/invoice-list", level: 1 },
       { name: "Manage Delivery", icon: FiShoppingCart, path: "/oem/invoice-payment/manage-delivery", level: 1 },
       { name: "Manage Payment", icon: FiCreditCard, path: "/oem/invoice-payment/manage-payment", level: 1 },
-      { name: "Outstanding Report", icon: HiOutlineDocumentReport, path: "/oem/invoice-payment/outstanding-report", level: 1 }
+      { name: "Outstanding Report", icon: HiOutlineDocumentReport, path: "/oem/invoice-payment/outstanding-report", level: 1 },
+      { name: "Reciept Code Configure", icon: HiOutlineDocumentReport, path: "/oem/invoice-payment/receipt-code-configure", level: 1 }
     ]
   },
   {
