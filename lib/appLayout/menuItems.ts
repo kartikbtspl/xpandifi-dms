@@ -134,6 +134,8 @@ export const oemMenuItems: MenuItem[] = [
     level: 0,
     children: [
       { name: "Club Sales Order", icon: FiShoppingCart, path: "/oem/sales-order-workflow/club-sales-order", level: 1 },
+      { name: "Material Stock Report", icon: FiShoppingCart, path: "/oem/sales-order-workflow/material-stock-report", level: 1 },
+      { name: "Pricing Issue Report", icon: FiShoppingCart, path: "/oem/sales-order-workflow/pricing-issue-report", level: 1 },
       { name: "Under Load Report", icon: HiOutlineDocumentReport, path: "/oem/sales-order-workflow/under-load-report", level: 1 }
     ]
   },
