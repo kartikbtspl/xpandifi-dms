@@ -81,27 +81,27 @@ const getExpenseConfigListCol = (onEdit: (row: any) => void, onDelete?: (row: an
     ),
   },
   {
-      id: 'action',
-      label: 'Action',
-      render: (row) => (
-        <div className="flex items-center gap-3 text-gray-600">
-          {/* Edit Icon */}
-          <MdModeEditOutline
-            size={20}
-            title="Edit"
-            className="cursor-pointer hover:text-blue-500"
-            onClick={() => onEdit(row)}
-          />
-          {/* Delete Icon */}
-          <FiTrash2
-            size={20}
-            title="Delete"
-            className="cursor-pointer hover:text-red-500"
-            onClick={() => onDelete && onDelete(row)}
-          />
-        </div>
-      ),
-    },
+    id: 'action',
+    label: 'Action',
+    render: (row) => (
+      <div className="flex items-center gap-3 text-gray-600">
+        {/* Edit Icon */}
+        <MdModeEditOutline
+          size={20}
+          title="Edit"
+          className="cursor-pointer hover:text-blue-500"
+          onClick={() => onEdit(row)}
+        />
+        {/* Delete Icon */}
+        <FiTrash2
+          size={20}
+          title="Delete"
+          className="cursor-pointer hover:text-red-500"
+          onClick={() => onDelete && onDelete(row)}
+        />
+      </div>
+    ),
+  },
 ];
 
 export default getExpenseConfigListCol;

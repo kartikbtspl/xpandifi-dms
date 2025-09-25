@@ -150,7 +150,7 @@ export const oemMenuItems: MenuItem[] = [
       { name: "Attendance Report", icon: HiOutlineDocumentReport, path: "/oem/hr-management/attendance-report", level: 1 },
       { name: "Attendance Report (Unresolved)", icon: AiOutlineClockCircle, path: "/oem/hr-management/attendance-report-unresolved", level: 1 },
       { name: "Attendance Summary", icon: FiBarChart, path: "/oem/hr-management/attendance-summary", level: 1 },
-      { name: "Dummy Location", icon: AiOutlineEnvironment, path: "/oem/hr-management/dummy-location", level: 1 },
+      { name: "Company Location", icon: AiOutlineEnvironment, path: "/oem/hr-management/company-location", level: 1 },
       { name: "Holiday List", icon: AiOutlineCalendar, path: "/oem/hr-management/holiday-list", level: 1 },
       { name: "Leave Approval Report", icon: AiOutlineCheckCircle, path: "/oem/hr-management/leave-approval-report", level: 1 },
       { name: "Leave Balance Report", icon: HiOutlineDocumentReport, path: "/oem/hr-management/leave-balance-report", level: 1 },

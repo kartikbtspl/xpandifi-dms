@@ -126,16 +126,16 @@ const ManageExpenseConfiguration = () => {
           />
         </div>
         <EditExpenseConfigModal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-        row={selectedRow}
-        onSave={handleSaveEdit}
-      />
-      <DeleteExpeseConfigModal
-              isOpen={isDeleteModalOpen}
-              onClose={() => setIsDeleteModalOpen(false)}
-              onConfirm={confirmDelete}
-            />
+          isOpen={isEditModalOpen}
+          onClose={() => setIsEditModalOpen(false)}
+          row={selectedRow}
+          onSave={handleSaveEdit}
+        />
+        <DeleteExpeseConfigModal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          onConfirm={confirmDelete}
+        />
       </div>
     </div>
   )
