@@ -47,7 +47,7 @@ const EditAddLeaveTypeModal: React.FC<EditAddLeaveTypeModalProps> = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Edit Tax"
+      title="Edit Leave Type"
       size="md"
       footer={
         <div className="flex justify-end gap-2">

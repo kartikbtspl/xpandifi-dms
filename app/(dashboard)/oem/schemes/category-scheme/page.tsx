@@ -49,7 +49,7 @@ const CategoryScheme = () => {
     <div className="space-y-4">
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Schemes", href: "/oem/schemes" },
           { label: "Category Scheme", href: "/oem/schemes/category-scheme" },
         ]}

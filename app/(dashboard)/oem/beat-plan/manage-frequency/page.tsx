@@ -76,7 +76,7 @@ const ManageFrequency = () => {
     <div className='space-y-4'>
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Beat Plan", href: "/oem/beat-plan" },
           {
             label: "Beat Plan Reason",

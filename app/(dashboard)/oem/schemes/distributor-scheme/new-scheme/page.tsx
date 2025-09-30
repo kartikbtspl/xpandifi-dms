@@ -8,7 +8,7 @@ function NewSceme() {
     <div className='space-y-4'>
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Distributor Schemes", href: "/oem/schemes/distributor-scheme" },
           { label: "New Scheme", href: "/oem/schemes/distributor-scheme/new-scheme" },
         ]}

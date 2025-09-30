@@ -58,7 +58,7 @@ export default function ProductView() {
         {/* Breadcrumb */}
         <Breadcrumb
                 crumbs={[
-                  { label: "Home", href: "/oem" },
+                  { label: "Home", href: "/oem/dashboard" },
                   { label: "Product Management", href: "/oem/product-management" },
                   { label: "View Product", href: `/oem/product-management/products/` },
                 ]}

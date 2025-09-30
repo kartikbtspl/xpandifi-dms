@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { FiEye, FiTrash2 } from "react-icons/fi";
-import { MdCheckCircle, MdCancel, MdModeEditOutline } from "react-icons/md";
+import { FiTrash2 } from "react-icons/fi";
+import { MdModeEditOutline } from "react-icons/md";
 
 export interface Column {
   id: string;

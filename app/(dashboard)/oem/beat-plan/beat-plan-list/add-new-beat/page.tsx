@@ -8,7 +8,7 @@ function AddNewBeat() {
     <div className='space-y-4'>
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Beat Plan", href: "/oem/beat-plan" },
           { label: "Beat Plan List", href: "/oem/beat-plan/best-plan-list" },
         ]}

@@ -18,7 +18,7 @@ const DeleteAddLeaveTypeModal: React.FC<DeleteAddLeaveTypeModalProps> = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Delete Tax"
+      title="Delete Leave Type"
       size="sm"
       footer={
         <div className="flex justify-end gap-2">

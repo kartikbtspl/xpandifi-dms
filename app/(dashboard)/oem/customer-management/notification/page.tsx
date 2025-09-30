@@ -47,7 +47,7 @@ const Notification = () => {
    <div className='space-y-6'>
     <BreadCrumb 
     crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Customer Management", href: "/oem/customer-management" },
           { label: "Customer Notification", href: "/oem/customer-management/notification" },
         ]}/>

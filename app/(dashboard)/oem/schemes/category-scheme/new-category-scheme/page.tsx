@@ -8,7 +8,7 @@ function NewCategoryScheme() {
     <div className='space-y-4'>
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Category Schemes", href: "/oem/schemes/category-scheme" },
           { label: "New Category Scheme", href: "/oem/schemes/category-scheme/new-category-scheme" },
         ]}

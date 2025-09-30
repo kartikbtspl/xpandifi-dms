@@ -25,7 +25,7 @@ function AddNewProduct() {
     <div className='space-y-4'>
       <Breadcrumb
               crumbs={[
-                { label: "Home", href: "/oem" },
+                { label: "Home", href: "/oem/dashboard" },
                 { label: "Product Management", href: "/oem/product-management" },
                 { label: "Products", href: "/oem/product-management/products/add-new-product" },
               ]}

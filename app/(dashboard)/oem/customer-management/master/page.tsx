@@ -236,7 +236,7 @@ export default function Customer() {
   return (
     <div className="space-y-6">
       <Breadcrumb crumbs={[
-        { label: "Home", href: "/dashboard" },
+        { label: "Home", href: "/oem/dashboard" },
         { label: "Customer Management", href: "/customer-management" },
         { label: "Customer Master", href: "/customer-management/master" },
       ]} />

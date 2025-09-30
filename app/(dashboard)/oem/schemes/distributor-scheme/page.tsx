@@ -49,7 +49,7 @@ const DistributorScheme = () => {
     <div className="space-y-4">
       <Breadcrumb
         crumbs={[
-          { label: "Home", href: "/oem" },
+          { label: "Home", href: "/oem/dashboard" },
           { label: "Schemes", href: "/oem/schemes" },
           { label: "Distributor Scheme", href: "/oem/schemes/distributor-scheme" },
         ]}

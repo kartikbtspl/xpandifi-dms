@@ -158,7 +158,8 @@ export const oemMenuItems: MenuItem[] = [
       { name: "Leave Report", icon: HiOutlineDocumentReport, path: "/oem/hr-management/leave-report", level: 1 },
       { name: "Maternity Report", icon: HiOutlineDocumentReport, path: "/oem/hr-management/maternity-report", level: 1 },
       { name: "Monthly Report (Excel/Email)", icon: FiFileText, path: "/oem/hr-management/monthly-report", level: 1 },
-      { name: "Roster", icon: AiOutlineCalendar, path: "/oem/hr-management/roster", level: 1 },
+      { name: "Monthly Report (Deprecated)", icon: FiFileText, path: "/oem/hr-management/monthly-report-deprecated", level: 1 },
+      { name: "Roles", icon: AiOutlineCalendar, path: "/oem/hr-management/roles", level: 1 },
       { name: "User Wise Leaves", icon: AiOutlineUser, path: "/oem/hr-management/user-wise-leaves", level: 1 },
       { name: "Users", icon: FiUsers, path: "/oem/hr-management/users", level: 1 }
     ]
