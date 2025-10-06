@@ -2,13 +2,16 @@
 import { Suspense, useState } from "react";
 import Note from "./Note";
 import WebPermissions from "./web-permission/page";
+import MobilePermissions from "./mobile-permissions/page";
+import JourneyTypes from "./journey-types/page";
+import ExpenseConfigurations from "./expense-configurations/page";
 
 export default function PermissionTabs() {
   const tabs = [
     { label: "Web Permissions", content: <><WebPermissions /></> },
-    { label: "Mobile Permissions", content: <></> },
-    { label: "Expense Configuration", content: <></> },
-    { label: "Journey Type", content: <></> },
+    { label: "Mobile Permissions", content: <><MobilePermissions /></> },
+    { label: "Expense Configuration", content: <><ExpenseConfigurations /></> },
+    { label: "Journey Type", content: <><JourneyTypes /></> },
   ];
 
   const [active, setActive] = useState(tabs[0].label);

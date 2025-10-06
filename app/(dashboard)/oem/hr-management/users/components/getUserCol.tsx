@@ -80,10 +80,10 @@ const getUserCol = (): Column[] => [
     label: "Action",
     render: (row) => (
       <div className="flex gap-3">
-        <button className="text-blue-600 hover:text-blue-800">
+        <button className=" hover:text-blue-500">
           <MdModeEditOutline size={20} />
         </button>
-        <button className="text-red-600 hover:text-red-800">
+        <button className="hover:text-red-500">
           <FiTrash2 size={20} />
         </button>
       </div>

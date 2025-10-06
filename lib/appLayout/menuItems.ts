@@ -180,9 +180,9 @@ export const oemMenuItems: MenuItem[] = [
         children: [
           { name: "Check-in & Check-out", icon: AiOutlineCheckCircle, path: "/oem/reports/sales-reports/check-in-check-out", level: 2 },
           { name: "Daily Sales Executive Report", icon: HiOutlineDocumentReport, path: "/oem/reports/sales-reports/daily-sales-executive-report", level: 2 },
-          { name: "DSR Segment Reports", icon: FiBarChart, path: "/oem/reports/sales-reports/dsr-segment-reports", level: 2 },
+          { name: "End Of The Day Special Report", icon: FiBarChart, path: "/oem/reports/sales-reports/end-of-the-day-special-report", level: 2 },
           { name: "Product Wise Sales Reports", icon: FiPackage, path: "/oem/reports/sales-reports/product-wise-sales-reports", level: 2 },
-          { name: "Visit Duration Reports", icon: AiOutlineClockCircle, path: "/oem/reports/sales-reports/visit-duration-reports", level: 2 }
+          { name: "Visit Deviation Reports", icon: AiOutlineClockCircle, path: "/oem/reports/sales-reports/visit-deviation-reports", level: 2 }
         ]
       },
       {
@@ -205,7 +205,7 @@ export const oemMenuItems: MenuItem[] = [
         isExpandable: true,
         level: 1,
         children: [
-          { name: "Daily Sales Reports", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/daily-sales-reports", level: 2 },
+          { name: "Daily Status Reports", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/daily-status-reports", level: 2 },
           { name: "Target", icon: FiTrendingUp, path: "/oem/reports/target-reports/target", level: 2 },
           { name: "Target Report", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/target-report", level: 2 }
         ]

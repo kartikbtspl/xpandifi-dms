@@ -1,21 +1,25 @@
 "use client"
 import { useState } from "react";
 import StartUp from "./StartUp";
+import Standard from "./Standard";
+import Others from "./Others"
+import Platinum from "./Platinum";
+import AddOn from "./AddOn";
 
 export default function WebPermissionTabs() {
   const tabs = [
     { label: "StartUp", content: <><StartUp /></> },
-    { label: "Standard", content: <></> },
+    { label: "Standard", content: <><Standard/></> },
     { label: "To be archived", content:  <></> },
-    { label: "Others", content: <></> },
-    { label: "Platinum", content: <></> },
-    { label: "Add On", content: <></> },
+    { label: "Others", content: <><Others /></> },
+    { label: "Platinum", content: <><Platinum /></> },
+    { label: "Add On", content: <><AddOn /></> },
   ];
 
   const [active, setActive] = useState(tabs[0].label);
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4 min-h-150">
       {/* Tabs */}
       <div className="flex rounded-full bg-white gap-2 shadow-sm">
         {tabs.map((tab) => (

@@ -7,8 +7,6 @@ import Input from "@/components/common/ui/Input";
 import Button from "@/components/common/ui/Button";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
 
 type FormValues = {
   user: string;

@@ -3,8 +3,6 @@
 import { useForm, Controller } from "react-hook-form";
 import Input from "@/components/common/ui/Input";
 import Button from "@/components/common/ui/Button";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
 import Dropdown from "@/components/common/ui/Dropdown";
 
 type FormValues = {

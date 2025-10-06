@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import DatePicker from "react-datepicker"; // Assuming you use this or a custom one
-import "react-datepicker/dist/react-datepicker.css";
 import Input from "@/components/common/ui/Input";
 import Button from "@/components/common/ui/Button";
 import Table from "@/components/common/table/Table";
+import ProductWiseSalesReportForm from "./components/ProductWiseSalesReportForm";
+import Breadcrumb from "@/components/common/ui/BreadCrumb";
 
 export default function SalesReport() {
   const [startDate, setStartDate] = useState(new Date("2025-04-04"));
@@ -26,66 +27,30 @@ export default function SalesReport() {
   ];
 
   return (
-    <div className="">
+    <div className="space-y-4">
       {/* Breadcrumb */}
-      <p className="text-sm text-gray-500 mb-2">
-        Dashboard &gt;{" "}
-        <span className="text-[#445E94] font-medium">Product wise Sales report</span>
-      </p>
-
-      {/* Title */}
-      <h1 className="text-2xl font-semibold">Product wise Sales Report</h1>
-      <p className="text-sm text-gray-500 mb-6">See product reports</p>
-
+      <Breadcrumb
+        crumbs={[
+          { label: "Home", href: "/oem/dashboard" },
+          { label: "Sales Reports", isClickable: false },
+          { label: "Product Wise Sales Report", href: "/oem/reports/sales-reports/product-wise-sales-report" },
+        ]}
+      />
+      <h1 className="text-3xl font-semibold text-[#445E94]">Product Wise Sales Report</h1>
       {/* Filters */}
-      <div className="bg-white p-6 rounded-xl shadow-md mb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
-          {/* Product Search */}
-          <Input label="Select Product Name*" placeholder="Search product" />
-
-          {/* Date Range */}
-          <div>
-            <label className="block text-xs text-gray-500 mb-1">Select Date Range*</label>
-            <div className="flex items-center border rounded-full px-3 py-2">
-              <DatePicker
-                selected={startDate}
-                // onChange={(date: Date) => setStartDate(date)}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                className="outline-none text-sm w-full"
-              />
-              <span className="mx-2">-</span>
-              <DatePicker
-                selected={endDate}
-                // onChange={(date: Date) => setEndDate(date)}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                className="outline-none text-sm w-full"
-              />
-            </div>
-          </div>
+      <div className="space-y-4 rounded-lg bg-white">
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl text-[#445E94]">Daily Sales Order Report</h1>
         </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-4 mt-4">
-          <Button>Submit</Button>
-          <Button>Reset Filters</Button>
-        </div>
-
-        {/* Quick Ranges */}
-        <div className="flex gap-4 mt-4">
-          <button className="px-4 py-1 bg-[#F1F5F9] rounded-full text-sm">Last 7 days</button>
-          <button className="px-4 py-1 bg-[#F1F5F9] rounded-full text-sm">Last 30 days</button>
-          <button className="px-4 py-1 bg-[#F1F5F9] rounded-full text-sm">Last 3 months</button>
+        <hr className="text-gray-200" />
+        <div className="px-6 py-4">
+          <ProductWiseSalesReportForm />
         </div>
       </div>
 
       {/* Results */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Sales Report Result</h2>
+        <h2 className="text-lg text-[#445E94] font-semibold">Sales Report Result</h2>
         <Button>Export</Button>
       </div>
 

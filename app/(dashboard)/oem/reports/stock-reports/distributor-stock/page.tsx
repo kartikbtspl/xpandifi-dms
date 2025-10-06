@@ -7,6 +7,7 @@ import { StockFilters } from "./components/StockFilters";
 import { StockListHeader } from "./components/StockListHeader";
 import Table from "@/components/common/table/Table";
 import getStockColumns from "./components/getStockColumns";
+import Breadcrumb from "@/components/common/ui/BreadCrumb";
 
 export default function MyStockPage() {
   const router = useRouter();
@@ -75,14 +76,15 @@ export default function MyStockPage() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="mb-6">
-        <div className="flex items-center text-sm text-gray-500 mb-2">
-          <span>Dashboard</span>
-          <span className="mx-2">›</span>
-          <span>My Stock</span>
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-1">My Stock</h1>
-        <p className="text-gray-600">Manage and track your stock</p>
+      <div className="mb-4 flex flex-col gap-4">
+        <Breadcrumb
+          crumbs={[
+            { label: "Home", href: "/oem/dashboard" },
+            { label: "Stock Reports", isClickable: false },
+            { label: "Distributor Stock", href: "/oem/reports/stock-reports/distributor-stock" },
+          ]}
+        />
+        <h1 className="text-3xl font-semibold text-[#445E94]">Distributor Stock</h1>
       </div>
 
       {/* Filters */}

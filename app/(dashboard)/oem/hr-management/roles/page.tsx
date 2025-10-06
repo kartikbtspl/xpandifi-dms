@@ -9,7 +9,7 @@ import ImportExpensesModal from './componentns/Modals/ImportExpensesModal'
 import AddRoleModal from './componentns/Modals/AddRoleModal'
 import { useRouter } from 'next/navigation'
 
-const Roster = () => {
+const Roles = () => {
   const [activeRoleData, setActiveRoleData] = useState([
     { id: 1, srNo: "01", roleName: "Administrator" },
     { id: 2, srNo: "02", roleName: "Manager" },
@@ -201,4 +201,4 @@ const Roster = () => {
   )
 }
 
-export default Roster
+export default Roles

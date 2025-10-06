@@ -6,6 +6,7 @@ import UsersForm from './components/UsersForm'
 import Button from '@/components/common/ui/Button'
 import getUserCol from './components/getUserCol'
 import Table from '@/components/common/table/Table'
+import { useRouter } from 'next/navigation'
 
 const Users = () => {
   const activeUsersData = [
@@ -46,6 +47,7 @@ const Users = () => {
     }
   ];
 
+  const router = useRouter();
   const [showArchive, setShowArchive] = useState(false);
   const [usersData, setUsersData] = useState(activeUsersData);
   const [loadingUsersData, setLoadingUsersData] = useState(false);
@@ -100,7 +102,7 @@ const Users = () => {
       />
       <UsersForm onSearch={handleSearch} />
       <div className='flex justify-end'>
-        <Button><span className='text-xl mr-3'>+</span>Add Users</Button>
+        <Button onClick={() => router.push('/oem/hr-management/users/add-user')}><span className='text-xl mr-3'>+</span>Add Users</Button>
       </div>
 
       <div className='w-full rounded-full bg-white'>
@@ -127,6 +129,7 @@ const Users = () => {
       <div className="space-y-4 rounded-lg bg-white">
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">{showArchive ? "Archive Users" : "Active Users"}</h1>
+          <Button className='cursor-pointer'>Assign Distributor Routes</Button>
         </div>
         <hr className="text-gray-200" />
         <div className="px-6 py-4 w-[1200px] overflow-x-auto">
