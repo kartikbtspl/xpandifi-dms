@@ -38,7 +38,7 @@ export default function SalesPersonReportBarChart({
           <BarChart data={data} barSize={40} margin={{ top: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis label={{ value: 'Kilometers', angle: -90, position: 'insideLeft', dy: 20, fill: '#8884d8' }}/>
             <Tooltip />
             <Legend />
             <Bar dataKey="amount" fill={barColorAmount} radius={[6, 6, 0, 0]} name="Amount" />

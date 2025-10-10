@@ -74,7 +74,7 @@ export default function MyStockPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen space-y-4">
       {/* Page Header */}
       <div className="mb-4 flex flex-col gap-4">
         <Breadcrumb

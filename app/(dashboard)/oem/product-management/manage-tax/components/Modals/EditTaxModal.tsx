@@ -24,9 +24,9 @@ const EditTaxModal: React.FC<EditTaxModalProps> = ({
 
   React.useEffect(() => {
       if (row) {
-        setTaxCode(row.shortForm || "");
-        setTaxName(row.longForm || "");
-        setPercentage(row.defaultValue || "");
+        setTaxCode(row.taxCode || "");
+        setTaxName(row.taxName || "");
+        setPercentage(row.percentage || "");
       }
     }, [row]);
 

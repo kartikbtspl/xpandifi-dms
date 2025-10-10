@@ -63,119 +63,113 @@ export const StockFilters: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+    <div className="bg-white rounded-2xl p-8 shadow-sm ">
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* First Row - 3 columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 mb-6">
-          <div>
-            <label className="block mb-3 text-sm font-medium text-gray-700">
-              Product Name
-            </label>
-            <Controller
-              name="productName"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  placeholder="search product by name"
-                  startIcon={<FiSearch className="w-4 h-4 text-gray-400" />}
-                  className="h-12"
-                />
-              )}
-            />
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 mb-6">
+            <div>
+              <Controller
+                name="productName"
+                control={control}
+                render={({ field }) => (
+                  <Input
+                    label="Product Name"
+                    {...field}
+                    placeholder="search product by name"
+                    startIcon={<FiSearch className="w-4 h-4 text-gray-400" />}
+                    className="h-12"
+                  />
+                )}
+              />
+            </div>
+
+            <div>
+
+              <Controller
+                name="location"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Locations"
+                    {...field}
+                    options={locationOptions}
+                    placeholder="Search location"
+                    className="h-12"
+                  />
+                )}
+              />
+            </div>
+
+            <div>
+
+              <Controller
+                name="criteria"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Criteria"
+                    {...field}
+                    options={criteriaOptions}
+                    placeholder="Select criteria"
+                    className="h-12"
+                  />
+                )}
+              />
+            </div>
           </div>
 
-          <div>
-            <label className="block mb-3 text-sm font-medium text-gray-700">
-              Locations
-            </label>
-            <Controller
-              name="location"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  {...field}
-                  options={locationOptions}
-                  placeholder="Search location"
-                  className="h-12"
-                />
-              )}
-            />
-          </div>
+          {/* Second Row - matching first row widths */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-end mb-4">
+            <div>
+              <Controller
+                name="distributor"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    {...field}
+                    label="Distributor"
+                    options={distributorOptions}
+                    placeholder="Search distributor"
+                    className="h-12"
+                  />
+                )}
+              />
+            </div>
 
-          <div>
-            <label className="block mb-3 text-sm font-medium text-gray-700">
-              Criteria
-            </label>
-            <Controller
-              name="criteria"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  {...field}
-                  options={criteriaOptions}
-                  placeholder="Select criteria"
-                  className="h-12"
-                />
-              )}
-            />
+            <div>
+              <Controller
+                name="productCategory"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Product Category"
+                    {...field}
+                    options={categoryOptions}
+                    placeholder="Select product category"
+                    className="h-12"
+                  />
+                )}
+              />
+            </div>
+           
           </div>
-        </div>
-
-        {/* Second Row - matching first row widths */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-end">
-          <div>
-            <label className="block mb-3 text-sm font-medium text-gray-700">
-              Distributor
-            </label>
-            <Controller
-              name="distributor"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  {...field}
-                  options={distributorOptions}
-                  placeholder="Search distributor"
-                  className="h-12"
-                />
-              )}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-3 text-sm font-medium text-gray-700">
-              Product Category
-            </label>
-            <Controller
-              name="productCategory"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  {...field}
-                  options={categoryOptions}
-                  placeholder="Select product category"
-                  className="h-12"
-                />
-              )}
-            />
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex gap-8">
-            <Button
-              type="submit"
-            >
-              Submit
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={handleReset}
-              className="text-red-500"
-            >
-              Reset
-            </Button>
-          </div>
+           <div className="flex justify-end gap-3">
+              <Button
+                type="submit"
+                className="cursor-pointer"
+              >
+                Submit
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="cursor-pointer"
+                onClick={handleReset}
+              >
+                Reset
+              </Button>
+            </div>
         </div>
       </form>
     </div>

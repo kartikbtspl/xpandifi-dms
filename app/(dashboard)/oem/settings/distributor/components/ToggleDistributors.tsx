@@ -12,11 +12,11 @@ export default function ToggleDistributers() {
   return (
     <div className="bg-white p-8 rounded-xl shadow-md mt-8">
       {/* 🔹 Tabs Header */}
-      <div className="p-1 flex w-full bg-[#F8FAFB] rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
+      <div className="p-1 flex w-full bg-gray-100 rounded-full overflow-hidden text-sm font-medium text-gray-600 mb-4 justify-between">
         <div
           className={`px-6 py-2 cursor-pointer w-[90%] text-center ${
             activeTab === "personal"
-              ? " bg-[#FFFFFF] rounded-full text-black shadow-sm"
+              ? " bg-white rounded-full text-black shadow-sm"
               : "hover:text-black"
           }`}
           onClick={() => setActiveTab("personal")}

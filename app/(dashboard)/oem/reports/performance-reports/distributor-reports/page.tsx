@@ -19,7 +19,7 @@ const DistributorReports = () => {
   ]);
 
   const chartData = [
-    { name: "Customers", amount: 1.2, order: 1.4 },
+    { name: "Customers", amount: 28, order: 32 },
   ];
   const [loadingDistributorReport, setLoadingDistributorReport] = useState(false);
 
@@ -75,7 +75,7 @@ const DistributorReports = () => {
             </div>
             <hr className="text-gray-200" />
             {/* Graph or custom content goes here */}
-            <div className="p-6 flex justify-center items-center min-h-[400px]">
+            <div className="pr-6 flex justify-center items-center">
               <DistributorReportBarChart
                 title="Kilometers"
                 data={chartData}

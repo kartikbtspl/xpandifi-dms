@@ -1,10 +1,31 @@
+"use client"
+import Breadcrumb from '@/components/common/ui/BreadCrumb'
 import React from 'react'
+import EmailSetupForm from './components/EmailSetupForm'
 
 const EmailSetup = () => {
+  const handleSave = () => {
+    alert("save clicked...");
+  }
   return (
-   <div>
-      <h1 className="text-3xl font-bold mb-4">Email Setup</h1>
-      <p>Work In Progress</p>
+    <div className='space-y-4'>
+      <Breadcrumb
+        crumbs={[
+          { label: "Home", href: "/oem/dashboard" },
+          { label: "Settings", isClickable: false },
+          { label: "Email Setup", href: "/oem/settings/email-setup" },
+        ]}
+      />
+      <h1 className="text-3xl font-semibold text-[#445E94]">Email Setup</h1>
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl text-[#445E94]">Task Type Form</h1>
+        </div>
+        <hr className="text-gray-200" />
+        <div className="">
+          <EmailSetupForm onSave={handleSave}/>
+        </div>
+      </div>
     </div>
   )
 }

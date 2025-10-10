@@ -200,9 +200,12 @@ export default function CheckInCheckOutForm() {
         <div className="col-span-2" /> {/* empty to match layout */}
 
         {/* Action Button */}
-        <div className="col-span-3 flex justify-end mt-4">
-          <Button variant="outline" type="button" onClick={() => reset()}>
+        <div className="col-span-3 flex justify-end mt-4 gap-3">
+          <Button variant="outline" type="button" className="cursor-pointer" onClick={() => reset()}>
             Reset
+          </Button>
+          <Button className="cursor-pointer" type="button" onClick={() => reset()}>
+            Search
           </Button>
         </div>
       </form>

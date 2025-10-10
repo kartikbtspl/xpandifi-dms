@@ -57,16 +57,16 @@ const getAddCompanyStock = (): Column[] => [
     ),
   },
   {
-      id: "action",
-      label: "Action",
-      render: (row) => (
-        <div className="flex gap-3">
-          <button className="hover:text-red-500 cursor-pointer">
-            <FiTrash2 size={20} />
-          </button>
-        </div>
-      ),
-    },
+    id: "action",
+    label: "Action",
+    render: (row) => (
+      <div className="flex gap-3">
+        <button className="hover:text-red-500 cursor-pointer">
+          <FiTrash2 size={20} />
+        </button>
+      </div>
+    ),
+  },
 ];
 
 export default getAddCompanyStock;

@@ -205,7 +205,7 @@ export const oemMenuItems: MenuItem[] = [
         isExpandable: true,
         level: 1,
         children: [
-          { name: "Daily Status Reports", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/daily-status-reports", level: 2 },
+          { name: "Daily Status Reports", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/daily-sales-reports", level: 2 },
           { name: "Target", icon: FiTrendingUp, path: "/oem/reports/target-reports/target", level: 2 },
           { name: "Target Report", icon: HiOutlineDocumentReport, path: "/oem/reports/target-reports/target-report", level: 2 }
         ]
@@ -232,11 +232,11 @@ export const oemMenuItems: MenuItem[] = [
         isExpandable: true,
         level: 1,
         children: [
-          { name: "Staff Wise Location Reports", icon: AiOutlineUser, path: "/oem/reports/location-reports/staff-wise-location-reports", level: 2 },
-          { name: "Team/Location Reports", icon: AiOutlineTeam, path: "/oem/reports/location-reports/team-location-reports", level: 2 },
+          { name: "Slot Wise Location Reports", icon: AiOutlineUser, path: "/oem/reports/location-reports/slot-wise-location-reports", level: 2 },
+          { name: "Team Last Location Reports", icon: AiOutlineTeam, path: "/oem/reports/location-reports/team-last-location-reports", level: 2 },
           { name: "Tracking Reports (Map)", icon: FiMapPin, path: "/oem/reports/location-reports/tracking-reports-map", level: 2 },
-          { name: "Tracking Reports (Table)", icon: FiList, path: "/oem/reports/location-reports/tracking-reports-table", level: 2 },
-          { name: "User Location Reports", icon: AiOutlineEnvironment, path: "/oem/reports/location-reports/user-location-reports", level: 2 }
+          { name: "Tracking Reports (List)", icon: FiList, path: "/oem/reports/location-reports/tracking-reports-list", level: 2 },
+          { name: "User Last Location Reports", icon: AiOutlineEnvironment, path: "/oem/reports/location-reports/user-last-location-reports", level: 2 }
         ]
       },
       {
@@ -258,7 +258,7 @@ export const oemMenuItems: MenuItem[] = [
         level: 1,
         children: [
           { name: "Planned Visit Reports", icon: BsCalendarCheck, path: "/oem/reports/visit-reports/planned-visit-reports", level: 2 },
-          { name: "Visit Reports", icon: HiOutlineDocumentReport, path: "/oem/reports/visit-reports/visit-reports", level: 2 }
+          { name: "Visit Report", icon: HiOutlineDocumentReport, path: "/oem/reports/visit-reports/visit-report", level: 2 }
         ]
       }
     ]
@@ -292,7 +292,7 @@ export const oemMenuItems: MenuItem[] = [
     level: 0,
     children: [
       { name: "Acquisition Dashboard", icon: AiOutlinePieChart, path: "/oem/mis-dashboard/acquisition-dashboard", level: 1 },
-      { name: "MIS Dashboard", icon: MdDashboard, path: "/oem/mis-dashboard/mis-dashboard", level: 1 }
+      { name: "MIS Dashboard", icon: MdDashboard, path: "/oem/mis-dashboard/mis-dashboards", level: 1 }
     ]
   },
   { name: "Notification Broadcast", icon: AiOutlineNotification, path: "/oem/notification-broadcast", level: 0 },
@@ -305,12 +305,13 @@ export const oemMenuItems: MenuItem[] = [
     children: [
       { name: "Distributor", icon: BsPeople, path: "/oem/settings/distributor", level: 1 },
       { name: "Email Setup", icon: AiOutlineNotification, path: "/oem/settings/email-setup", level: 1 },
+      { name: "Freight Master", icon: BsPeople, path: "/oem/settings/freight-master", level: 1 },
       { name: "Manage Account", icon: AiOutlineUser, path: "/oem/settings/manage-account", level: 1 },
       { name: "Manage Class Type", icon: FiSettings, path: "/oem/settings/manage-class-type", level: 1 },
-      { name: "Manage Contact Type", icon: FiSettings, path: "/oem/settings/manage-contact-type", level: 1 },
-      { name: "Manage Bank UPI", icon: FiCreditCard, path: "/oem/settings/manage-bank-upi", level: 1 },
-      { name: "Manage State Type", icon: FiSettings, path: "/oem/settings/manage-state-type", level: 1 },
-      { name: "Franchise", icon: BsPeople, path: "/oem/settings/franchise", level: 1 },
+      { name: "Manage Complaint Type", icon: FiSettings, path: "/oem/settings/manage-complaint-type", level: 1 },
+      { name: "Manage Pack Unit", icon: FiCreditCard, path: "/oem/settings/manage-pack-unit", level: 1 },
+      { name: "Manage Store Type", icon: FiSettings, path: "/oem/settings/manage-store-type", level: 1 },
+      { name: "NSR Master", icon: FiSettings, path: "/oem/settings/nsr-master", level: 1 },
       { name: "Receive Request", icon: AiOutlineSync, path: "/oem/settings/receive-request", level: 1 },
       { name: "Roles", icon: AiOutlineTeam, path: "/oem/settings/roles", level: 1 },
       { name: "Upload Documents", icon: FiFileText, path: "/oem/settings/upload-documents", level: 1 },
