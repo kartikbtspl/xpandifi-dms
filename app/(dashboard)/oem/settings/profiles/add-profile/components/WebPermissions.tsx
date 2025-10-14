@@ -272,7 +272,7 @@ export default function WebPermissions({ profileName, setProfileName }: WebPermi
 
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-4 pt-4 w-full">
+    <div className="flex flex-col min-h-screen bg-white px-4 pt-4 w-full rounded-lg shadow-sm">
       <div className="flex gap-3 mb-4">
         <input
           type="checkbox"
