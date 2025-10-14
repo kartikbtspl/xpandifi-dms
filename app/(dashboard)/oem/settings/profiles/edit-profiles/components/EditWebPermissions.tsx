@@ -230,9 +230,40 @@ export default function EditWebPermissions() {
     setCrmChecked(emptyChecked(crmRows, actions));
     setCheckedMenuItems(Array(menuItems.length).fill(false));
   };
+  const handleCancel = () => {
+  // Uncheck all permissions/tables
+  setBeatPlanChecked(emptyChecked(beatPlanRows, actions));
+  setProductChecked(emptyChecked(productManagementRows, actions));
+  setNotificationChecked(emptyChecked(notificationBroadcastRows, actions));
+  setServiceSMSChecked(emptyChecked(serviceSMSRows, actions));
+  setTargetReportChecked(emptyChecked(targetReportRows, actions));
+  setSalesOrderManagementChecked(emptyChecked(salesOrderManagementRows, actions));
+  setLocationReportChecked(emptyChecked(locationReportRows, actions));
+  setPerformanceReportChecked(emptyChecked(performanceReportRows, actions));
+  setGrowthReportChecked(emptyChecked(growthReportRows, actions));
+  setCodeConfigureChecked(emptyChecked(codeConfigureRows, actions));
+  setManageTaskChecked(emptyChecked(manageTaskRows, actions));
+  setSettingsChecked(emptyChecked(settingsRows, actions));
+  setStockReportChecked(emptyChecked(stockReportRows, actions));
+  setHrManagementChecked(emptyChecked(hrManagementRows, actions));
+  setEmailReportChecked(emptyChecked(emailReportRows, actions));
+  setSalesOrderWorkflowChecked(emptyChecked(salesOrderWorkflowRows, actions));
+  setMisDashboardChecked(emptyChecked(misDashboardRows, actions));
+  setCustomerManagementChecked(emptyChecked(customerManagementRows, actions));
+  setSchemesChecked(emptyChecked(schemesRows, actions));
+  setVisitReportsChecked(emptyChecked(visitReportsRows, actions));
+  setSalesReportsChecked(emptyChecked(salesReportsRows, actions));
+  setExpenseManagementChecked(emptyChecked(expenseManagementRows, actions));
+  setInvoiceAndPaymentChecked(emptyChecked(invoiceAndPaymentRows, actions));
+  setRenewalRequestChecked(emptyChecked(renewalRequestRows, actions));
+  setCrmChecked(emptyChecked(crmRows, actions));
+  setCheckedMenuItems(Array(menuItems.length).fill(false));
+  // Also clear AddProfileForm input
+  // setProfileName("");
+};
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-4 pt-4 w-full">
+    <div className="flex flex-col min-h-screen bg-white px-4 pt-4 w-full rounded-lg shadow-sm">
       <div className="flex gap-3 mb-4">
         <input
           type="checkbox"
@@ -281,7 +312,7 @@ export default function EditWebPermissions() {
         })}
       </ul>
       <div className="flex mt-4 justify-center gap-3 mb-5">
-        <Button variant="outline">Cancel</Button>
+        <Button variant="outline" onClick={handleCancel}>Cancel</Button>
         <Button onClick={handleSave}>Save</Button>
       </div>
     </div>

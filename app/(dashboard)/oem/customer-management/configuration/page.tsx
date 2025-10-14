@@ -12,6 +12,7 @@ const Configuration = () => {
           { label: "Customer Configuration", href: "/oem/customer-management/configuration" },
         ]}
       />
+      <h1 className="text-3xl font-semibold text-[#445E94]">Customer Configuration</h1>
       <Tabs />
     </div>
   )
