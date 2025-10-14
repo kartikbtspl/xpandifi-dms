@@ -67,10 +67,10 @@ const CustomerApprovalRequest = () => {
     <div className='space-y-4'>
       <Breadcrumb crumbs={[
         { label: "Home", href: "/oem/dashboard" },
-        { label: "Customer Management", href: "/customer-management" },
-        { label: "Customer Master", href: "/customer-management/master" },
+        { label: "Customer Management", href: "/oem/customer-management" },
+        { label: "Customer Approval", href: "/oem/customer-management/approval-request" },
       ]} />
-      <h1 className="text-3xl font-bold mb-4 text-[#5D6F9E]">Customer Master</h1>
+      <h1 className="text-3xl font-bold mb-4 text-[#5D6F9E]">Customer Approval</h1>
 
       <div className='flex gap-6'>
         <div className='flex items-center gap-3'>
