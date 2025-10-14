@@ -52,7 +52,7 @@ const ProductScheme = () => {
         crumbs={[
           { label: "Home", href: "/oem/dashboard" },
           { label: "Schemes", href: "/oem/schemes" },
-          { label: "Distributor Scheme", href: "/oem/schemes/product-scheme" },
+          { label: "Product Scheme", href: "/oem/schemes/product-scheme" },
         ]}
       />
       <h1 className="text-3xl text-[#445E94] font-semibold">
@@ -78,8 +78,8 @@ const ProductScheme = () => {
         </Button>
       </div>
       {
-        <div className="bg-white p-6 rounded-lg space-y-4">
-          <div className="flex justify-between">
+        <div className="bg-white rounded-lg space-y-4">
+          <div className="flex justify-between px-6 py-3">
             <h2 className="font-semibold text-[#445E94] text-lg">{!showArchived ? "Active Product Scheme List" : "Archive Product Scheme List"}</h2>
             <div className="flex gap-4">
               <Button variant="outline">Import</Button>
@@ -87,12 +87,15 @@ const ProductScheme = () => {
             </div>
           </div>
           <hr className="text-gray-200" />
-          <Table
-            rows={showArchived ? archivedSchemes : activeSchemes}
-            columns={columns}
-            filterKey="schemeName"
-            showPagination
-          />
+          <div className="px-6 py-3">
+
+            <Table
+              rows={showArchived ? archivedSchemes : activeSchemes}
+              columns={columns}
+              filterKey="schemeName"
+              showPagination
+            />
+          </div>
         </div>
       }
 

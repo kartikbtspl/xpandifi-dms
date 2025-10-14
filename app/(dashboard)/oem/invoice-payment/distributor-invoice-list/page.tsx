@@ -1,10 +1,10 @@
 "use client"
 import Breadcrumb from '@/components/common/ui/BreadCrumb'
 import React, { useState } from 'react'
-import getInvoiceListCol from './components/getInvoiceListCol';
 import Table from '@/components/common/table/Table';
+import getDistributorInvoiceListCol from './components/getDistributorInvoiceListCol';
 
-const DeliveryInvoiceList = () => {
+const DistributorInvoiceList = () => {
 
   const [deliveryInvoiceListData, setDeliveryInvoiceListData] = useState([
     {
@@ -46,7 +46,7 @@ const DeliveryInvoiceList = () => {
     // 🔽 Replace this with actual download logic
   };
 
-  const invoiceListColumns = getInvoiceListCol(handleDownload);
+  const invoiceListColumns = getDistributorInvoiceListCol(handleDownload);
 
   const handleRefreshInvoiceList = () => {
         setLoadingInvoiceList(true);
@@ -93,4 +93,4 @@ const DeliveryInvoiceList = () => {
   )
 }
 
-export default DeliveryInvoiceList
+export default DistributorInvoiceList

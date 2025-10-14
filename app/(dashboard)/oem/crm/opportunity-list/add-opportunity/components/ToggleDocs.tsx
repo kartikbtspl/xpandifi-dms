@@ -12,7 +12,7 @@ export default function LeadTabs() {
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="flex rounded-full bg-white gap-4">
+      <div className="flex rounded-full bg-white gap-4 p-1 shadow-sm">
         {tabs.map((tab) => (
           <button
             key={tab.label}

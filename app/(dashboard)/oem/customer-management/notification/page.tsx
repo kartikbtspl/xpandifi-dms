@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import BreadCrumb from '@/components/common/ui/BreadCrumb'
 import getCustomerNotificationCol from './components/customerNotificationCol'
 import Table from '@/components/common/table/Table'
+import Button from '@/components/common/ui/Button'
 
 const Notification = () => {
 
@@ -44,7 +45,7 @@ const Notification = () => {
   };
 
   return (
-   <div className='space-y-6'>
+   <div className='space-y-4'>
     <BreadCrumb 
     crumbs={[
           { label: "Home", href: "/oem/dashboard" },
@@ -53,6 +54,11 @@ const Notification = () => {
         ]}/>
       <h1 className="text-3xl text-[#5D6F9E] font-bold mb-4">Customer Notification</h1>
       <Table rows={searchData} columns={notificationColumns} onRefresh={handleRefreshNotification} loading = {loadingNotification} filterKey="customerName" rowsPerPage={3}/>
+      <div className='flex justify-center gap-3'>
+        <Button variant='outline' className='border border-black-500 ' textColor='black'>Send SMS</Button>
+        <Button>Send Email</Button>
+        <Button variant='outline'>Cancel</Button>
+      </div>
     </div>
   )
 }

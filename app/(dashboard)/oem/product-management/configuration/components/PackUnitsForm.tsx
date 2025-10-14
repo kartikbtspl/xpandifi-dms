@@ -30,7 +30,7 @@ export default function PackUnitsForm({ onAddPackUnits }: PackUnitsFormProps) {
   };
 
   return (
-    <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+    <div className="bg-white p-6 rounded-xl shadow-sm">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-4 gap-6 w-full"

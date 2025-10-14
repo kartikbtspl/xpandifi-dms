@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import BeatPlanReportForm from './components/BeatPlanReportForm'
 import getBeatPlanReportCol from './components/getBeatPlanReportCol';
 import Table from '@/components/common/table/Table';
+import Button from '@/components/common/ui/Button';
+import { FiDownload, FiUpload } from 'react-icons/fi';
 
 
 const BestPlanReport = () => {
@@ -78,7 +80,19 @@ const BestPlanReport = () => {
       </h1>
       <BeatPlanReportForm />
       <div className='w-[1200px]'>
-        <Table rows={beatPlanReportData} columns={beatPlanReportColumns} onRefresh={handleRefreshBeatPlanReport} loading={loadingBeatReport} showPagination filterKey='beatPlanID' />
+        <div className="space-y-4 rounded-lg bg-white shadow-sm">
+          <div className="flex justify-between px-6 pt-4">
+            <h1 className="text-xl text-[#445E94]">Beat Plan Report List</h1>
+            <div className='flex gap-3'>
+              <Button startIcon={<FiUpload />}>Export</Button>
+            </div>
+          </div>
+          <hr className="text-gray-200" />
+          <div className="px-6 py-4">
+            <Table rows={beatPlanReportData} columns={beatPlanReportColumns} onRefresh={handleRefreshBeatPlanReport} loading={loadingBeatReport} showPagination filterKey='beatPlanID' />
+          </div>
+        </div>
+
       </div>
 
     </div>

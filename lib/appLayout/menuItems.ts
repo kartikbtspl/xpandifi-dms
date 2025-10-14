@@ -117,7 +117,7 @@ export const oemMenuItems: MenuItem[] = [
     level: 0,
     children: [
       { name: "Delivery Challan List", icon: FiFileText, path: "/oem/invoice-payment/delivery-challan-list", level: 1 },
-      { name: "Delivery Invoice List", icon: FiList, path: "/oem/invoice-payment/delivery-invoice-list", level: 1 },
+      { name: "Distributor Invoice List", icon: FiList, path: "/oem/invoice-payment/distributor-invoice-list", level: 1 },
       { name: "Invoice Code Configure", icon: FiSettings, path: "/oem/invoice-payment/invoice-code-configure", level: 1 },
       { name: "Invoice List", icon: FiList, path: "/oem/invoice-payment/invoice-list", level: 1 },
       { name: "Manage Delivery", icon: FiShoppingCart, path: "/oem/invoice-payment/manage-delivery", level: 1 },

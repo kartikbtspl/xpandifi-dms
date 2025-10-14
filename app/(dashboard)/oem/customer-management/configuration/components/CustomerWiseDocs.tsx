@@ -46,94 +46,96 @@ const CustomerDocumentForm: React.FC = () => {
 
 
   const [docsData, setDocsData] = useState([
-      {
-        id: 1,
-        srNo: "1",
-        customerType: "Confirmed",
-        customerSubType: "Confirmed",
-        documentName : 'Confirmed',
-        isMandatory : 'False',
-        action: <FiTrash2 size={20}/>
-      },
-      {
-        id: 2,
-        srNo: "2",
-        customerType: "Confirmed",
-        customerSubType: "Confirmed",
-        documentName : 'Confirmed',
-        isMandatory : 'False',
-        action: <FiTrash2 size={20}/>
-      },
-    ])
-  
-    const customerWiseDocsColumns = getCustomerWiseDocsCol();
-  
-    const [loadingDocs, setLoadingDocs] = useState(false);
-  
-    const handleRefreshCustomerWiseDocs = () => {
-      setLoadingDocs(true);
-      setTimeout(() => {
-        setLoadingDocs(false);
-        setDocsData(docsData);
-      }, 1000)};
+    {
+      id: 1,
+      srNo: "1",
+      customerType: "Confirmed",
+      customerSubType: "Confirmed",
+      documentName: 'Confirmed',
+      isMandatory: 'False',
+      action: <FiTrash2 size={20} />
+    },
+    {
+      id: 2,
+      srNo: "2",
+      customerType: "Confirmed",
+      customerSubType: "Confirmed",
+      documentName: 'Confirmed',
+      isMandatory: 'False',
+      action: <FiTrash2 size={20} />
+    },
+  ])
+
+  const customerWiseDocsColumns = getCustomerWiseDocsCol();
+
+  const [loadingDocs, setLoadingDocs] = useState(false);
+
+  const handleRefreshCustomerWiseDocs = () => {
+    setLoadingDocs(true);
+    setTimeout(() => {
+      setLoadingDocs(false);
+      setDocsData(docsData);
+    }, 1000)
+  };
 
   return (
     <div className="space-y-6">
       <div className="bg-white p-6 rounded-lg shadow-sm w-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-4 items-end"
+          className="space-y-4"
         >
           {/* Select Customer Type */}
-          <Controller
-            name="customerType"
-            control={control}
-            render={({ field, fieldState }) => (
-              <Dropdown
-                {...field}
-                size="sm"
-                label="Select Customer Type"
-                placeholder="Select Customer Type"
-                options={customerTypeOptions}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-end">
+            <Controller
+              name="customerType"
+              control={control}
+              render={({ field, fieldState }) => (
+                <Dropdown
+                  {...field}
+                  size="sm"
+                  label="Select Customer Type"
+                  placeholder="Select Customer Type"
+                  options={customerTypeOptions}
+                  error={fieldState.error?.message}
+                />
+              )}
+            />
 
-          {/* Select Sub Type */}
-          <Controller
-            name="subType"
-            control={control}
-            render={({ field, fieldState }) => (
-              <Dropdown
-                {...field}
-                size="sm"
-                label="Select Sub Type"
-                placeholder="Select Sub Type"
-                options={subTypeOptions}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
+            {/* Select Sub Type */}
+            <Controller
+              name="subType"
+              control={control}
+              render={({ field, fieldState }) => (
+                <Dropdown
+                  {...field}
+                  size="sm"
+                  label="Select Sub Type"
+                  placeholder="Select Sub Type"
+                  options={subTypeOptions}
+                  error={fieldState.error?.message}
+                />
+              )}
+            />
 
-          {/* Select Document */}
-          <Controller
-            name="document"
-            control={control}
-            render={({ field, fieldState }) => (
-              <Dropdown
-                {...field}
-                size="sm"
-                label="Select Document"
-                placeholder="Select Document"
-                options={documentOptions}
-                error={fieldState.error?.message}
-              />
-            )}
-          />
-
+            {/* Select Document */}
+            <Controller
+              name="document"
+              control={control}
+              render={({ field, fieldState }) => (
+                <Dropdown
+                  {...field}
+                  size="sm"
+                  label="Select Document"
+                  placeholder="Select Document"
+                  options={documentOptions}
+                  error={fieldState.error?.message}
+                />
+              )}
+            />
+          </div>
           {/* Add Button */}
-          <div className="flex justify-start mb-1">
+          <div className="flex justify-end">
             <Button type="submit" rounded="full" className="px-6">
               + Add Customer Document
             </Button>
@@ -141,7 +143,7 @@ const CustomerDocumentForm: React.FC = () => {
         </form>
       </div>
       <div>
-        <Table rows={docsData} columns={customerWiseDocsColumns}onRefresh={handleRefreshCustomerWiseDocs} loading={loadingDocs} rowsPerPage={2}/>
+        <Table rows={docsData} columns={customerWiseDocsColumns} onRefresh={handleRefreshCustomerWiseDocs} loading={loadingDocs} rowsPerPage={2} />
       </div>
     </div>
   );

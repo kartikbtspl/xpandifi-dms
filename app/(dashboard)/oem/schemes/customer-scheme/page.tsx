@@ -77,8 +77,8 @@ const CustomerScheme = () => {
         </Button>
       </div>
       {
-        <div className="bg-white p-6 rounded-lg space-y-4">
-          <div className="flex justify-between">
+        <div className="bg-white rounded-lg shadow-sm">
+          <div className="flex justify-between px-6 py-3">
             <h2 className="font-semibold text-[#445E94] text-lg">{!showArchived ? "Active Customer Scheme List" : "Archive Customer Scheme List"}</h2>
             <div className="flex gap-4">
               <Button variant="outline">Import</Button>
@@ -86,12 +86,14 @@ const CustomerScheme = () => {
             </div>
           </div>
           <hr className="text-gray-200" />
+          <div className="px-6 py-3">
           <Table
             rows={showArchived ? archivedSchemes : activeSchemes}
             columns={columns}
             filterKey="schemeName"
             showPagination
           />
+          </div>
         </div>
       }
 

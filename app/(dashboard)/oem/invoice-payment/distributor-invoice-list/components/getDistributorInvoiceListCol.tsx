@@ -7,7 +7,7 @@ export interface Column {
   render?: (row: any) => React.ReactNode;
 }
 
-const getInvoiceListCol = (onDownload: (row: any) => void): Column[] => [
+const getDistributorInvoiceListCol = (onDownload: (row: any) => void): Column[] => [
   {
     id: "srNo",
     label: "Sr. No",
@@ -66,4 +66,4 @@ const getInvoiceListCol = (onDownload: (row: any) => void): Column[] => [
   },
 ];
 
-export default getInvoiceListCol;
+export default getDistributorInvoiceListCol;

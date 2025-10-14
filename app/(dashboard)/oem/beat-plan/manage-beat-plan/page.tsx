@@ -6,6 +6,7 @@ import getManageBeatPlanCol from './components/getManageBeatPlanCol'
 import Button from '@/components/common/ui/Button'
 import Table from '@/components/common/table/Table'
 import { useRouter } from 'next/navigation'
+import { FiDownload, FiUpload } from 'react-icons/fi'
 
 function ManageBeatPlan() {
 
@@ -116,7 +117,20 @@ function ManageBeatPlan() {
       <div className='flex justify-end'>
         <Button onClick={() => router.push('/oem/beat-plan/manage-beat-plan/add-new-beat-plan')}><span className='text-xl'>+</span>Add New Beat Plan</Button>
       </div>
-      <Table rows={manageBeatPlanData} columns={manageBeatColumns} onRefresh={handleRefreshManageBeatPlan} loading={loadingManageBeat} showPagination filterKey='beatPlanID'/>
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl text-[#445E94]">Auto Beat Plan List</h1>
+          <div className='flex gap-3'>
+            <Button variant='outline' startIcon={<FiDownload />}>Import</Button>
+            <Button startIcon={<FiUpload />}>Export</Button>
+          </div>
+        </div>
+        <hr className="text-gray-200" />
+        <div className="px-6 py-4">
+          <Table rows={manageBeatPlanData} columns={manageBeatColumns} onRefresh={handleRefreshManageBeatPlan} loading={loadingManageBeat} showPagination filterKey='beatPlanID'/>
+        </div>
+      </div>
+      
     </div>
   )
 }

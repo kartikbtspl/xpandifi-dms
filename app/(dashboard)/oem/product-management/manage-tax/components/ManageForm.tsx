@@ -33,9 +33,9 @@ export default function ManageForm({ onAddTax }: ManageFormProps) {
     <div className="bg-white p-6 rounded-xl shadow-sm">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-wrap gap-6 w-full justify-between"
+        className=" space-y-4"
       >
-        <div className="w-1/3">
+        <div className="grid grid-cols-3 ">
           <Controller
             name="taxName"
             control={control}
@@ -51,7 +51,7 @@ export default function ManageForm({ onAddTax }: ManageFormProps) {
           />
         </div>
 
-        <div className="flex justify-between mt-6 w-1/5">
+        <div className="flex justify-end gap-3">
           <Button variant="outline" size="sm" className="px-4">
             Reset
           </Button>

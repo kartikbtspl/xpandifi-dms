@@ -1,64 +1,102 @@
-"use client"
-import Button from '@/components/common/ui/Button'
-import Input from '@/components/common/ui/Input'
-import React, { useState } from 'react'
-import Table from '@/components/common/table/Table'
-import getClassTypeCol from "./typeCol"
+"use client";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import Button from '@/components/common/ui/Button';
+import Input from '@/components/common/ui/Input';
+import Table from '@/components/common/table/Table';
+import getClassTypeCol from "./typeCol";
 
-function ClassType() {
+interface ClassTypeForm {
+  type: string;
+  frequency: string;
+  sequence: string;
+}
 
-  const [classTypeData, setClassTypeData] = useState([
-      {
-        id: 1,
-        srNo: "1",
-        type : "Confirmed",
-        sequence: "1",
-        frequency: "1",
-        action: ""
-      },
-      {
-        id: 2,
-        srNo: "2",
-        type : "Confirmed",
-        sequence: "1",
-        frequency: "1",
-        action: ""
-      },
-    ])
-  
-    const classTypeColumns = getClassTypeCol()
-  
-    const [loadingClassType, setLoadingClassType] = useState(false);
-  
-    const handleRefreshClassType = () => {
-      setLoadingClassType(true);
-      setTimeout(() => {
-        setLoadingClassType(false);
-        setClassTypeData(classTypeData);
-      }, 1000)};
+export default function ClassType() {
+  const { handleSubmit, control, reset } = useForm<ClassTypeForm>({
+    defaultValues: {
+      type: "",
+      frequency: "",
+      sequence: "",
+    },
+  });
+
+  const [classTypeData, setClassTypeData] = React.useState([
+    { id: 1, srNo: "1", type: "Confirmed", sequence: "1", frequency: "1", action: "" },
+    { id: 2, srNo: "2", type: "Potential", sequence: "2", frequency: "2", action: "" }
+  ]);
+
+  const classTypeColumns = getClassTypeCol();
+  const [loadingClassType, setLoadingClassType] = React.useState(false);
+
+  const onSubmit = (data: ClassTypeForm) => {
+    if (!data.type.trim() || !data.sequence.trim() || !data.frequency.trim()) {
+      alert("Please fill all fields.");
+      return;
+    }
+    const newEntry = {
+      id: classTypeData.length + 1,
+      srNo: String(classTypeData.length + 1),
+      type: data.type,
+      frequency: data.frequency,
+      sequence: data.sequence,
+      action: ""
+    };
+    setClassTypeData(prev => [...prev, newEntry]);
+    reset();
+  };
+
+  const handleRefreshClassType = () => {
+    setLoadingClassType(true);
+    setTimeout(() => {
+      setLoadingClassType(false);
+      setClassTypeData(prev => [...prev]);
+    }, 1000);
+  };
 
   return (
     <div className='space-y-6'>
-      <div className="flex gap-10 p-6 justify-between bg-white rounded-lg">
-        <div className='w-1/4'>
-          <label className="block mb-1">Type</label>
-          <Input placeholder="Class Type Name" size='sm'/>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 p-6 bg-white rounded-lg shadow-sm"
+      >
+        <div className='grid grid-cols-3 gap-4'>
+          <Controller
+            name="type"
+            control={control}
+            render={({ field }) => (
+              <Input {...field} label="Type" placeholder="Class Type Name" size='sm' />
+            )}
+          />
+          <Controller
+            name="frequency"
+            control={control}
+            render={({ field }) => (
+              <Input {...field} label="Frequency" placeholder="1" size='sm' />
+            )}
+          />
+          <Controller
+            name="sequence"
+            control={control}
+            render={({ field }) => (
+              <Input {...field} label="Sequence" placeholder="1" size='sm' />
+            )}
+          />
         </div>
-        <div className='w-1/4'>
-          <label className="block mb-1">Frequency</label>
-          <Input placeholder="1" size='sm'/>
+        <div className="flex justify-end gap-3">
+          <Button type="submit" className="bg-[#445E94]">+ Add Class Type</Button>
+          <Button type="button" variant="outline" onClick={() => reset()}>Reset</Button>
         </div>
-        <div className='w-1/4'>
-          <label className="block mb-1">Sequence</label>
-          <Input placeholder="1" size='sm'/>
-        </div>
-        <div className="mt-6">
-          <Button>+ Add Class Type</Button>
-        </div>
-      </div>
-      <Table rows={classTypeData} columns={classTypeColumns} onRefresh={handleRefreshClassType} loading={loadingClassType}filterKey='type' rowsPerPage={2}/>
-    </div>  
-  )
-}
+      </form>
 
-export default ClassType
+      <Table
+        rows={classTypeData}
+        columns={classTypeColumns}
+        onRefresh={handleRefreshClassType}
+        loading={loadingClassType}
+        filterKey='type'
+        rowsPerPage={2}
+      />
+    </div>
+  );
+}

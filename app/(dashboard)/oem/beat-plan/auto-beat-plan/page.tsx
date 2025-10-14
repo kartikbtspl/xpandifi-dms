@@ -6,6 +6,8 @@ import getAutoBeatCol from './components/getAutoBeatCol';
 import Table from '@/components/common/table/Table';
 import EditAutoBeatModal from './components/Modals/EditAutoBeatModal';
 import DeleteAutoBeatModal from './components/Modals/DeleteAutoBeatModal';
+import Button from '@/components/common/ui/Button';
+import { FiDownload, FiUpload } from 'react-icons/fi';
 
 const AutoBeatPlan = () => {
 
@@ -57,12 +59,12 @@ const AutoBeatPlan = () => {
   const autoBeatColumns = getAutoBeatCol(handleEdit, handleDeleteClick)
 
   const handleRefreshAutoBeat = () => {
-      setLoadingAutoBeat(true);
-      setTimeout(() => {
-        setLoadingAutoBeat(false);
-        setAutoBeatData(autoBeatData);
-      }, 1000)
-    };
+    setLoadingAutoBeat(true);
+    setTimeout(() => {
+      setLoadingAutoBeat(false);
+      setAutoBeatData(autoBeatData);
+    }, 1000)
+  };
 
   return (
     <div className='space-y-4'>
@@ -77,10 +79,20 @@ const AutoBeatPlan = () => {
         Auto Beat Plan
       </h1>
       <AutoBeatForm />
-
-      <Table rows={autoBeatData} columns={autoBeatColumns} onRefresh={handleRefreshAutoBeat} filterKey='user' showPagination loading={loadingAutoBeat}/>
-
-      <EditAutoBeatModal 
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl text-[#445E94]">Auto Beat Plan List</h1>
+          <div className='flex gap-3'>
+            <Button variant='outline' startIcon={<FiDownload />}>Import</Button>
+            <Button startIcon={<FiUpload />}>Export</Button>
+          </div>
+        </div>
+        <hr className="text-gray-200" />
+        <div className="px-6 py-4">
+          <Table rows={autoBeatData} columns={autoBeatColumns} onRefresh={handleRefreshAutoBeat} filterKey='user' showPagination loading={loadingAutoBeat} />
+        </div>
+      </div>
+      <EditAutoBeatModal
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
         row={selectedRow}
@@ -88,7 +100,7 @@ const AutoBeatPlan = () => {
       />
 
       {/* Delete Modal  */}
-      <DeleteAutoBeatModal 
+      <DeleteAutoBeatModal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
         onConfirm={confirmDelete}

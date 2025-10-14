@@ -5,6 +5,7 @@ import MonthlyExpenseForm from './components/MonthlyExpenseForm'
 import getMonthlyExpenseCol from './components/getMonthlyExpeseCol'
 import Table from '@/components/common/table/Table'
 import Button from '@/components/common/ui/Button'
+import { FiUpload } from 'react-icons/fi'
 
 const MonthlyExpenseReport = () => {
 
@@ -71,8 +72,8 @@ const MonthlyExpenseReport = () => {
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">Expense List</h1>
           <div className='flex gap-3'>
-            <Button>Export</Button>
-            <Button>Monthly Export</Button>
+            <Button startIcon={<FiUpload />}>Export</Button>
+            <Button startIcon={<FiUpload />}>Monthly Export</Button>
           </div>
           
         </div>
