@@ -94,8 +94,9 @@ const ProductApplication: React.FC = () => {
       <div className="bg-white p-6 rounded-lg shadow-sm w-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-4 items-end"
+          
         >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-end mb-4">
           {/* Name */}
           <Controller
             name="name"
@@ -143,9 +144,9 @@ const ProductApplication: React.FC = () => {
               />
             )}
           />
-
+          </div>
           {/* Add Button */}
-          <div className="flex justify-start mb-1">
+          <div className="flex justify-end">
             <Button type="submit" rounded="full" className="px-6">
               + Add Product Application
             </Button>

@@ -26,7 +26,7 @@ export default function Tabs() {
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="flex justify-between rounded-full bg-white">
+      <div className="flex justify-between rounded-full bg-white p-1 shadow-sm">
         {tabs.map((tab) => (
           <button
             key={tab.label}
@@ -34,7 +34,7 @@ export default function Tabs() {
             className={`px-4 py-2 text-sm font-medium rounded-full transition-colors
               ${
                 active === tab.label
-                  ? "bg-[#5D6F9E] text-white"
+                  ? "bg-[#5D6F9E] text-white shadow-sm"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
           >

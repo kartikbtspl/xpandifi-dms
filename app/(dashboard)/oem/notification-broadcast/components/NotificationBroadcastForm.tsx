@@ -104,7 +104,7 @@ export default function NotificationBroadcastForm() {
               <Dropdown
                 {...field}
                 // label={<><span className="text-red-500">*</span>User:</>}
-                label="User :"
+                label="User"
                 placeholder="--Select User--"
                 size="sm"
                 options={userOptions}
@@ -121,7 +121,7 @@ export default function NotificationBroadcastForm() {
               <Input
                 {...field}
                 // label={<><span className="text-red-500">*</span>Title:</>}
-                label="Title : "
+                label="Title"
                 placeholder="Title"
                 size="sm"
                 required

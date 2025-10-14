@@ -42,7 +42,7 @@ const DailySalesExecutiveReport = () => {
         ]}
       />
       <h1 className="text-3xl font-semibold text-[#445E94]">Daily Sales Order Report</h1>
-      <div className="space-y-4 rounded-lg bg-white">
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">Daily Sales Order Report</h1>
         </div>

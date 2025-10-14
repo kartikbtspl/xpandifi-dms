@@ -19,7 +19,7 @@ type Props = {
 
 export default function VisitDeviationBarChart({ title, data, barColor }: Props) {
   return (
-    <div className="bg-white w-full rounded-xl shadow-md px-4 pt-4 pb-8">
+    <div className="bg-white w-full rounded-xl shadow-sm px-4 pt-4 pb-8">
       {/* Header Section */}
       <div className="flex justify-between items-center pb-2">
         <span className="text-lg font-semibold">{title}</span>

@@ -121,14 +121,14 @@ export default function SegmentedControl() {
   return (
     <div className="space-y-6">
       {/* Segmented Button Group */}
-      <div className="flex bg-white rounded-full w-full shadow-sm">
+      <div className="flex bg-white rounded-full w-full p-1 shadow-sm">
         <button
           onClick={() => {
             setActiveTab("archive");
             setShowArchive(!showArchive); // toggle here
           }}
           className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeTab === "archive"
-              ? "bg-[#445E94] text-white"
+              ? "bg-[#445E94] text-white shadow-sm"
               : "text-gray-600 hover:text-[#445E94]"
             }`}
         >

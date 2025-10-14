@@ -6,6 +6,7 @@ import Button from "@/components/common/ui/Button";
 import Table from "@/components/common/table/Table";
 import ProductWiseSalesReportForm from "./components/ProductWiseSalesReportForm";
 import Breadcrumb from "@/components/common/ui/BreadCrumb";
+import { FiShare } from "react-icons/fi";
 
 export default function SalesReport() {
   const [startDate, setStartDate] = useState(new Date("2025-04-04"));
@@ -38,7 +39,7 @@ export default function SalesReport() {
       />
       <h1 className="text-3xl font-semibold text-[#445E94]">Product Wise Sales Report</h1>
       {/* Filters */}
-      <div className="space-y-4 rounded-lg bg-white">
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">Daily Sales Order Report</h1>
         </div>
@@ -47,22 +48,28 @@ export default function SalesReport() {
           <ProductWiseSalesReportForm />
         </div>
       </div>
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
+        <div className="flex justify-between px-6 pt-4">
+          <h1 className="text-xl text-[#445E94]">
+            Sales Report Result
+          </h1>
+          <div className='flex gap-3'>
+            <Button startIcon={<FiShare />} className="cursor-pointer">Export</Button>
+          </div>
+        </div>
+        <hr className="text-gray-200" />
 
-      {/* Results */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg text-[#445E94] font-semibold">Sales Report Result</h2>
-        <Button>Export</Button>
+        <div className="px-6 py-4">
+          <Table
+            columns={columns}
+            rows={rows}
+            rowsPerPage={10}
+            showPagination
+            isFilter={false}
+            loading={false}
+          />
+        </div>
       </div>
-
-      {/* Table */}
-      <Table
-        columns={columns}
-        rows={rows}
-        rowsPerPage={10}
-        showPagination
-        isFilter={false}
-        loading={false}
-      />
     </div>
   );
 }

@@ -115,7 +115,7 @@ const CheckInCheckOut = () => {
         ]}
       />
       <h1 className="text-3xl font-semibold text-[#445E94]">Check-In Check-Out</h1>
-      <div className="space-y-4 rounded-lg bg-white">
+      <div className="space-y-4 rounded-lg bg-white shadow-sm">
         <div className="flex justify-between px-6 pt-4">
           <h1 className="text-xl text-[#445E94]">Search for Check In and Check Out Report</h1>
         </div>
@@ -124,13 +124,13 @@ const CheckInCheckOut = () => {
           <CheckInCheckOutForm />
         </div>
       </div>
-      <div className="w-full rounded-full bg-white">
-        <div className="flex p-1 gap-2">
+      <div className="w-full rounded-full bg-white p-1 shadow-sm">
+        <div className="flex gap-2">
           <button
             onClick={toggleUserView}
             className={`px-4 py-2 rounded-full cursor-pointer font-medium ${
               activeButton === "toggleUserView"
-                ? "bg-[#445E94] text-white border-[#445E94]"
+                ? "bg-[#445E94] text-white border-[#445E94] shadow-sm"
                 : "bg-white text-gray-700 hover:bg-gray-100"
             }`}
           >
@@ -140,7 +140,7 @@ const CheckInCheckOut = () => {
             onClick={showMap}
             className={`px-4 py-2 rounded-full cursor-pointer font-medium ${
               activeButton === "showMapView"
-                ? "bg-[#445E94] text-white border-[#445E94]"
+                ? "bg-[#445E94] text-white border-[#445E94] shadow-sm"
                 : "bg-white text-gray-700 hover:bg-gray-100"
             }`}
           >

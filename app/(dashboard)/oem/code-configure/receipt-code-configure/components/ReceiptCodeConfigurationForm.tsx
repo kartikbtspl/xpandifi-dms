@@ -27,7 +27,8 @@ export default function ReceiptCodeConfigurationForm() {
 
   return (
     <div className="bg-white rounded-lg">
-      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-3 w-full items-end">
+      <form onSubmit={handleSubmit(onSubmit)} >
+        <div className="grid grid-cols-3 gap-3 w-full items-end">
         {/* Row 1 */}
         <Controller
           name="prefix"
@@ -82,6 +83,7 @@ export default function ReceiptCodeConfigurationForm() {
             />
           )}
         />
+        </div>
         {/* Action Buttons */}
         <div className="col-span-2 flex justify-end gap-4 mt-4">
           <Button variant="outline" type="button" onClick={() => reset()}>

@@ -48,15 +48,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       // If textColor is provided, don't include default text colors in variant classes
       switch (variant) {
         case "secondary":
-          return `bg-gray-100 hover:bg-gray-200 border border-gray-200 ${!textColor ? 'text-gray-900' : ''}`;
+          return `bg-gray-100 hover:bg-gray-200 border border-gray-200 cursor-pointer ${!textColor ? 'text-gray-900' : ''}`;
         case "outline":
-          return `bg-transparent border border-[#445E94] hover:bg-[#445E94] ${!textColor ? 'text-[#445E94] hover:text-white' : ''}`;
+          return `bg-transparent border border-[#445E94] hover:bg-[#445E94] cursor-pointer ${!textColor ? 'text-[#445E94] hover:text-white' : ''}`;
         case "ghost":
-          return `bg-transparent hover:bg-[#445E94]/10 ${!textColor ? 'text-[#445E94]' : ''}`;
+          return `bg-transparent hover:bg-[#445E94]/10 cursor-pointer ${!textColor ? 'text-[#445E94]' : ''}`;
         case "destructive":
-          return `bg-red-600 hover:bg-red-700 border border-red-600 ${!textColor ? 'text-white' : ''}`;
+          return `bg-red-600 hover:bg-red-700 border border-red-600 cursor-pointer ${!textColor ? 'text-white' : ''}`;
         default:
-          return `bg-[#445E94] hover:bg-[#3a4f7a] border border-[#445E94] ${!textColor ? 'text-white' : ''}`;
+          return `bg-[#445E94] hover:bg-[#3a4f7a] border border-[#445E94] cursor-pointer ${!textColor ? 'text-white' : ''}`;
       }
     };
 
